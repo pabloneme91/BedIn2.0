@@ -4,6 +4,7 @@ import * as actionCreators from '../redux/actions/actionCreators';
 import Main from './Main.jsx';
 
 
+
 function mapStateToProps(state) {
   return {
     isPostingToServer: state.authentication.isPostingToServer,
