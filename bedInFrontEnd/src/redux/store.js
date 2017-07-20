@@ -5,6 +5,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 
+console.log(hashHistory);
+
 import rootReducer from './reducers/index';
 
 const loggerMiddleware = createLogger();
