@@ -10,7 +10,11 @@ import rootReducer from './reducers/index';
 const loggerMiddleware = createLogger();
 
 const InitialState = {
-  isLoggedIn: false,
+  authentication: {
+    isPostingToServer: false,
+    isLoggedIn: false,
+    error: null,
+  }
 };
 
 // Note: thunk middleware helps to deal with asynchonizity problem (for fetching)
