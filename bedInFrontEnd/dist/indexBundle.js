@@ -39625,7 +39625,7 @@ var replaceLocation = exports.replaceLocation = function replaceLocation(locatio
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -39633,6 +39633,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactPure = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-pure\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39643,26 +39645,83 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Login = function (_React$Component) {
-  _inherits(Login, _React$Component);
+	_inherits(Login, _React$Component);
 
-  function Login(props) {
-    _classCallCheck(this, Login);
+	function Login(props) {
+		_classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
-  }
+		return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+	}
 
-  _createClass(Login, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        'Log in component'
-      );
-    }
-  }]);
+	_createClass(Login, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement('div', { className: 'portada' }),
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'container' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'row' },
+							_react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-5' }),
+							_react2.default.createElement(
+								'div',
+								{ className: 'col-xs-8 col-sm-6 col-lg-4 ' },
+								_react2.default.createElement(
+									'form',
+									null,
+									_react2.default.createElement(
+										'div',
+										{ className: 'input-group', id: 'trasparencia' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'input-group-addon' },
+											_react2.default.createElement('i', { className: 'glyphicon glyphicon-user' })
+										),
+										_react2.default.createElement('input', { id: 'email', type: 'text', className: 'form-control', name: 'Username', placeholder: 'Username' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'input-group' },
+										_react2.default.createElement(
+											'span',
+											{ className: 'input-group-addon' },
+											_react2.default.createElement('i', { className: 'glyphicon glyphicon-lock' })
+										),
+										_react2.default.createElement('input', { id: 'password', type: 'password', className: 'form-control', name: 'password', placeholder: 'Password' })
+									),
+									_react2.default.createElement(
+										'button',
+										{ type: 'button', className: ' btn button', id: 'button' },
+										'Login'
+									),
+									_react2.default.createElement('br', null),
+									_react2.default.createElement(
+										'p',
+										{ id: 'p' },
+										'\xBFNo estas registrado? ',
+										_react2.default.createElement(
+											'a',
+											{ id: 'Sing_up', href: '' },
+											'Sing Up'
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
 
-  return Login;
+	return Login;
 }(_react2.default.Component);
 
 exports.default = Login;
