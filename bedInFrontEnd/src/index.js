@@ -7,15 +7,20 @@ import { Provider } from 'react-redux';
 
 import store, { history } from './redux/store'
 
+import 'bootstrap/dist/css/bootstrap.css';
+import '../../style/style.css';
+
 import App from './components/App';
-import Login from './components/Login.jsx';
+import LogInOut from './containers/LogInOutContainer.jsx';
+import BedinHome from './components/BedinHome.jsx';
 
 
 const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Login}></IndexRoute>
+        <IndexRoute component={LogInOut}></IndexRoute>
+        <Route path="/home" component={BedinHome}></Route>
       </Route>
     </Router>
   </Provider>
