@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 
 import store, { history } from './redux/store'
 
-import 'bootstrap/dist/css/bootstrap.css';
-import '../../style/style.css';
+require('bootstrap/dist/css/bootstrap.css');
+import '../style/style.css';
 
 import App from './components/App';
 import LogInOut from './containers/LogInOutContainer.jsx';

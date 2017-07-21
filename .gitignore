@@ -1,5 +1,5 @@
-bedInFrontEnd/node_modules
+bedInFrontEnd/node_modules/*
 bedInFrontEnd/package-lock.json
-bedInBackEnd/node_modules
+bedInBackEnd/node_modules/*
 bedInBackEnd/package-lock.json
 .DS_Store
