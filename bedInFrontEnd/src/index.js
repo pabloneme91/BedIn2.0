@@ -10,18 +10,27 @@ import store, { history } from './redux/store'
 require('bootstrap/dist/css/bootstrap.css');
 import '../style/style.css';
 
-import App from './components/App';
-import LogInOut from './containers/LogInOutContainer.jsx';
+import LoginContainer from './containers/LoginContainer.jsx';
 import BedinHome from './components/BedinHome.jsx';
 
 
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={LogInOut}></IndexRoute>
-        <Route path="/home" component={BedinHome}></Route>
+      <Route path="/" component={LoginContainer}/>
+
+      <Route path="/Bedin" component={BedinHome}>
+      
       </Route>
+
+      <Route path="/Financiador">
+
+      </Route>
+
+      <Route path="/Hospital">
+
+      </Route>
+
     </Router>
   </Provider>
 )

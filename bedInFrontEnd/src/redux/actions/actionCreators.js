@@ -1,32 +1,54 @@
-export function logInUser(err) {
+/*export function loginUser() {
   return {
     type: 'LOG_IN_USER',
   }
+}*/
+
+
+export function isRequestingToServer() {
+ return {
+   type: 'IS_REQUESTING_TO_SERVER',
+ }
 }
 
-export function userIsLoggedIn(err) {
+export function userIsLoggedIn(user) {
   return {
     type: 'USER_IS_LOGGED_IN',
+    user
   }
 }
 
-export function userFailedToLogin() {
+export function userFailedToLogin(err) {
   return {
     type: 'USER_FAILED_TO_LOG_IN',
+    err
   }
 }
 
-export function failedPost(err) {
-  return {
-    type: 'FAILED_POST',
-    err
-  };
+
+export function userIsLoggedOut() {
+ return {
+   type: 'USER_IS_LOGGED_OUT',
+ }
 }
 
-export function logInFetch(userData) {
+export function failedRequest(err) {
+ return {
+   type: 'FAILED_REQUEST',
+   err
+ }
+}
+
+
+export function loginFetch(username,password) {
 
   return (dispatch) => {
-    dispatch(logInUser());
+    dispatch(isRequestingToServer());
+
+    const userData = {
+      username,
+      password
+    };
 
     return fetch('./users/login', {
       method: 'POST',
@@ -36,18 +58,22 @@ export function logInFetch(userData) {
 			},
       body: JSON.stringify(userData)
     })
-      .then(response => {
-        return new Promise(function(resolve, reject) {
-          if(response.status == 401) {
-            dispatch(userFailedToLogin())
-              reject();
-          } else {
-            resolve(response);
-          }
-        });
-      })
-      .then(response => response.json())
-      .then(data => dispatch(userIsLoggedIn()))
-      .catch(err => dispatch(failedPost(err)))
+    .then(response => {
+      return response.json()}
+      )
+    .then(data => {
+      if (data.error) return dispatch(userFailedToLogin(data.error));
+      return dispatch(userIsLoggedIn(data));
+    })
+    .catch(err => dispatch(failedRequest(err)))
   };
+};
+
+export function logoutFetch () {
+  return (dispatch) => {
+    dispatch(isRequestingToServer());
+    return fetch('/logout')
+    .then(() => dispatch(userIsLoggedOut()))
+    .catch(err => dispatch(failedRequest(err)))
+  }
 };
