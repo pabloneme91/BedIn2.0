@@ -8,6 +8,7 @@ class Home extends React.Component {
     return (
       <div>
         <BedinNavbar />
+        {this.props.children}
       </div>
     );
   }
