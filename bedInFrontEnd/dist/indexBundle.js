@@ -15443,9 +15443,17 @@ var _LoginContainer = __webpack_require__(296);
 
 var _LoginContainer2 = _interopRequireDefault(_LoginContainer);
 
-var _BedinHome = __webpack_require__(299);
+var _BedinHome = __webpack_require__(309);
 
 var _BedinHome2 = _interopRequireDefault(_BedinHome);
+
+var _FinanciadorHome = __webpack_require__(311);
+
+var _FinanciadorHome2 = _interopRequireDefault(_FinanciadorHome);
+
+var _FinanciadorCrearForm = __webpack_require__(313);
+
+var _FinanciadorCrearForm2 = _interopRequireDefault(_FinanciadorCrearForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15459,7 +15467,15 @@ var router = _react2.default.createElement(
     _reactRouter.Router,
     { history: _store.history },
     _react2.default.createElement(_reactRouter.Route, { path: '/', component: _LoginContainer2.default }),
-    _react2.default.createElement(_reactRouter.Route, { path: '/Bedin', component: _BedinHome2.default }),
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: '/Bedin', component: _BedinHome2.default },
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador', component: _FinanciadorHome2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entcrear', component: _FinanciadorCrearForm2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver' }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/usercrear' }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/userver' })
+    ),
     _react2.default.createElement(_reactRouter.Route, { path: '/Financiador' }),
     _react2.default.createElement(_reactRouter.Route, { path: '/Hospital' })
   )
@@ -30489,7 +30505,7 @@ exports = module.exports = __webpack_require__(77)(undefined);
 
 
 // module
-exports.push([module.i, ".container {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-image: url('https://static.pexels.com/photos/127873/pexels-photo-127873.jpeg');\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sing_up{\r\n\tcolor: rgb(0, 51, 51);\r\n\tfont-size: 15px;\r\n\tfont-weight: bold;\r\n}", ""]);
+exports.push([module.i, "/*LOGIN*/\r\n\r\n.container {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-image: url('https://static.pexels.com/photos/127873/pexels-photo-127873.jpeg');\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sing_up{\r\n\tcolor: rgb(0, 51, 51);\r\n\tfont-size: 15px;\r\n\tfont-weight: bold;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 40px;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n", ""]);
 
 // exports
 
@@ -30706,12 +30722,7 @@ exports.userIsLoggedOut = userIsLoggedOut;
 exports.failedRequest = failedRequest;
 exports.loginFetch = loginFetch;
 exports.logoutFetch = logoutFetch;
-/*export function loginUser() {
-  return {
-    type: 'LOG_IN_USER',
-  }
-}*/
-
+// First to dispatch when making a request to server (get or post)
 function isRequestingToServer() {
   return {
     type: 'IS_REQUESTING_TO_SERVER'
@@ -30872,212 +30883,10 @@ function Login(props) {
 exports.default = Login;
 
 /***/ }),
-/* 299 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(49);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _BedinNavbar = __webpack_require__(300);
-
-var _BedinNavbar2 = _interopRequireDefault(_BedinNavbar);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Home = function (_React$Component) {
-  _inherits(Home, _React$Component);
-
-  function Home() {
-    _classCallCheck(this, Home);
-
-    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-  }
-
-  _createClass(Home, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_BedinNavbar2.default, null)
-      );
-    }
-  }]);
-
-  return Home;
-}(_react2.default.Component);
-
-exports.default = Home;
-
-/***/ }),
-/* 300 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(49);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _reactRouter = __webpack_require__(43);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var nav = __webpack_require__(301);
-
-var BedinNavbar = function (_React$Component) {
-  _inherits(BedinNavbar, _React$Component);
-
-  function BedinNavbar() {
-    _classCallCheck(this, BedinNavbar);
-
-    return _possibleConstructorReturn(this, (BedinNavbar.__proto__ || Object.getPrototypeOf(BedinNavbar)).apply(this, arguments));
-  }
-
-  _createClass(BedinNavbar, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: nav.navbar },
-        _react2.default.createElement(
-          'ul',
-          { className: nav.nav_ul },
-          _react2.default.createElement(
-            'li',
-            { className: nav.nav_li },
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/' },
-              'Bed In Logo Goes Here'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: nav.nav_li },
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/home' },
-              'Bed In Home'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: nav.nav_li },
-            'Financiador'
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: nav.nav_li },
-            'Hospital'
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: nav.nav_li },
-            'Admin'
-          ),
-          _react2.default.createElement(
-            'li',
-            { className: nav.nav_li },
-            'Log Out'
-          )
-        )
-      );
-    }
-  }]);
-
-  return BedinNavbar;
-}(_react2.default.Component);
-
-exports.default = BedinNavbar;
-
-/***/ }),
-/* 301 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(302);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(78)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./Navbar.ncss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./Navbar.ncss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 302 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(77)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".Navbar__nav_ul___2JHbN {\n    list-style-type: none;\n    margin: 0;\n    padding: 20px;\n    overflow: hidden;\n\n}\n\n.Navbar__nav_li___1lyms {\n    display: inline;\n    padding: 20px 15px;\n    color: #f2f2f2;\n    text-align: center;\n    font-size: 17px;\n}\n\n.Navbar__navbar___3Aig6 {\n  color: #9cc5e5;\n  background-color: #9cc5e5;\n}\n", ""]);
-
-// exports
-exports.locals = {
-	"nav_ul": "Navbar__nav_ul___2JHbN",
-	"nav_li": "Navbar__nav_li___1lyms",
-	"navbar": "Navbar__navbar___3Aig6"
-};
-
-/***/ }),
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
 /* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31145,6 +30954,428 @@ module.exports = "data:application/x-font-ttf;base64,AAEAAAAPAIAAAwBwRkZUTW0ql9w
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "89889688147bd7575d6327160d64e760.svg";
+
+/***/ }),
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(49);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _BedinNavbar = __webpack_require__(310);
+
+var _BedinNavbar2 = _interopRequireDefault(_BedinNavbar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_React$Component) {
+  _inherits(Home, _React$Component);
+
+  function Home() {
+    _classCallCheck(this, Home);
+
+    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+  }
+
+  _createClass(Home, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_BedinNavbar2.default, null),
+        this.props.children
+      );
+    }
+  }]);
+
+  return Home;
+}(_react2.default.Component);
+
+exports.default = Home;
+
+/***/ }),
+/* 310 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(49);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRouter = __webpack_require__(43);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BedinNavbar = function (_React$Component) {
+  _inherits(BedinNavbar, _React$Component);
+
+  function BedinNavbar() {
+    _classCallCheck(this, BedinNavbar);
+
+    return _possibleConstructorReturn(this, (BedinNavbar.__proto__ || Object.getPrototypeOf(BedinNavbar)).apply(this, arguments));
+  }
+
+  _createClass(BedinNavbar, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement('div', { className: 'portada' }),
+        _react2.default.createElement(
+          'nav',
+          { className: 'navbar navbar-default', id: 'navbar' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container-fluid' },
+            _react2.default.createElement(
+              'div',
+              { className: 'navbar-header' },
+              _react2.default.createElement(
+                'button',
+                { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'sr-only' },
+                  'Toggle navigation'
+                )
+              ),
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/', className: 'navbar-brand' },
+                _react2.default.createElement('img', { src: '.../.../public/logo_original.jpg', width: '30', height: '30', alt: '' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              _defineProperty({ className: 'collapse navbar-collapse margenes', id: 'bs-example-navbar-collapse-1' }, 'id', 'navbar_bed'),
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav navbar-nav', id: 'nav' },
+                _react2.default.createElement(
+                  'li',
+                  { className: 'margenes' },
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/Bedin/financiador' },
+                    'OBRAS SOCIALES'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  { className: 'margenes' },
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/Bedin/hospital' },
+                    'HOSPITALES'
+                  )
+                ),
+                _react2.default.createElement(
+                  'li',
+                  { className: 'margenes' },
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '/Bedin/admin' },
+                    'ADMINISTRADOR'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'ul',
+                { className: 'nav navbar-nav navbar-right' },
+                _react2.default.createElement(
+                  'li',
+                  { className: 'dropdown' },
+                  _react2.default.createElement(
+                    'a',
+                    { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                    'USUARIO ',
+                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-chevron-down', 'aria-hidden': 'true' }),
+                    _react2.default.createElement('span', { 'class': 'caret' })
+                  ),
+                  _react2.default.createElement(
+                    'ul',
+                    { className: 'dropdown-menu' },
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        _reactRouter.Link,
+                        { to: '#' },
+                        'Perfil'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'li',
+                      null,
+                      _react2.default.createElement(
+                        _reactRouter.Link,
+                        { to: '#' },
+                        'Log Out ',
+                        _react2.default.createElement('span', { className: 'glyphicon glyphicon-off', 'aria-hidden': 'true' })
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return BedinNavbar;
+}(_react2.default.Component);
+
+exports.default = BedinNavbar;
+
+/***/ }),
+/* 311 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LargeButton = __webpack_require__(312);
+
+var _LargeButton2 = _interopRequireDefault(_LargeButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorHome(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'h2',
+        null,
+        'Entidad Financiador'
+      ),
+      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Crear', link: 'Bedin/financiador/entcrear' }),
+      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Ver Lista', link: 'Bedin/financiador/entver' })
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'h2',
+        null,
+        'Usuario Financiador'
+      ),
+      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Crear', link: 'Bedin/financiador/usercrear' }),
+      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Ver Lista', link: 'Bedin/financiador/userver' })
+    )
+  );
+}
+
+exports.default = FinanciadorHome;
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(43);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function LargeButton(props) {
+  console.log(props.link);
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _reactRouter.Link,
+      { to: '/' + props.link },
+      _react2.default.createElement(
+        'button',
+        { type: 'button' },
+        props.buttonText
+      )
+    )
+  );
+}
+
+exports.default = LargeButton;
+
+/***/ }),
+/* 313 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _FinanciadorCrearMainInputs = __webpack_require__(314);
+
+var _FinanciadorCrearMainInputs2 = _interopRequireDefault(_FinanciadorCrearMainInputs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorCrearForm(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_FinanciadorCrearMainInputs2.default, null)
+  );
+}
+
+exports.default = FinanciadorCrearForm;
+
+/***/ }),
+/* 314 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorCrearMainInputs(props) {
+  console.log(props);
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h2",
+      null,
+      "Detalles de Financiador"
+    ),
+    _react2.default.createElement(
+      "ul",
+      null,
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Nombre de Financiador"
+        ),
+        _react2.default.createElement("input", { type: "text", ref: "nombre", defaultValue: props.fieldValues.nombre })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Direccion"
+        ),
+        _react2.default.createElement("input", { type: "text", ref: "direccion", defaultValue: props.fieldValues.direccion })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Telefono"
+        ),
+        _react2.default.createElement("input", { type: "number", ref: "telefono", defaultValue: props.fieldValues.telefono })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Email"
+        ),
+        _react2.default.createElement("input", { type: "email", ref: "email", defaultValue: props.fieldValues.email })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "button",
+          { onClick: this.nextStep },
+          "Save & Continue"
+        )
+      )
+    )
+  );
+}
+
+exports.default = FinanciadorCrearMainInputs;
 
 /***/ })
 /******/ ]);

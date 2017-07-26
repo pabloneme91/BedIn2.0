@@ -1,10 +1,4 @@
-/*export function loginUser() {
-  return {
-    type: 'LOG_IN_USER',
-  }
-}*/
-
-
+// First to dispatch when making a request to server (get or post)
 export function isRequestingToServer() {
  return {
    type: 'IS_REQUESTING_TO_SERVER',
