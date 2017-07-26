@@ -8,14 +8,12 @@ module.exports = {
 		return res.send({error : 'Las credenciales ingresadas son incorrectas'});
 	},
 
+	sendUnauthorized : function(res) {
+		return res.send({error : 'Permiso denegado'});
+	},
+
 	sendCustomError : function(res,err) {
 		return res.send({error : err});
 	},
-
-	sendUnauthorized : function(res) {
-		return res.send({error : 'Permiso denegado'});
-	}
-
-
 
 }

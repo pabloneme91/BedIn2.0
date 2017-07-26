@@ -2,5 +2,6 @@ bedInFrontEnd/node_modules/*
 bedInFrontEnd/package-lock.json
 bedInBackEnd/node_modules/*
 bedInBackEnd/package-lock.json
+bedInFrontEnd/dist/indexBundle.js
 .DS_Store
 bedInFrontEnd/RominaNotes.txt

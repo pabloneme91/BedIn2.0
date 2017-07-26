@@ -1,25 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
-const Hospital= require('../models/hospitals');
 
 const user = require ('../models/users');
-const hospital = require('../models/hospitals');
+
 const authValidator = require ('../controladores/auth');
-const userMiddleWare = require ('../controladores/user-middleware'); 
 const errorHandler = require('../controladores/errorHandler');
 
-router.post('/login', userMiddleWare.authenticateUser,
-  userMiddleWare.checkUserType, function(req,res,next) {  
-  
-  const userData = {
-    name : req.user.name,
-    username : req.user.userName,
-    type : req.user.type,
-    data : req.user.data
-  }
-  res.send(userData);
+const userMiddleWare = require ('../controladores/user-middleware'); 
+
+router.get('/:id',authValidator.isLoggedIn, function(req, res, next) {
+  user.find(req.params._id)
+  .then(users =>{
+    res.send(users);  
+  })
+  .catch(err => {
+    return errorHandler.sendInternalServerError(res);
+  })
 });
+
 
 router.post('/test', authValidator.isLoggedIn, 
   userMiddleWare.checkUserType, function(req,res,next) {  
@@ -30,30 +28,6 @@ router.post('/test', authValidator.isLoggedIn,
     data : req.user.data
   }
   res.send(userData);
-});
-
-
-router.get('/logout',  function(req, res, next) {
-  req.logout();
-  res.send();
-});
-
-//router.post('/register', authValidator.isLoggedIn, function(req, res ,next) {
-router.post('/register', function(req, res ,next) {
-  const newUser = new user ({ 
-    username: req.body.username, 
-    name:req.body.name,
-    type : req.body.type, 
-    hospitalCode: req.body.hospitalCode || null,
-    osCode: req.body.osCode || null
-  });
-
-  user.register(newUser, req.body.password,
-    function (err)  {
-      if (err) return errorHandler.sendError(res, err.name);
-      res.send();
-    }
-  )
 });
 
 module.exports = router;
