@@ -46,6 +46,7 @@ export function loginFetch(username,password) {
 
     return fetch('./users/login', {
       method: 'POST',
+      credentials: 'include',
       headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
@@ -53,7 +54,11 @@ export function loginFetch(username,password) {
       body: JSON.stringify(userData)
     })
     .then(response => {
-      return response.json()}
+      console.log('response', response)
+      const test = response.json()
+      console.log(test)
+      return test
+    }
       )
     .then(data => {
       if (data.error) return dispatch(userFailedToLogin(data.error));
@@ -66,7 +71,7 @@ export function loginFetch(username,password) {
 export function logoutFetch () {
   return (dispatch) => {
     dispatch(isRequestingToServer());
-    return fetch('/logout')
+    return fetch('./logout')
     .then(() => dispatch(userIsLoggedOut()))
     .catch(err => dispatch(failedRequest(err)))
   }

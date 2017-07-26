@@ -6,7 +6,7 @@ function FinanciadorHome(props) {
   return (
     <div>
       <div>
-        <h2>Entidad Financiador</h2>
+        <h2>Entidad Financiado</h2>
         <LargeButton buttonText="Crear" link="Bedin/financiador/entcrear" />
         <LargeButton buttonText="Ver Lista" link="Bedin/financiador/entver" />
       </div>
