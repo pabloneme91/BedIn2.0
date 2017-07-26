@@ -15658,9 +15658,9 @@ var _FinanciadorHome = __webpack_require__(311);
 
 var _FinanciadorHome2 = _interopRequireDefault(_FinanciadorHome);
 
-var _FinanciadorCrearForm = __webpack_require__(313);
+var _FinanciadorForm = __webpack_require__(313);
 
-var _FinanciadorCrearForm2 = _interopRequireDefault(_FinanciadorCrearForm);
+var _FinanciadorForm2 = _interopRequireDefault(_FinanciadorForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15679,7 +15679,7 @@ var router = _react2.default.createElement(
                   _reactRouter.Route,
                   { path: '/Bedin', component: _BedinHome2.default },
                   _react2.default.createElement(_reactRouter.Route, { path: 'financiador', component: _FinanciadorHome2.default }),
-                  _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entcrear', component: _FinanciadorCrearForm2.default }),
+                  _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entcrear', component: _FinanciadorForm2.default }),
                   _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver' }),
                   _react2.default.createElement(_reactRouter.Route, { path: 'financiador/usercrear' }),
                   _react2.default.createElement(_reactRouter.Route, { path: 'financiador/userver' })
@@ -30879,15 +30879,19 @@ function loginFetch(username, password) {
       password: password
     };
 
-    return fetch('./users/login', {
+    return fetch('./login', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userData)
     }).then(function (response) {
-      return response.json();
+      console.log('response', response);
+      var test = response.json();
+      console.log(test);
+      return test;
     }).then(function (data) {
       if (data.error) return dispatch(userFailedToLogin(data.error));
       return dispatch(userIsLoggedIn(data));
@@ -30900,7 +30904,7 @@ function loginFetch(username, password) {
 function logoutFetch() {
   return function (dispatch) {
     dispatch(isRequestingToServer());
-    return fetch('/logout').then(function () {
+    return fetch('./logout').then(function () {
       return dispatch(userIsLoggedOut());
     }).catch(function (err) {
       return dispatch(failedRequest(err));
@@ -31130,7 +31134,7 @@ var BedinNavbar = function (_React$Component) {
               _react2.default.createElement(
                 _reactRouter.Link,
                 { to: '/', className: 'navbar-brand' },
-                _react2.default.createElement('img', { src: '/public/img/logo_original.jpg', width: '50', height: '18', alt: '' })
+                _react2.default.createElement('img', { src: '/public/img/drawing2.png', width: '60', height: '20', alt: '' })
               )
             ),
             _react2.default.createElement(
@@ -31350,21 +31354,26 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _FinanciadorCrearMainInputs = __webpack_require__(314);
+var _FinanciadorFormStep = __webpack_require__(314);
 
-var _FinanciadorCrearMainInputs2 = _interopRequireDefault(_FinanciadorCrearMainInputs);
+var _FinanciadorFormStep2 = _interopRequireDefault(_FinanciadorFormStep);
+
+var _FinanciadorFormStep3 = __webpack_require__(315);
+
+var _FinanciadorFormStep4 = _interopRequireDefault(_FinanciadorFormStep3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function FinanciadorCrearForm(props) {
+function FinanciadorForm(props) {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_FinanciadorCrearMainInputs2.default, null)
+    _react2.default.createElement(_FinanciadorFormStep2.default, null),
+    _react2.default.createElement(_FinanciadorFormStep4.default, null)
   );
 }
 
-exports.default = FinanciadorCrearForm;
+exports.default = FinanciadorForm;
 
 /***/ }),
 /* 314 */
@@ -31383,73 +31392,116 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function FinanciadorCrearMainInputs(props) {
+function FinanciadorFormStep1(props) {
   console.log(props);
   return _react2.default.createElement(
     "div",
     null,
     _react2.default.createElement(
-      "h2",
-      null,
-      "Detalles de Financiador"
-    ),
-    _react2.default.createElement(
-      "ul",
-      null,
+      "form",
+      { className: "form-horizontal" },
       _react2.default.createElement(
-        "li",
-        null,
+        "div",
+        { className: "form-group" },
         _react2.default.createElement(
           "label",
-          null,
-          "Nombre de Financiador"
+          { "for": "exampleInputName2", className: "col-sm-2 control-label" },
+          "Nombre de la Obra Social"
         ),
-        _react2.default.createElement("input", { type: "text", ref: "nombre", defaultValue: props.fieldValues.nombre })
+        _react2.default.createElement(
+          "div",
+          { className: "col-sm-10" },
+          _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", ref: "nombre", placeholder: "Nombre" })
+        )
       ),
       _react2.default.createElement(
-        "li",
-        null,
+        "div",
+        { className: "form-group" },
         _react2.default.createElement(
           "label",
-          null,
-          "Direccion"
+          { "for": "exampleInputName2", className: "col-sm-2 control-label" },
+          "Direcci\xF3n"
         ),
-        _react2.default.createElement("input", { type: "text", ref: "direccion", defaultValue: props.fieldValues.direccion })
+        _react2.default.createElement(
+          "div",
+          { className: "col-sm-10" },
+          _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", ref: "direccion", placeholder: "Direcci\xF3n" })
+        )
       ),
       _react2.default.createElement(
-        "li",
-        null,
+        "div",
+        { className: "form-group" },
         _react2.default.createElement(
           "label",
-          null,
-          "Telefono"
+          { "for": "inputnumber3", className: "col-sm-2 control-label" },
+          "Tef\xE9fono"
         ),
-        _react2.default.createElement("input", { type: "number", ref: "telefono", defaultValue: props.fieldValues.telefono })
+        _react2.default.createElement(
+          "div",
+          { className: "col-sm-10" },
+          _react2.default.createElement("input", { type: "number", className: "form-control", id: "inputEmail3", ref: "telefono", placeholder: "Tef\xE9fono" })
+        )
       ),
       _react2.default.createElement(
-        "li",
-        null,
+        "div",
+        { className: "form-group" },
         _react2.default.createElement(
           "label",
-          null,
+          { "for": "inputEmail3", className: "col-sm-2 control-label" },
           "Email"
         ),
-        _react2.default.createElement("input", { type: "email", ref: "email", defaultValue: props.fieldValues.email })
+        _react2.default.createElement(
+          "div",
+          { className: "col-sm-10" },
+          _react2.default.createElement("input", { type: "password", className: "form-control", id: "inputEmail3", ref: "email", placeholder: "Email" })
+        )
       ),
       _react2.default.createElement(
-        "li",
-        null,
+        "div",
+        { className: "form-group" },
         _react2.default.createElement(
-          "button",
-          { onClick: this.nextStep },
-          "Save & Continue"
+          "div",
+          { className: "col-sm-offset-2 col-sm-10" },
+          _react2.default.createElement(
+            "button",
+            { type: "submit", "class": "btn btn-default" },
+            "Next"
+          )
         )
       )
     )
   );
 }
 
-exports.default = FinanciadorCrearMainInputs;
+exports.default = FinanciadorFormStep1;
+
+/***/ }),
+/* 315 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorFormStep2(props) {
+  console.log(props);
+  return _react2.default.createElement(
+    'div',
+    null,
+    'Form Step 2: enter Plans and Hospitals'
+  );
+}
+
+exports.default = FinanciadorFormStep2;
 
 /***/ })
 /******/ ]);

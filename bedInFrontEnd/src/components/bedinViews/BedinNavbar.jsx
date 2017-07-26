@@ -20,7 +20,7 @@ class BedinNavbar extends React.Component {
                                       <span className="icon-bar"></span>
                               </button>
                      
-                         <Link to="/" className="navbar-brand"><img src="/public/img/logo_original.jpg" width="50" height="18" alt=""></img></Link>
+                         <Link to="/" className="navbar-brand"><img src="/public/img/drawing2.png" width="60" height="20" alt=""></img></Link>
                               </div>
                          <div className="collapse navbar-collapse margenes" id="bs-example-navbar-collapse-1" id="navbar_bed">
                             <ul className="nav navbar-nav" id="nav" >
