@@ -5,12 +5,15 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 const index = require('./routes/index');
-const users = require('./routes/users');
-/*const rooms = require('./routes/rooms');
-const hospitals = require('./routes/hospitals');
+const indexBedin = require('./routes/bedin/index');
+
+/*
 const patient = require('./routes/patient');
+const rooms = require('./routes/rooms');
 */
+
 const app = express();
 
 require('./config/mongoose')
@@ -19,14 +22,20 @@ require('./config/passport-mongoose')(app);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.static('../bedInFrontEnd/dist'));
 
 const cors = require('./controladores/cors');
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/bedin', indexBedin);
+
+
+//app.use('/bedin/healthcares', healthcares)
+//app.use('/users',isLoggin , users);
+//app.use('/hospitals', hospitals)
+//app.use('/healthcares', healthcares)
+
 /*app.use('/rooms', rooms);
 app.use('/hospitals', hospitals);
 app.use('/patient', patient);*/
@@ -37,15 +46,12 @@ app.use('/patient', patient);*/
   err.status = 404;
   next(err);
 });
-
+*/
+/*
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  console.log('error', err);
+  res.send(err);
 });
 */
 

@@ -1,11 +1,11 @@
-// Planes de Obras sociales
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-// var ObjectId=mongoose.Schema.Types.ObjectId;
+ const ObjectId = mongoose.Schema.Types.ObjectId;
 
-var Healthcareplan = new mongoose.Schema({
+const Healthcareplan = new mongoose.Schema({
   name: {type: String, required: true},
+  hospitals : [{type : ObjectId, ref : "hospitals"}]
 }, {
     collections: 'healthcareplans',
    } 
