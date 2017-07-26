@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-
 function genericNavbar (props) {
   const links = props.data.linkArray.map((linkData,i) => 
     <li className="margenes" key={i}>
@@ -29,7 +28,6 @@ function genericNavbar (props) {
           <div className="collapse navbar-collapse margenes" id="bs-example-navbar-collapse-1" id="navbar_bed">
             
             <ul className="nav navbar-nav" id="nav" >
-              {links}
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="dropdown">

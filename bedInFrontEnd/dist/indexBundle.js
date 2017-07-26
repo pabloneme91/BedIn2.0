@@ -31483,11 +31483,7 @@ function genericNavbar(props) {
         _react2.default.createElement(
           'div',
           _defineProperty({ className: 'collapse navbar-collapse margenes', id: 'bs-example-navbar-collapse-1' }, 'id', 'navbar_bed'),
-          _react2.default.createElement(
-            'ul',
-            { className: 'nav navbar-nav', id: 'nav' },
-            links
-          ),
+          _react2.default.createElement('ul', { className: 'nav navbar-nav', id: 'nav' }),
           _react2.default.createElement(
             'ul',
             { className: 'nav navbar-nav navbar-right' },
