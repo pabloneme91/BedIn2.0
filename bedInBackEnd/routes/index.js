@@ -1,43 +1,26 @@
 var express = require('express');
 var router = express.Router();
-const User = require('../models/users');
-const HealthCare = require('../models/healthcares');
-const HealthCarePlans = require('../models/healthcareplans');
-// const HCP = require('../models/hospitals');
 
-const addUser = (req, res, next) => {
-  User.create({
-    username: req.body.user.userName,
-    name: req.body.user.name,
-  }, (err, result) => {
-    if (!err) {
-      result.password = req.body.user.password
-      result.save( (err, result) => {
-        req.user=result;
-        next();
-      });
-    }else{
-      res.send({error:true, msj:'Fallo el alta de usuario: '+err});
-    }
-  })
-};
-
-const validNewUser = (req, res, next) => {
-  if (req.body.user.password !== req.body.user.password2) {
-    res.send({error:true, msj:'Las password no coinciden'});
-  } else {
-    User.findOne({ username: req.body.user.userName }, (err, result) => {
-      if (err || !result) {      
-        next();
-      } else {
-        res.send({error:true,msj:'Usuario ya registrado'});
-      }
-    });
-  }
-};
+const userMiddleWare = require ('../controladores/user-middleware'); 
 
 router.get('/', function (req, res) {
   res.sendFile('../bedInFrontEnd/index.html');
+});
+
+router.post('/login', userMiddleWare.authenticateUser,
+  userMiddleWare.checkUserType, function(req,res,next) {  
+  const userData = {
+    name : req.user.name,
+    username : req.user.userName,
+    type : req.user.type,
+    data : req.user.data
+  }
+  res.send(userData);
+});
+
+router.get('/logout',  function(req, res, next) {
+  req.logout();
+  res.send();
 });
 
 module.exports = router;

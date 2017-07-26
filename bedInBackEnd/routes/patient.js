@@ -1,17 +1,29 @@
-var express = require('express');
-var router = express.Router();
-var RequestPatient= require('../models/requestpatients');
-var HC= require('../models/healthcares');
-var mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
+const RequestPatient= require('../models/requestpatients');
+const HC= require('../models/healthcares');
+const mongoose = require('mongoose');
 
 router.post('/addRequest', function(req, res, next) {
-   	let aReqPatient=req.body.requestPatient;
+   	let aReqPatient = req.body.requestPatient;
+    RequestPatient.create(aReqPatient,function(err,result){
+      if(err) console.log(err);
+    });
+  res.send(result);  
+});
+
+
+router.post('/addRequest', function(req, res, next) {
+    let aReqPatient = req.body.requestPatient;
     RequestPatient.create(aReqPatient,function(err,result){
       if(err) console.log(err);
     });
 
   res.send({ok:"OK!"});  
 });
+
+
+
 
 router.get('/allRequest', function(req, res, next) {
   // retorna todas las request de pacientes para todos los hospitales

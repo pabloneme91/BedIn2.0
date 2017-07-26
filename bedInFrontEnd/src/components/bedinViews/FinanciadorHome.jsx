@@ -5,7 +5,7 @@ import LargeButton from '../LargeButton.jsx';
 function FinanciadorHome(props) {
   return (
     <div>
-        <div className="container-fluid container-margin">
+          <div className="container-fluid container-margin">
             <div className="row">
               <div className="col-xs-hidden col-sm-2 col-lg-2 col-xl-5"></div>
               <div className="col-xs-12 col-sm-4 col-lg-4 col-xl-2 ">
