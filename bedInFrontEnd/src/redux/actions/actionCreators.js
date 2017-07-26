@@ -44,7 +44,7 @@ export function loginFetch(username,password) {
       password
     };
 
-    return fetch('./users/login', {
+    return fetch('./login', {
       method: 'POST',
       headers: {
 				'Accept': 'application/json',
