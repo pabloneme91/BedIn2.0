@@ -15451,17 +15451,18 @@ var _FinanciadorHome = __webpack_require__(301);
 
 var _FinanciadorHome2 = _interopRequireDefault(_FinanciadorHome);
 
-var _FinanciadorCrearForm = __webpack_require__(303);
-
-var _FinanciadorCrearForm2 = _interopRequireDefault(_FinanciadorCrearForm);
-
 var _FinanciadorViewData = __webpack_require__(314);
 
 var _FinanciadorViewData2 = _interopRequireDefault(_FinanciadorViewData);
 
+var _FinanciadorForm = __webpack_require__(317);
+
+var _FinanciadorForm2 = _interopRequireDefault(_FinanciadorForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 __webpack_require__(305);
+// require('bootstrap/dist/js/bootstrap.js');
 
 
 var router = _react2.default.createElement(
@@ -15475,8 +15476,9 @@ var router = _react2.default.createElement(
       _reactRouter.Route,
       { path: '/Bedin', component: _BedinHome2.default },
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador', component: _FinanciadorHome2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entcrear', component: _FinanciadorCrearForm2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver', component: _FinanciadorViewData2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entcrear', component: _FinanciadorForm2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver' }),
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador/usercrear' }),
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador/userver' })
     ),
@@ -30509,7 +30511,7 @@ exports = module.exports = __webpack_require__(134)(undefined);
 
 
 // module
-exports.push([module.i, "/*LOGIN*/\r\n\r\n.container {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-image: url('https://static.pexels.com/photos/127873/pexels-photo-127873.jpeg');\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sing_up{\r\n\tcolor: rgb(0, 51, 51);\r\n\tfont-size: 15px;\r\n\tfont-weight: bold;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 40px;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n", ""]);
+exports.push([module.i, "/*LOGIN*/\r\n\r\n.container_a {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-image: url('https://static.pexels.com/photos/127873/pexels-photo-127873.jpeg');\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sign_up{\r\ncolor:black;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n     font-weight: bold;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nmargenes{\r\n    font-size: 20px;\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n\r\n}\r\n\r\n/*OBRAS SOCIALES HOME*/\r\n\r\n.btn-glyphicon {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n}\r\n.icon-btn {\r\n    padding: 1px 15px 3px 2px;\r\n       \r\n}\r\n\r\n#radio{\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n.container-margin{\r\n    margin-top: 100px;\r\n}\r\n\r\n.title{\r\n     margin-left: 70px;    \r\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -30772,13 +30774,17 @@ function loginFetch(username, password) {
 
     return fetch('./login', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userData)
     }).then(function (response) {
-      return response.json();
+      console.log('response', response);
+      var test = response.json();
+      console.log(test);
+      return test;
     }).then(function (data) {
       if (data.error) return dispatch(userFailedToLogin(data.error));
       return dispatch(userIsLoggedIn(data));
@@ -30791,7 +30797,7 @@ function loginFetch(username, password) {
 function logoutFetch() {
   return function (dispatch) {
     dispatch(isRequestingToServer());
-    return fetch('/logout').then(function () {
+    return fetch('./logout').then(function () {
       return dispatch(userIsLoggedOut());
     }).catch(function (err) {
       return dispatch(failedRequest(err));
@@ -30816,6 +30822,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function Login(props) {
 	return _react2.default.createElement(
 		"div",
@@ -30826,7 +30834,7 @@ function Login(props) {
 			null,
 			_react2.default.createElement(
 				"div",
-				{ className: "container" },
+				{ className: "container container_a" },
 				_react2.default.createElement(
 					"div",
 					{ className: "row" },
@@ -30868,12 +30876,12 @@ function Login(props) {
 							_react2.default.createElement("br", null),
 							_react2.default.createElement(
 								"p",
-								{ id: "p" },
+								_defineProperty({ id: "p" }, "id", "Sing_up"),
 								"\xBFNo estas registrado? ",
 								_react2.default.createElement(
 									"a",
-									{ id: "Sing_up", href: "" },
-									"Sing Up"
+									{ href: "" },
+									"Sign Up"
 								)
 							)
 						)
@@ -31004,25 +31012,54 @@ function FinanciadorHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      null,
+      { className: 'container-fluid container-margin' },
       _react2.default.createElement(
-        'h2',
-        null,
-        'Entidad Financiador'
-      ),
-      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Crear', link: 'Bedin/financiador/entcrear' }),
-      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Ver Lista', link: 'Bedin/financiador/entver' })
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(
-        'h2',
-        null,
-        'Usuario Financiador'
-      ),
-      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Crear', link: 'Bedin/financiador/usercrear' }),
-      _react2.default.createElement(_LargeButton2.default, { buttonText: 'Ver Lista', link: 'Bedin/financiador/userver' })
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Obra Social'
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon-plus img-circle text-info' }),
+            'Adherir Obra Social '
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Obras Sociales'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Usuarios '
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
+            'Generar Usuario '
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Lista de Usuarios '
+          )
+        )
+      )
     )
   );
 }
@@ -31068,122 +31105,8 @@ function LargeButton(props) {
 exports.default = LargeButton;
 
 /***/ }),
-/* 303 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _FinanciadorCrearMainInputs = __webpack_require__(304);
-
-var _FinanciadorCrearMainInputs2 = _interopRequireDefault(_FinanciadorCrearMainInputs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function FinanciadorCrearForm(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(_FinanciadorCrearMainInputs2.default, null)
-  );
-}
-
-exports.default = FinanciadorCrearForm;
-
-/***/ }),
-/* 304 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(6);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function FinanciadorCrearMainInputs(props) {
-  console.log(props);
-  return _react2.default.createElement(
-    "div",
-    null,
-    _react2.default.createElement(
-      "h2",
-      null,
-      "Detalles de Financiador"
-    ),
-    _react2.default.createElement(
-      "ul",
-      null,
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Nombre de Financiador"
-        ),
-        _react2.default.createElement("input", { type: "text", ref: "nombre", defaultValue: props.fieldValues.nombre })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Direccion"
-        ),
-        _react2.default.createElement("input", { type: "text", ref: "direccion", defaultValue: props.fieldValues.direccion })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Telefono"
-        ),
-        _react2.default.createElement("input", { type: "number", ref: "telefono", defaultValue: props.fieldValues.telefono })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Email"
-        ),
-        _react2.default.createElement("input", { type: "email", ref: "email", defaultValue: props.fieldValues.email })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "button",
-          { onClick: this.nextStep },
-          "Save & Continue"
-        )
-      )
-    )
-  );
-}
-
-exports.default = FinanciadorCrearMainInputs;
-
-/***/ }),
+/* 303 */,
+/* 304 */,
 /* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31486,7 +31409,7 @@ function genericNavbar(props) {
           _react2.default.createElement(
             'ul',
             { className: 'nav navbar-nav', id: 'nav' },
-            links
+            linkss
           ),
           _react2.default.createElement(
             'ul',
@@ -31575,6 +31498,157 @@ function fetchFinancidadores() {
 		});
 	};
 }
+
+/***/ }),
+/* 317 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _FinanciadorFormStep = __webpack_require__(318);
+
+var _FinanciadorFormStep2 = _interopRequireDefault(_FinanciadorFormStep);
+
+var _FinanciadorFormStep3 = __webpack_require__(319);
+
+var _FinanciadorFormStep4 = _interopRequireDefault(_FinanciadorFormStep3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorForm(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_FinanciadorFormStep2.default, null),
+    _react2.default.createElement(_FinanciadorFormStep4.default, null)
+  );
+}
+
+exports.default = FinanciadorForm;
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorFormStep1(props) {
+  console.log(props);
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h2",
+      null,
+      "Detalles de Financiador"
+    ),
+    _react2.default.createElement(
+      "ul",
+      null,
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Nombre de Financiador"
+        ),
+        _react2.default.createElement("input", { type: "text", ref: "nombre" })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Direccion"
+        ),
+        _react2.default.createElement("input", { type: "text", ref: "direccion" })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Telefono"
+        ),
+        _react2.default.createElement("input", { type: "number", ref: "telefono" })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "label",
+          null,
+          "Email"
+        ),
+        _react2.default.createElement("input", { type: "email", ref: "email" })
+      ),
+      _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+          "button",
+          null,
+          "Next"
+        )
+      )
+    )
+  );
+}
+
+exports.default = FinanciadorFormStep1;
+
+// <button onClick={this.nextStep}>Save &amp; Continue</button>
+
+/***/ }),
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorFormStep2(props) {
+  console.log(props);
+  return _react2.default.createElement(
+    'div',
+    null,
+    'Form Step 2: enter Plans and Hospitals'
+  );
+}
+
+exports.default = FinanciadorFormStep2;
 
 /***/ })
 /******/ ]);

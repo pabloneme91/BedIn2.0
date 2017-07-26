@@ -1,5 +1,8 @@
 module.exports = {
   entry: [
+      'script-loader!jquery/dist/jquery.min.js',
+      'bootstrap/dist/js/bootstrap.min.js',
+      'bootstrap/dist/css/bootstrap.css',
       './src/index.js'
     ],
     module: {

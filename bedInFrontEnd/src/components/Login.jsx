@@ -8,7 +8,7 @@ function Login (props) {
 			</div>
 
 			<div>
-				<div className="container">
+				<div className="container container_a">
 					<div className="row">
 						<div className="col-xs-2 col-sm-4 col-lg-5"></div>
 						<div className="col-xs-8 col-sm-6 col-lg-4 ">
@@ -28,7 +28,7 @@ function Login (props) {
 								<button type="submit" className=" btn button" id="button">Login
 								</button>
 								<br></br>
-								<p id="p">¿No estas registrado? <a id="Sing_up" href="">Sing Up</a></p>
+								<p id="p" id="Sing_up">¿No estas registrado? <a  href="">Sign Up</a></p>
 							</form>
 						</div>
 					</div>
