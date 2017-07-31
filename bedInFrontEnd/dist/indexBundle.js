@@ -31275,6 +31275,8 @@ var _LargeButton = __webpack_require__(313);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
+var _reactRouter = __webpack_require__(34);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FinanciadorHome(props) {
@@ -31303,8 +31305,8 @@ function FinanciadorHome(props) {
             'Adherir Obra Social '
           ),
           _react2.default.createElement(
-            'a',
-            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _reactRouter.Link,
+            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/financiador/entver' },
             _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
             'Obras Sociales'
           )
