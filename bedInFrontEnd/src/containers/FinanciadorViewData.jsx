@@ -21,17 +21,19 @@ class FinanciadorDataView extends React.Component {
 		super(props)
 	}
 
-	/*componentWillMount() {
-		_FETCHFUNCTION
-	}*/
+	componentWillMount() {
+		this.props.fetchFinancidadores();
+	}
 
 	render() {
+		console.log(this.props.financiadores)
+		const loading = 
+			(!this.props.financiadores) ? <p>Cargando...</p>
+			: this.props.financiadores.map(financiador => 
+				<TableDataFinanciador key = {financiador._id} financiador = {financiador}/>)
 		return (
 			<div>
-				alsdnlasdasldas
-				<TableDataFinanciador>
-				
-			</TableDataFinanciador>
+				{loading}	
 			</div>
 			
 		)

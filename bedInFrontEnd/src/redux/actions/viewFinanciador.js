@@ -1,20 +1,27 @@
-export function isRequesting() {
-	type : 'IS_REQUESTING_TO_SERVER'
+export function isRequestingToServer() {
+	return {
+		type : 'IS_REQUESTING_TO_SERVER'
+	}
 }
 
 export function getFinanciadores(financiadores) {
-	type : 'GET_FINANCIADORES',
-	financiadores
+	return {
+		type : 'GET_FINANCIADORES',
+		financiadores
+	}
 }
 
 export function failedRequest(err) {
-	type : 'FAILED_REQUEST',
-	err
+	return {
+		type : 'FAILED_REQUEST',
+		err	
+	}
+	
 }
 
 export function fetchFinancidadores() {
 	return (dispatch => {
-		dispatch(isRequesting());
+		dispatch(isRequestingToServer());
 		fetch('./bedin/healthcares', {
 			method : 'GET',
 			credentials : 'include'

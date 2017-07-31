@@ -8,11 +8,11 @@
 .portada {
     width: 100%;
     height: 100vh;
-    background-image: url('https://static.pexels.com/photos/127873/pexels-photo-127873.jpeg');
     background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0.6;
     position: absolute;
+    z-index: -9999
 }
 
 #button{

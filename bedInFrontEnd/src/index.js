@@ -7,8 +7,6 @@ import { Provider } from 'react-redux';
 
 import store, { history } from './redux/store'
 
-require('bootstrap/dist/css/bootstrap.css');
-// require('bootstrap/dist/js/bootstrap.js');
 import '../style/style.css';
 
 
