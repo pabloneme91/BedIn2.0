@@ -31183,12 +31183,126 @@ exports.default = Home;
 /***/ }),
 /* 311 */,
 /* 312 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: Duplicate declaration \"Link\"\n\n\u001b[0m \u001b[90m  5 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mLargeButton\u001b[39m from \u001b[32m'../LargeButton.jsx'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 | \u001b[39m\u001b[36mimport\u001b[39m { \u001b[33mLink\u001b[39m } from \u001b[32m'react-router'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 | \u001b[39m\n \u001b[90m  9 | \u001b[39m\u001b[36mfunction\u001b[39m \u001b[33mFinanciadorHome\u001b[39m(props) {\n \u001b[90m 10 | \u001b[39m  \u001b[36mreturn\u001b[39m (\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(27);
+
+var _LargeButton = __webpack_require__(313);
+
+var _LargeButton2 = _interopRequireDefault(_LargeButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorHome(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container-fluid container-margin' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Obra Social'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: 'Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'radio' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon-plus img-circle text-info' }),
+            'Adherir Obra Social'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'radio' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Obras Sociales'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Usuarios '
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '#', className: 'btn icon-btn btn-info', id: 'radio' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
+            'Generar Usuario'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'radio' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Lista de Usuarios'
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = FinanciadorHome;
 
 /***/ }),
-/* 313 */,
+/* 313 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = __webpack_require__(27);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function LargeButton(props) {
+  console.log(props.link);
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _reactRouter.Link,
+      { to: '/' + props.link },
+      _react2.default.createElement(
+        'button',
+        { type: 'button' },
+        props.buttonText
+      )
+    )
+  );
+}
+
+exports.default = LargeButton;
+
+/***/ }),
 /* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
