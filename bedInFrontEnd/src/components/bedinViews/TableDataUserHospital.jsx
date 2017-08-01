@@ -28,4 +28,4 @@ function TableDataUserHospital(props) {
 	)
 }
 
-export default TableDataUserHospital;
+export default TableDataUserHospital;	

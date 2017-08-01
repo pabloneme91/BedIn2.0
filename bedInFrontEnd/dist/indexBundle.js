@@ -30674,6 +30674,10 @@ var _authentication = __webpack_require__(304);
 
 var _authentication2 = _interopRequireDefault(_authentication);
 
+var _formReducers = __webpack_require__(337);
+
+var _formReducers2 = _interopRequireDefault(_formReducers);
+
 var _viewFinanciador = __webpack_require__(305);
 
 var _viewFinanciador2 = _interopRequireDefault(_viewFinanciador);
@@ -30688,9 +30692,9 @@ var _viewHospital2 = _interopRequireDefault(_viewHospital);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Import individual reducers here 
 var rootReducer = (0, _redux.combineReducers)({
 	authentication: _authentication2.default,
+	formReducers: _formReducers2.default,
 	viewFinanciadores: _viewFinanciador2.default,
 	viewUser: _viewUser2.default,
 	viewHospitals: _viewHospital2.default,
@@ -30880,7 +30884,7 @@ exports = module.exports = __webpack_require__(77)(undefined);
 
 
 // module
-exports.push([module.i, "/*LOGIN*/\r\n\r\n.container_a {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sign_up{\r\ncolor:black;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n     font-weight: bold;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nmargenes{\r\n    font-size: 20px;\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n\r\n}\r\n\r\n/*OBRAS SOCIALES HOME*/\r\n\r\n.btn-glyphicon {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n}\r\n.icon-btn {\r\n    padding: 1px 15px 3px 2px;\r\n       \r\n}\r\n\r\n#radio{\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n.container-margin{\r\n    margin-top: 100px;\r\n}\r\n\r\n.title{\r\n     margin-left: 70px;    \r\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "/*LOGIN*/\r\n\r\n.container_a {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sign_up{\r\ncolor:black;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n     font-weight: bold;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nmargenes{\r\n    font-size: 20px;\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n\r\n}\r\n\r\n/*OBRAS SOCIALES HOME*/\r\n\r\n.btn-glyphicon {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n}\r\n.icon-btn {\r\n    padding: 1px 15px 3px 2px;\r\n\r\n}\r\n\r\n#radio{\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n.container-margin{\r\n    margin-top: 100px;\r\n}\r\n\r\n.title{\r\n     margin-left: 70px;\r\n}\r\n\r\n\r\n#button2:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n", ""]);
 
 // exports
 
@@ -31356,86 +31360,9 @@ exports.default = GlobalNavbar;
 
 /***/ }),
 /* 315 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _LargeButton = __webpack_require__(136);
-
-var _LargeButton2 = _interopRequireDefault(_LargeButton);
-
-var _reactRouter = __webpack_require__(23);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function FinanciadorHome(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      'div',
-      { className: 'container-fluid container-margin' },
-      _react2.default.createElement(
-        'div',
-        { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
-        _react2.default.createElement(
-          'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
-          _react2.default.createElement(
-            'h2',
-            { className: 'title' },
-            'Obra Social'
-          ),
-          _react2.default.createElement(
-            'a',
-            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon-plus img-circle text-info' }),
-            'Adherir Obra Social '
-          ),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/financiador/entver' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
-            'Obras Sociales'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
-          _react2.default.createElement(
-            'h2',
-            { className: 'title' },
-            'Usuarios '
-          ),
-          _react2.default.createElement(
-            'a',
-            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
-            'Generar Usuario '
-          ),
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/financiador/userver' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
-            'Lista de Usuarios '
-          )
-        )
-      )
-    )
-  );
-}
-
-exports.default = FinanciadorHome;
+throw new Error("Module build failed: Duplicate declaration \"Link\"\n\n\u001b[0m \u001b[90m  5 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mLargeButton\u001b[39m from \u001b[32m'../LargeButton.jsx'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m  6 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 | \u001b[39m\u001b[36mimport\u001b[39m { \u001b[33mLink\u001b[39m } from \u001b[32m'react-router'\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m    | \u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 | \u001b[39m\n \u001b[90m  9 | \u001b[39m\u001b[36mfunction\u001b[39m \u001b[33mFinanciadorHome\u001b[39m(props) {\n \u001b[90m 10 | \u001b[39m  \u001b[36mreturn\u001b[39m (\u001b[0m\n");
 
 /***/ }),
 /* 316 */
@@ -31448,9 +31375,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(24);
+
+var _reactRedux = __webpack_require__(37);
+
+var _formActions = __webpack_require__(336);
+
+var actionCreators = _interopRequireWildcard(_formActions);
 
 var _FinanciadorFormStep = __webpack_require__(317);
 
@@ -31460,18 +31397,145 @@ var _FinanciadorFormStep3 = __webpack_require__(318);
 
 var _FinanciadorFormStep4 = _interopRequireDefault(_FinanciadorFormStep3);
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function FinanciadorForm(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(_FinanciadorFormStep2.default, null),
-    _react2.default.createElement(_FinanciadorFormStep4.default, null)
-  );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+  return {
+    isRequesting: state.formReducers.isRequesting,
+    createSucces: state.formReducers.createSucces,
+    requestFail: state.formReducers.requestFail,
+    error: state.formReducers.error,
+    name: state.formReducers.name,
+    address: state.formReducers.address,
+    phone: state.formReducers.phone,
+    email: state.formReducers.email,
+    plans: state.formReducers.plans,
+    receiveHospitals: state.formReducers.receiveHospitals,
+    hospitals: state.formReducers.hospitals
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(actionCreators, dispatch);
 }
 
-exports.default = FinanciadorForm;
+var FinanciadorForm = function (_React$Component) {
+  _inherits(FinanciadorForm, _React$Component);
+
+  function FinanciadorForm(props) {
+    _classCallCheck(this, FinanciadorForm);
+
+    var _this = _possibleConstructorReturn(this, (FinanciadorForm.__proto__ || Object.getPrototypeOf(FinanciadorForm)).call(this, props));
+
+    _this.state = {
+      step: 1,
+      name: null,
+      address: null,
+      phone: null,
+      email: null,
+      planInputs: [],
+      hospitalInputs: []
+    };
+    _this.nextStep = _this.nextStep.bind(_this);
+    _this.previousStep = _this.previousStep.bind(_this);
+    _this.add = _this.add.bind(_this);
+    _this.submitAllToStore = _this.submitAllToStore.bind(_this);
+    return _this;
+  }
+
+  _createClass(FinanciadorForm, [{
+    key: 'add',
+    value: function add(input, checkedHospitals) {
+      var array = this.state.planInputs.slice();
+      array.push(input);
+      var arrayChecked = this.state.hospitalInputs.slice();
+      arrayChecked.push(checkedHospitals);
+      this.setState({
+        planInputs: array,
+        hospitalInputs: arrayChecked
+      });
+    }
+  }, {
+    key: 'nextStep',
+    value: function nextStep(e) {
+      e.preventDefault();
+      //console.log(this)
+      //const step = this.state.step;
+      this.setState({
+        step: this.state.step + 1,
+        name: e.target.nombre.value,
+        address: e.target.direccion.value,
+        phone: e.target.telefono.value,
+        email: e.target.email.value
+        // Defined and created a local state to locally store form value to later send to store
+      });
+    }
+  }, {
+    key: 'previousStep',
+    value: function previousStep(e) {
+      e.preventDefault();
+      this.setState({
+        step: this.state.step - 1
+      });
+    }
+  }, {
+    key: 'submitAllToStore',
+    value: function submitAllToStore() {
+      var dataForBack = [];
+      for (var i = 0; i < this.state.planInputs.length; i++) {
+        console.log('PLAN INPUTS', this.state.planInputs[i]);
+        dataForBack.push({
+          name: this.state.planInputs[i],
+          hospitals: this.state.hospitalInputs[i].map(function (hospital) {
+            return hospital.id;
+          })
+        });
+      }
+      this.props.createEntidadFinanciadora({
+        name: this.state.name,
+        address: this.state.address,
+        phone: this.state.phone,
+        email: this.state.email,
+        plans: dataForBack
+      });
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.fetchHospitalList();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      switch (this.state.step) {
+        case 1:
+          return _react2.default.createElement(_FinanciadorFormStep2.default, { nextStep: this.nextStep });
+        case 2:
+          return _react2.default.createElement(_FinanciadorFormStep4.default, {
+            planInputs: this.state.planInputs,
+            hospitalInputs: this.state.hospitalInputs,
+            hospitals: this.props.hospitals,
+            add: this.add,
+            previousStep: this.previousStep,
+            submitAll: this.submitAllToStore,
+            success: this.props.createSucces
+          });
+      }
+    }
+  }]);
+
+  return FinanciadorForm;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FinanciadorForm);
 
 /***/ }),
 /* 317 */
@@ -31491,65 +31555,98 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FinanciadorFormStep1(props) {
-  console.log(props);
+  console.log('PROPS @ STEP 1', props);
   return _react2.default.createElement(
-    "div",
+    'div',
     null,
     _react2.default.createElement(
-      "h2",
-      null,
-      "Detalles de Financiador"
-    ),
-    _react2.default.createElement(
-      "ul",
-      null,
+      'div',
+      { className: 'container container_a' },
       _react2.default.createElement(
-        "li",
-        null,
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-5' }),
         _react2.default.createElement(
-          "label",
-          null,
-          "Nombre de Financiador"
-        ),
-        _react2.default.createElement("input", { type: "text", ref: "nombre" })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Direccion"
-        ),
-        _react2.default.createElement("input", { type: "text", ref: "direccion" })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Telefono"
-        ),
-        _react2.default.createElement("input", { type: "number", ref: "telefono" })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "label",
-          null,
-          "Email"
-        ),
-        _react2.default.createElement("input", { type: "email", ref: "email" })
-      ),
-      _react2.default.createElement(
-        "li",
-        null,
-        _react2.default.createElement(
-          "button",
-          null,
-          "Next"
+          'div',
+          { className: 'col-xs-8 col-sm-6 col-lg-4 ' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Detalles de Financiador'
+          ),
+          _react2.default.createElement(
+            'form',
+            { className: 'form-horizontal', onSubmit: props.nextStep },
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group ' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
+                'Nombre'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'nombre', placeholder: 'Nombre' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
+                'Direcci\xF3n'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'direccion', placeholder: 'Direcci\xF3n' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'inputnumber3', className: 'col-sm-2 control-label' },
+                'Tel\xE9fono'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'tel', className: 'form-control', id: 'inputEmail3', name: 'telefono', placeholder: 'Tel\xE9fono' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
+                'Email'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'inputEmail3', name: 'email', placeholder: 'Email' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-offset-2 col-sm-10' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn button', id: 'button2' },
+                  'Save and Continue'
+                )
+              )
+            )
+          )
         )
       )
     )
@@ -31559,6 +31656,7 @@ function FinanciadorFormStep1(props) {
 exports.default = FinanciadorFormStep1;
 
 // <button onClick={this.nextStep}>Save &amp; Continue</button>
+// onClick={props.nextStep.bind(this)}
 
 /***/ }),
 /* 318 */
@@ -31578,15 +31676,131 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FinanciadorFormStep2(props) {
-  console.log(props);
+  console.log('PROPS @ Step 2', props);
+  var popup = null;
+  if (props.success) {
+    popup = _react2.default.createElement(
+      'div',
+      null,
+      'FINANCIADOR CREADO'
+    );
+  }
   return _react2.default.createElement(
     'div',
     null,
-    'Form Step 2: enter Plans and Hospitals'
+    _react2.default.createElement(
+      'label',
+      null,
+      'Plan'
+    ),
+    _react2.default.createElement('input', { type: 'text', name: 'plan' }),
+    ' ',
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(
+      'label',
+      null,
+      'Seleccione Hospital(es) Perteneciente(s) al Plan'
+    ),
+    _react2.default.createElement(
+      'form',
+      { name: 'hospitalChecklist' },
+      props.hospitals.map(function (hospital, i) {
+        return _react2.default.createElement(
+          'div',
+          { key: i },
+          _react2.default.createElement('input', { name: 'hospitals', type: 'checkbox', 'data-id': hospital._id, value: hospital.name }),
+          hospital.name,
+          _react2.default.createElement('br', null)
+        );
+      })
+    ),
+    _react2.default.createElement(
+      'button',
+      { onClick: function onClick(e) {
+          e.preventDefault();
+          var plan = document.querySelector('input').value;
+          var hospitals = [];
+          document.querySelector('form').elements.hospitals.forEach(function (input) {
+            if (input.checked) hospitals.push({ value: input.value, id: input.dataset.id });
+          });
+          props.add(plan, hospitals);
+          document.querySelector('input').value = "";
+          document.querySelector('form').reset();
+        }
+      },
+      'Add'
+    ),
+    _react2.default.createElement(
+      'table',
+      { style: { border: "1px solid black" } },
+      _react2.default.createElement(
+        'thead',
+        { style: { border: "1px solid black" } },
+        _react2.default.createElement(
+          'tr',
+          null,
+          _react2.default.createElement(
+            'th',
+            { style: { border: "1px solid black" } },
+            'Plan'
+          ),
+          _react2.default.createElement(
+            'th',
+            { style: { border: "1px solid black" } },
+            'Hospitales del Plan'
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'tbody',
+        null,
+        props.planInputs.map(function (plan, i) {
+          return _react2.default.createElement(
+            'tr',
+            { key: i, style: { border: "1px solid black" } },
+            _react2.default.createElement(
+              'td',
+              { style: { border: "1px solid black" } },
+              props.planInputs[i]
+            ),
+            _react2.default.createElement(
+              'td',
+              { style: { border: "1px solid black" } },
+              props.hospitalInputs[i].map(function (singleHospital) {
+                return _react2.default.createElement(
+                  'p',
+                  { key: singleHospital.id },
+                  ' ',
+                  singleHospital.value,
+                  ' '
+                );
+              })
+            )
+          );
+        })
+      )
+    ),
+    _react2.default.createElement(
+      'button',
+      { onClick: props.submitAll },
+      'Submit All'
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      popup
+    )
   );
 }
 
 exports.default = FinanciadorFormStep2;
+
+// TODO: in document.query you are now quering input and form. If there was another input or form elements on page, it would select first one. GIVE IT AN ID TO SELECT CORRECT ONE
+
+// props.add(e.target.plan.value, e.target.hospitalChecklist.value)
+
+
+// TODO: popup should blur background (CSS index position) and have a button that does a redirect with hashhistory push
 
 /***/ }),
 /* 319 */
@@ -32824,6 +33038,206 @@ function TableDataUserBedin(props) {
 }
 
 exports.default = TableDataUserBedin;
+
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.requestCreate = requestCreate;
+exports.requestHospitalList = requestHospitalList;
+exports.receiveCreated = receiveCreated;
+exports.receiveHospitals = receiveHospitals;
+exports.failedToCreate = failedToCreate;
+exports.failedRequest = failedRequest;
+exports.createEntidadFinanciadora = createEntidadFinanciadora;
+exports.fetchHospitalList = fetchHospitalList;
+exports.createUserFinanciador = createUserFinanciador;
+function requestCreate() {
+  return {
+    type: 'REQUEST_CREATE'
+  };
+}
+
+function requestHospitalList() {
+  return {
+    type: 'REQUEST_HOSPITAL_LIST'
+  };
+}
+
+function receiveCreated(input) {
+  return {
+    type: 'RECEIVE_CREATED',
+    input: input
+  };
+}
+
+function receiveHospitals(hospitals) {
+  return {
+    type: 'RECEIVE_HOSPITALS',
+    hospitals: hospitals
+  };
+}
+
+function failedToCreate(err) {
+  return {
+    type: 'FAILED_TO_CREATE',
+    err: err
+  };
+}
+
+function failedRequest(err) {
+  return {
+    type: 'FAILED_REQUEST',
+    err: err
+  };
+}
+
+function createEntidadFinanciadora(inputData) {
+
+  return function (dispatch) {
+    dispatch(requestCreate());
+
+    return fetch('./bedin/healthcares', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log('DATA', data);
+      if (data) {
+        dispatch(receiveCreated(data));
+      } else {
+        dispatch(failedToCreate(data.err));
+      }
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function fetchHospitalList() {
+  return function (dispatch) {
+    dispatch(requestHospitalList());
+
+    return fetch('./bedin/hospitals', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      return dispatch(receiveHospitals(data));
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function createUserFinanciador(inputData) {
+
+  return function (dispatch) {
+    dispatch(requestCreate());
+
+    return fetch('./bedin/users', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.register) {
+        dispatch(receiveCreated());
+      } else {
+        dispatch(failedToCreate(data.err));
+      }
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function formReducers() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    isRequesting: false,
+    createSucces: false,
+    requestFail: false,
+    error: null,
+    name: null,
+    address: null,
+    phone: null,
+    email: null,
+    plans: [],
+    receiveHospitals: false,
+    hospitals: []
+  };
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'REQUEST_CREATE':
+      return Object.assign({}, state, { isRequesting: true });
+    case 'RECEIVE_CREATED':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        createSucces: true,
+        name: action.input.name,
+        address: action.input.address,
+        phone: action.input.phone,
+        email: action.input.email,
+        plans: action.input.plans
+      });
+    case 'FAILED_TO_CREATE':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        createSuccess: false,
+        error: action.err
+      });
+    case 'REQUEST_HOSPITAL_LIST':
+      return Object.assign({}, state, { isRequesting: true });
+    case 'RECEIVE_HOSPITALS':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        receiveHospitals: true,
+        hospitals: action.hospitals // receiving a hospitals array from server
+      });
+    case 'FAILED_REQUEST':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        error: action.err
+      });
+    default:
+      return state;
+  }
+  return state;
+}
+
+exports.default = formReducers;
 
 /***/ })
 /******/ ]);
