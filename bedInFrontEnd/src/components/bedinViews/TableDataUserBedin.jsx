@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TableDataUserFinanciador(props) {
+function TableDataUserBedin(props) {
 	const users = props.users.map(user =>
 		<tr key = {user._id}>
 			<td>{user.name}</td>
@@ -28,4 +28,4 @@ function TableDataUserFinanciador(props) {
 	)
 }
 
-export default TableDataUserFinanciador;
+export default TableDataUserBedin;

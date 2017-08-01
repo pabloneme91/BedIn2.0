@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 function GlobalNavbar (props) {
   const links = props.data.linkArray.map((linkData,i) => 
     <li className="margenes" key={i}>
-      <Link to = "Bedin/financiador">{linkData.name}</Link>
+      <Link to = {`${linkData.route}`}>{linkData.name}</Link>
     </li>      
   )
   const logo = props.data.logo; 

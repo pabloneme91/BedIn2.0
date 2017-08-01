@@ -3,11 +3,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../redux/actions/viewUser';
 
-import TableDataUserFinanciador from '../components/bedinViews/TableDataUserFinanciador.jsx';
+import TableDataUserBedin from '../components/bedinViews/TableDataUserBedin.jsx';
 
 function mapStateToProps(state) {
 	return {
-		usersFinanciador : state.viewUser.users,
+		usersBedin : state.viewUser.users,
 		isRequesting: state.viewUser.isRequesting
 	}
 }
@@ -16,25 +16,25 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 
-class FinanciadorUserViewData extends React.Component {
+class BedinUserViewData extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 
 	componentWillMount() {
-		this.props.fetchGetUsersByType('Financiador');
+		this.props.fetchGetUsersByType('Bedin');
 	}
 
 	render() {
-		const dataUserFinanciador = (this.props.usersFinanciador === null) 
+		const dataUserBedin = (this.props.usersBedin === null) 
 		? <p>Cargando...</p>
-		: <TableDataUserFinanciador users = {this.props.usersFinanciador}/> 
+		: <TableDataUserBedin users = {this.props.usersBedin}/> 
 		return (
 			<div>
-				{dataUserFinanciador}
+				{dataUserBedin}
 			</div>
 		)
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FinanciadorUserViewData);
+export default connect(mapStateToProps, mapDispatchToProps)(BedinUserViewData);

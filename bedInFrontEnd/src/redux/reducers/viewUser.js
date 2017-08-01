@@ -1,23 +1,24 @@
-function viewUserFinanciador (state = {
+function viewUser (state = {
 	isRequesting: false,
-	usersFinanciador: null,
+	users: null,
 	error: null
 },action) {
 
 	switch(action.type){
 		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
+				users: null,
 				isRequesting: true
 			}) 
 		case 'GET_USER_BY_ID': 
 			return Object.assign({}, state, {
 				isRequesting: false,
-				usersFinanciador: action.user
+				users: action.user
 			})
 		case 'GET_USER_BY_TYPE': 
 			return Object.assign({}, state, {
 				isRequesting: false,
-				usersFinanciador: action.users
+				users: action.users
 			})
 		case 'FAILED_TO_GET_USER':
 			return Object.assign({}, state, {
@@ -29,4 +30,4 @@ function viewUserFinanciador (state = {
 	}
 }
 
-export default viewUserFinanciador;
+export default viewUser;

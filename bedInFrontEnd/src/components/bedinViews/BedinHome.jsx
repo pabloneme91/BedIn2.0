@@ -13,7 +13,7 @@ const navBarData = {
 			name: "HOSPITAL"
 		},
 		{
-			route: "/Bedin/admin",
+			route: "/Bedin/administrador",
 			name: "ADMINISTRADOR"
 		}
 	],
@@ -35,24 +35,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-/*
-<containercases localState>
-
-		<containerForm funcionNext>
-			<componenteForm1 >
-				
-			</componenteForm1>
-		</containerForm>
-
-		<containerPlanes funcionAgreg>
-			<componentePlan-Hospital>
-				
-			</componentePlan-Hospital>
-			<compnenteTabla>
-				
-			</compnenteTabla>
-		</containerPlanes>
-
-</containercases>
-	*/

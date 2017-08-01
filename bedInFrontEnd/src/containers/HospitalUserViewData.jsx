@@ -3,11 +3,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../redux/actions/viewUser';
 
-import TableDataUserFinanciador from '../components/bedinViews/TableDataUserFinanciador.jsx';
+import TableDataUserHospital from '../components/bedinViews/TableDataUserHospital.jsx';
 
 function mapStateToProps(state) {
 	return {
-		usersFinanciador : state.viewUser.users,
+		usersHospital : state.viewUser.users,
 		isRequesting: state.viewUser.isRequesting
 	}
 }
@@ -16,25 +16,25 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 
-class FinanciadorUserViewData extends React.Component {
+class HospitalUserViewData extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 
 	componentWillMount() {
-		this.props.fetchGetUsersByType('Financiador');
+		this.props.fetchGetUsersByType('Hospital');
 	}
 
 	render() {
-		const dataUserFinanciador = (this.props.usersFinanciador === null) 
+		const dataUserHospital = (this.props.usersHospital === null) 
 		? <p>Cargando...</p>
-		: <TableDataUserFinanciador users = {this.props.usersFinanciador}/> 
+		: <TableDataUserHospital users = {this.props.usersHospital}/> 
 		return (
 			<div>
-				{dataUserFinanciador}
+				{dataUserHospital}
 			</div>
 		)
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FinanciadorUserViewData);
+export default connect(mapStateToProps, mapDispatchToProps)(HospitalUserViewData);
