@@ -4,10 +4,23 @@ export function requestCreate() {
   };
 }
 
+export function requestHospitalList() {
+  return {
+    type: 'REQUEST_HOSPITAL_LIST',
+  };
+}
+
 export function receiveCreated(input) {
   return {
     type: 'RECEIVE_CREATED',
     input
+  };
+}
+
+export function receiveHospitals(hospitals) {
+  return {
+    type: 'RECEIVE_HOSPITALS',
+    hospitals
   };
 }
 
@@ -42,8 +55,9 @@ export function createEntidadFinanciadora(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        if(data.register) {
-          dispatch(receiveCreated())
+        console.log('DATA', data)
+        if(data) {
+          dispatch(receiveCreated(data))
         } else {
           dispatch(failedToCreate(data.err))
         }
@@ -53,7 +67,25 @@ export function createEntidadFinanciadora(inputData) {
 };
 
 
-export function createUserFinanciador(inputData) { 
+export function fetchHospitalList() {
+  return (dispatch) => {
+    dispatch(requestHospitalList());
+
+    return fetch('./bedin/hospitals', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => dispatch(receiveHospitals(data)))
+      .catch(err => dispatch(failedRequest(err)))
+  };
+};
+
+
+export function createUserFinanciador(inputData) {
 
   return (dispatch) => {
     dispatch(requestCreate());

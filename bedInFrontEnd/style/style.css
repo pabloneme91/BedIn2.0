@@ -13,6 +13,7 @@
     background-repeat: no-repeat;
     opacity: 0.6;
     position: absolute;
+    z-index: -99999;
 }
 
 #button{
@@ -114,7 +115,7 @@ li > a:hover{
 }
 .icon-btn {
     padding: 1px 15px 3px 2px;
-       
+
 }
 
 #radio{
@@ -128,7 +129,12 @@ li > a:hover{
 }
 
 .title{
-     margin-left: 70px;    
+     margin-left: 70px;
 }
 
 
+#button2:hover {
+ background: rgba(0,0,0,0);
+ color: black;
+
+}
