@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 
 import LargeButton from '../LargeButton.jsx';
 
+import { Link } from 'react-router';
+
 function FinanciadorHome(props) {
   return (
     <div>
@@ -19,7 +21,7 @@ function FinanciadorHome(props) {
               Adherir Obra Social
             </Link>
 
-            <Link to="#" className="btn icon-btn btn-info" id="radio">
+            <Link to="/Bedin/financiador/entver" className="btn icon-btn btn-info" id="radio">
               <span className="glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info"></span>
               Obras Sociales
             </Link>
@@ -35,7 +37,7 @@ function FinanciadorHome(props) {
               Generar Usuario
             </Link>
 
-            <Link to="#" className="btn icon-btn btn-info" id="radio">
+            <Link to="/Bedin/financiador/userver" className="btn icon-btn btn-info" id="radio">
               <span className="glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info"></span>
               Lista de Usuarios
             </Link>

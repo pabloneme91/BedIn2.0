@@ -7,8 +7,6 @@ import { Provider } from 'react-redux';
 
 import store, { history } from './redux/store'
 
-require('bootstrap/dist/css/bootstrap.css');
-// require('bootstrap/dist/js/bootstrap.js');
 import '../style/style.css';
 
 
@@ -16,7 +14,8 @@ import LoginContainer from './containers/LoginContainer.jsx';
 import BedinHome from './components/bedinViews/BedinHome.jsx';
 import FinanciadorHome from './components/bedinViews/FinanciadorHome.jsx';
 import FinanciadorForm from './containers/FinanciadorForm.jsx';
-
+import FinanciadorViewData from './containers/FinanciadorViewData.jsx';
+import FinanciadorUserViewData from './containers/FinanciadorUserViewData.jsx';
 
 const router = (
   <Provider store={store}>
@@ -25,10 +24,11 @@ const router = (
 
       <Route path="/Bedin" component={BedinHome}>
         <Route path="financiador" component={FinanciadorHome}></Route>
+        <Route path="financiador/entver" component={FinanciadorViewData}></Route>
         <Route path="financiador/entcrear" component={FinanciadorForm}></Route>
         <Route path="financiador/entver"></Route>
         <Route path="financiador/usercrear"></Route>
-        <Route path="financiador/userver"></Route>
+        <Route path="financiador/userver" component ={FinanciadorUserViewData}></Route>
       </Route>
 
       <Route path="/Financiador">

@@ -11,7 +11,7 @@ const User = new mongoose.Schema({
   rol: {type: String, default: 'user'},
   type : {type: String, required: true},
   hospitalCode:{type: ObjectId, ref: "hospitals"},
-  osCode:{type: ObjectId, ref: "healthcares"}, 
+  osCode:{type: ObjectId, ref: "healthcares"},
   }, 
   {
     collections: 'users',
