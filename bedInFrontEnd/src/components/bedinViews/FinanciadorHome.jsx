@@ -24,9 +24,9 @@ function FinanciadorHome(props) {
                 <a className="btn icon-btn btn-info" id="radio" href="#">
                 <span className="glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info"></span>
                 Generar Usuario </a>
-                <a className="btn icon-btn btn-info" id="radio" href="#">
+                <Link className="btn icon-btn btn-info" id="radio" to = "/Bedin/financiador/userver">
                 <span className="glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info"></span>
-                Lista de Usuarios </a>
+                Lista de Usuarios </Link>
               </div>
             </div>
         </div>

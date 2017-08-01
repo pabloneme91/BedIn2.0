@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const user = require ('../../models/users');
+const errorHandler = require('../../controladores/errorHandler')
 
 router.get('/', function(req, res, next) {
   user.find({})
@@ -13,8 +14,12 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/:id', function(req, res, next) {
-  user.findById(req.params._id)
+id : 21312
+
+type : 'asda'
+
+router.get('/id/:id', function(req, res, next) {
+  user.findById(req.params.id)
   .then(_user =>{
     res.send(_user);  
   })
@@ -23,9 +28,25 @@ router.get('/:id', function(req, res, next) {
   })
 });
 
-router.get('/:type', function(req, res, next) {
-  user.find({type : req.params._id })
-  .then(users =>{
+router.get('/type/:type', function(req, res, next) {
+  let entidad = '';
+  if(req.params.type === 'Bedin') entidad = '';
+  if(req.params.type === 'Financiador') entidad = 'osCode';
+  if(req.params.type === 'Hospital') entidad = 'hospitalCode';
+
+  user.find({type : req.params.type })
+  .populate(entidad, 'name')
+  .exec()
+  .then(users => {
+    users = users.map(user => {
+      let newUser = Object.assign({}, user._doc)
+      newUser.workplace = user.hospitalCode 
+      ? user.hospitalCode.name
+      : user.osCode 
+      ? user.osCode.name
+      : 'Bedin'
+      return newUser;
+    })
     res.send(users);  
   })
   .catch(err => {
@@ -45,7 +66,8 @@ router.post('/', function(req, res ,next) {
   user.register(newUser, req.body.password,
     function (err)  {
       if (err) return errorHandler.sendCustomError(res, 'Hubo un error al registrar el ' + 
-        'usuario. Verifique que el mismo no se haya agregado previamente.');
+        'usuario. Verifique que las credenciales sean correctas' + 
+        ' o que el mismo no se haya agregado previamente.');
       res.send();
     }
   )

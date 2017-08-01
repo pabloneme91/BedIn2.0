@@ -26,16 +26,14 @@ class FinanciadorDataView extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.financiadores)
-		const loading = 
+		const dataFinanciadores = 
 			(!this.props.financiadores) ? <p>Cargando...</p>
 			: this.props.financiadores.map(financiador => 
 				<TableDataFinanciador key = {financiador._id} financiador = {financiador}/>)
 		return (
 			<div>
-				{loading}	
+				{dataFinanciadores}	
 			</div>
-			
 		)
 	}
 }

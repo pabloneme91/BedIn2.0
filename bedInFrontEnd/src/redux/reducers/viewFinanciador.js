@@ -4,20 +4,19 @@ function viewFinanciadores (state = {
 	error : false
 	}, action) {
 	switch(action.type) {
-		case 'IS_REQUESTING_TO_SERVER' : 
+		case 'IS_REQUESTING_TO_SERVER': 
 			return Object.assign({}, state, {
-				isRequesting : true
+				isRequesting: true
 			});
-		case 'GET_FINANCIADORES' :
-		console.log('action', action.financiadores)
+		case 'GET_FINANCIADORES':
 			return Object.assign({}, state, {
 				isRequesting: false,
 				financiadores: action.financiadores
 			});
-		case 'FAILED_REQUEST' : 
+		case 'FAILED_REQUEST': 
 			return Object.assign({}, state, {
-				isRequesting : false,
-				error : true
+				isRequesting: false,
+				error: action.err
 			})
 		default:
 			return state;
