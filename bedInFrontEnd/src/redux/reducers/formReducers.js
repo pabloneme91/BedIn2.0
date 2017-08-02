@@ -7,7 +7,9 @@ function formReducers(state = {
   address: null,
   phone: null,
   email: null,
-  plans: []
+  plans: [],
+  receiveHospitals: false,
+  hospitals: []
 }, action) {
 switch(action.type) {
   case 'REQUEST_CREATE':
@@ -28,6 +30,14 @@ switch(action.type) {
       createSuccess: false,
       error: action.err
     });
+  case 'REQUEST_HOSPITAL_LIST':
+    return Object.assign({}, state, {isRequesting: true});
+  case 'RECEIVE_HOSPITALS':
+    return Object.assign({}, state, {
+      isRequesting: false,
+      receiveHospitals: true,
+      hospitals: action.hospitals // receiving a hospitals array from server
+  });
   case 'FAILED_REQUEST':
     return Object.assign({}, state, {
       isRequesting: false,
@@ -39,4 +49,4 @@ switch(action.type) {
 return state;
 }
 
-export default formReducer;
+export default formReducers;
