@@ -12,29 +12,32 @@ function GlobalNavbar (props) {
   return (
 
     <div>
-      <div className="portada"></div>
-
-      <nav className="navbar navbar-default" id="navbar" >
+      
+      <nav className="navbar navbar-default" id="b3" >
         <div className="container-fluid" >
 
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span className="sr-only">Toggle navigation</span>
-            </button>
-            <Link to="/" className="navbar-brand"><img src={logo} width="30" height="30" 
-              alt=""></img></Link>
-          </div>
-
-          <div className="collapse navbar-collapse margenes" id="bs-example-navbar-collapse-1" id="navbar_bed">
-            <ul className="nav navbar-nav" id="nav" >
-            {links}
-            </ul>
+                  <button type="c3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar">OBRAS SOCIALES</span>
+                    <span className="icon-bar">HOSPITALES</span>
+                    <span className="icon-bar">ADMINISTRADOR</span>
+                  </button>
+            <Link to="/" className="navbar-brand"><img src="/public/img/drawing2.png" width="60" height="20" alt=""></img></Link>
+            </div>
+                <div className="collapse navbar-collapse e3">
+                  <ul className="nav navbar-nav" id="d3" >
+                    <li className="e3"><Link to="/Bedin/financiador">OBRAS SOCIALES</Link></li>
+                    <li className="e3"><Link to="/Bedin/hospital">HOSPITALES</Link></li>
+                    <li className="e3"><Link to="/Bedin/admin">ADMINISTRADOR</Link></li>
+                    {links}
+                  </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USUARIO <span className="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span className="caret"></span></a>
-                <ul className="dropdown-menu">
-                  <li><Link to="#">Perfil</Link></li>
-                  <li><Link to="#">Log Out <span className="glyphicon glyphicon-off" aria-hidden="true"></span></Link></li>
+                    <li className="dropdown">
+                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-user" id="f3"></span>USUARIO <span className="caret"></span></a>
+                  <ul className="dropdown-menu">
+                        <li><Link to="#">Perfil</Link></li>
+                        <li><Link to="#">Log Out <span className="glyphicon glyphicon-off"  aria-hidden="true" id="e3"></span></Link></li>
                 </ul>
               </li>
             </ul>

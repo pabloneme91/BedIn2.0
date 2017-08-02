@@ -2,69 +2,88 @@ import React from 'react';
 
 
 function FinanciadorFormStep2(props) {
-  console.log('PROPS @ Step 2', props)
-  let popup = null;
-  if(props.success) {
-      popup = <div>FINANCIADOR CREADO</div>
+   let popup = null;
+   if(props.success) {
+      popup = <div>OBRA SOCIAL CREADA</div>
   }
   return (
     <div>
-      <label>Plan</label>
-      <input type="text" name="plan" ></input> <br/>
-
-
-      <label>Seleccione Hospital(es) Perteneciente(s) al Plan</label>
-      <form name="hospitalChecklist">
-        {props.hospitals.map((hospital, i) =>
-          <div key={i}>
-            <input name="hospitals" type="checkbox" data-id = {hospital._id} value={hospital.name} />{hospital.name}<br/>
+    
+    <div className="container container_a">
+      <div className="row">
+        <div className="col-xs- col-sm-1 col-lg-2"></div>
+        <div className="col-xs-5 col-sm-5 col-lg-3" id="a">
+          <div>
+            <form className="form-horizontal">  
+              <div className="form-group " id="b">
+                <label htmlFor="exampleInputName2" className="col-sm-2 control-label">Plan</label>
+                <div className="col-sm-10">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <input type="text" className="form-control" id="inputEmail3" name="plan" placeholder="Ingrese Plan"></input>
+                </div>
+              </div>
+            </form>
           </div>
-        )}
-      </form>
+          <label>Seleccione Hospital(es) Perteneciente(s) al Plan</label>
 
-      <button onClick={(e) => {
-          e.preventDefault();
-          let plan = document.querySelector('input').value;
-          let hospitals = [];
-          document.querySelector('form').elements.hospitals.forEach((input) => {
-           if(input.checked) hospitals.push({value:input.value, id: input.dataset.id})
-          })
-          props.add(plan, hospitals)
-          document.querySelector('input').value = "";
-          document.querySelector('form').reset()
-        }}
-      >Add</button>
+          <form name="hospitalChecklist">
+                {props.hospitals.map((hospital, i) =>
+                  <div key={i} className="checkbox" id="c">
+                    <input type="checkbox" name="hospitals" type="checkbox" data-id = {hospital._id} value={hospital.name} />{hospital.name}<br/>
+                  </div>
+                )}          
+             </form>
 
-      <table style={{border:"1px solid black"}}>
-        <thead style={{border:"1px solid black"}}>
-          <tr>
-            <th style={{border:"1px solid black"}}>Plan</th>
-            <th style={{border:"1px solid black"}}>Hospitales del Plan</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {props.planInputs.map((plan, i) =>
-            <tr key={i} style={{border:"1px solid black"}}>
-              <td style={{border:"1px solid black"}}>{props.planInputs[i]}</td>
-              <td style={{border:"1px solid black"}}>{props.hospitalInputs[i].map((singleHospital) => <p key={singleHospital.id}> {singleHospital.value} </p>)}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+          <div className="form-group" id="d">
+           <div className="col-sm-offset-2 col-sm-10">
 
 
-      <button onClick={props.submitAll}>Submit All</button>
+          <button onClick={(e) => {
+                    e.preventDefault();
+                    let plan = document.querySelector('input').value;
+                    let hospitals = [];
+                    document.querySelector('form').elements.hospitals.forEach((input) => {
+                     if(input.checked) hospitals.push({value:input.value, id: input.dataset.id})
+                    })
+                    props.add(plan, hospitals)
+                    document.querySelector('input').value = "";
+                    document.querySelector('form').reset()
+                  }} className=" btn button" id="button2"
+                >Add</button> 
+               </div>
+               </div>
+          </div>
+        </div>
+        <div className="col-xs-5 col-sm-5 col-lg-3" id="f">
+            <table className="table table-bordered g" >
+              <thead>
+                <tr id="th" >
+                  <th >PLANES</th>
+                  <th >HOSPITALES</th>
+                </tr>
+              </thead>
+              <tbody>
+                    {props.planInputs.map((plan, i) =>
+                <tr key={i}  >
+                  <td >{props.planInputs[i]}</td>
+                  <td >{props.hospitalInputs[i].map((singleHospital) => <p key={singleHospital.id}> {singleHospital.value} </p>)}</td>
+                </tr>
+                )}
+              </tbody>
+            </table>
+            <button onClick={props.submitAll}>Submit All</button>
+          </div>
+        <div className="col-xs-1 col-sm-1 col-lg-1 "></div>
+      </div>
+      <div>{popup}</div>
 
-    <div>
-      {popup}
-    </div>
-
-    </div>
+   </div>
+  
   )
 }
 
 export default FinanciadorFormStep2;
+
 
 
 // TODO: in document.query you are now quering input and form. If there was another input or form elements on page, it would select first one. GIVE IT AN ID TO SELECT CORRECT ONE

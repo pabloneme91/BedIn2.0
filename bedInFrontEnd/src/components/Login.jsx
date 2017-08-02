@@ -3,12 +3,12 @@ import React from 'react';
 function Login (props) {
 	return (
 		<div>
-			<div className="portada">
+			<div>
 
 			</div>
 
 			<div>
-				<div className="container container_a">
+				<div className="container a1">
 					<div className="row">
 						<div className="col-xs-2 col-sm-4 col-lg-5"></div>
 						<div className="col-xs-8 col-sm-6 col-lg-4 ">
@@ -25,10 +25,10 @@ function Login (props) {
 									<span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
 									<input id="password" type="password" className="form-control" name="password" placeholder="Password"></input>
 								</div>
-								<button type="submit" className=" btn button" id="button">Login
+								<button type="submit" className=" btn button" id="bb">Login
 								</button>
 								<br></br>
-								<p id="p" id="Sing_up">¿No estas registrado? <a  href="">Sign Up</a></p>
+							
 							</form>
 						</div>
 					</div>
