@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 function GlobalNavbar (props) {
   const links = props.data.linkArray.map((linkData,i) => 
     <li className="margenes" key={i}>
-      <Link to = {`${linkData.route}`}>{linkData.name}</Link>
+      <Link activeClassName= 'active' to = {`${linkData.route}`}>{linkData.name}</Link>
     </li>      
   )
   const logo = props.data.logo; 
@@ -31,10 +31,10 @@ function GlobalNavbar (props) {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USUARIO <span className="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span className="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{props.username}<span className="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><Link to="#">Perfil</Link></li>
-                  <li><Link to="#">Log Out <span className="glyphicon glyphicon-off" aria-hidden="true"></span></Link></li>
+                  <li><Link to={`/Bedin/perfil/${props.userId}`}>Perfil</Link></li>
+                  <li><Link onClick={props.logOut} to="#">Log Out <span className="glyphicon glyphicon-off" aria-hidden="true"></span></Link></li>
                 </ul>
               </li>
             </ul>

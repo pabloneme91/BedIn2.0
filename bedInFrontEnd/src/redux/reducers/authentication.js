@@ -4,6 +4,7 @@ function authentication (state = {
     error: null,
     userName : null,
     userType : null,
+    userId: null,
     userData : null
   }, action) {
   switch(action.type) {
@@ -16,6 +17,7 @@ function authentication (state = {
         userType: action.user.type,
         userName: action.user.name,
         userData : action.user.data,
+        userId: action.user.id,
         error : false  
       });
     case 'USER_FAILED_TO_LOG_IN':

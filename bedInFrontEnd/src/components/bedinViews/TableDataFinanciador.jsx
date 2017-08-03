@@ -1,6 +1,19 @@
 import React from 'react';
 
 function TableDataFinanciador(props) {
+	
+	const allHospitals = hospitals => {
+		return hospitals.map(singleHospital => 
+			<p key = {singleHospital._id}> {singleHospital.name} </p>)
+	}
+
+	const tableBody = props.financiador.plans.map((plan, i) =>
+    <tr key={i} style={{border:"1px solid black"}}>
+      <td style={{border:"1px solid black"}}>{plan.name}</td>
+      <td style={{border:"1px solid black"}}>{allHospitals(plan.hospitals)}
+      </td>
+    </tr>)
+
 	return (
 		<div>
 			<div>
@@ -14,16 +27,8 @@ function TableDataFinanciador(props) {
 				      <th style={{border:"1px solid black"}}>Hospitales del Plan</th>
 				    </tr>
 				  </thead>
-
 				  <tbody>
-				    {props.financiador.plans.map((plan, i) =>
-				      <tr key={i} style={{border:"1px solid black"}}>
-				        <td style={{border:"1px solid black"}}>{plan.name}</td>
-				        <td style={{border:"1px solid black"}}>{plan.hospitals.map((singleHospital) =>
-				         <p key = {singleHospital._id}> {singleHospital.name} </p>)}
-				        </td>
-				      </tr>
-				    )}
+						{tableBody}
 				  </tbody>
 				</table>
 		</div>
