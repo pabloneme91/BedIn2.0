@@ -13,7 +13,7 @@ function FinanciadorHome(props) {
           <div className="col-xs-hidden col-sm-2 col-lg-2 col-xl-5"></div>
           <div className="col-xs-12 col-sm-4 col-lg-4 col-xl-2 ">
 
-            <h2 className="title">Obra Social</h2>
+            <h2 className="title">Entidad Obra Social</h2>
 
             <Link to="Bedin/financiador/entcrear" className="btn icon-btn btn-info" id="radio">
               <span className="glyphicon btn-glyphicon glyphicon-plus img-circle text-info"></span>
@@ -22,16 +22,16 @@ function FinanciadorHome(props) {
 
             <Link to="/Bedin/financiador/entver" className="btn icon-btn btn-info" id="radio">
               <span className="glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info"></span>
-              Obras Sociales
+              Lista de Obras Sociales
             </Link>
 
           </div>
 
           <div className="col-xs-12 col-sm-4 col-lg-4 col-xl-2 ">
 
-            <h2 className="title">Usuarios </h2>
+            <h2 className="title">Usuario Obra Social</h2>
 
-            <Link to="#" className="btn icon-btn btn-info" id="radio">
+            <Link to="/Bedin/financiador/usercrear" className="btn icon-btn btn-info" id="radio">
               <span className="glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info"></span>
               Generar Usuario
             </Link>

@@ -4,11 +4,12 @@ export function requestCreate() {
   };
 }
 
-export function requestHospitalList() {
+export function requestList() {
   return {
-    type: 'REQUEST_HOSPITAL_LIST',
+    type: 'REQUEST_LIST',
   };
 }
+
 
 export function receiveCreated(input) {
   return {
@@ -17,10 +18,31 @@ export function receiveCreated(input) {
   };
 }
 
+export function receiveCreatedHospital(input) {
+  return {
+    type: 'RECEIVE_CREATED_HOSPITAL',
+    input
+  };
+}
+
+export function receiveCreatedUser(input) {
+  return {
+    type: 'RECEIVE_CREATED_USER',
+    input
+  }
+}
+
 export function receiveHospitals(hospitals) {
   return {
     type: 'RECEIVE_HOSPITALS',
     hospitals
+  };
+}
+
+export function receiveFinanciadors(financiadors) {
+  return {
+    type: 'RECEIVE_FINANCIADORS',
+    financiadors
   };
 }
 
@@ -35,6 +57,12 @@ export function failedRequest(err) {
   return {
     type: 'FAILED_REQUEST',
     err
+  };
+}
+
+export function resetCreateSuccess() {
+  return {
+    type: 'RESET_CREATE_SUCCESS',
   };
 }
 
@@ -66,10 +94,37 @@ export function createEntidadFinanciadora(inputData) {
   };
 };
 
+export function createEntidadHospital(inputData) {
+
+  return (dispatch) => {
+    dispatch(requestCreate());
+
+    return fetch('./bedin/hospitals', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+      body: JSON.stringify(inputData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        //console.log('DATA', data)
+        if(data) {
+          dispatch(receiveCreatedHospital(data))
+        } else {
+          dispatch(failedToCreate(data.err))
+        }
+      })
+      .catch(err => dispatch(failedRequest(err)))
+  };
+};
+
 
 export function fetchHospitalList() {
   return (dispatch) => {
-    dispatch(requestHospitalList());
+    dispatch(requestList());
 
     return fetch('./bedin/hospitals', {
       method: 'GET',
@@ -84,8 +139,25 @@ export function fetchHospitalList() {
   };
 };
 
+export function fetchFinanciadorList() {
+  return (dispatch) => {
+    dispatch(requestList());
 
-export function createUserFinanciador(inputData) {
+    return fetch('./bedin/healthcares', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => dispatch(receiveFinanciadors(data)))
+      .catch(err => dispatch(failedRequest(err)))
+  };
+};
+
+
+export function createUser(inputData) {
 
   return (dispatch) => {
     dispatch(requestCreate());
@@ -101,12 +173,15 @@ export function createUserFinanciador(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        if(data.register) {
-          dispatch(receiveCreated())
+        console.log('DATA', data)
+        if(!data.error) {
+          dispatch(receiveCreatedUser(data))
         } else {
           dispatch(failedToCreate(data.err))
         }
+      }).catch((err) => {
+        console.log(err);
+        dispatch(failedRequest(err));
       })
-      .catch(err => dispatch(failedRequest(err)))
   };
 };

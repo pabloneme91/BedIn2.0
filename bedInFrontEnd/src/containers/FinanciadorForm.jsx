@@ -102,6 +102,10 @@ class FinanciadorForm extends React.Component {
     this.props.fetchHospitalList();
   }
 
+  componentWillUnmount() {
+    this.props.resetCreateSuccess();
+  }
+
   render() {
     switch (this.state.step) {
 			case 1:

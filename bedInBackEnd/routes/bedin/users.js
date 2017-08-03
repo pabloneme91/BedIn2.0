@@ -7,7 +7,7 @@ const errorHandler = require('../../controladores/errorHandler')
 router.get('/', function(req, res, next) {
   user.find({})
   .then(users =>{
-    res.send(users);  
+    res.send(users);
   })
   .catch(err => {
     return errorHandler.sendInternalServerError(res);
@@ -21,7 +21,7 @@ type : 'asda'
 router.get('/id/:id', function(req, res, next) {
   user.findById(req.params.id)
   .then(_user =>{
-    res.send(_user);  
+    res.send(_user);
   })
   .catch(err => {
     return errorHandler.sendInternalServerError(res);
@@ -40,14 +40,14 @@ router.get('/type/:type', function(req, res, next) {
   .then(users => {
     users = users.map(user => {
       let newUser = Object.assign({}, user._doc)
-      newUser.workplace = user.hospitalCode 
+      newUser.workplace = user.hospitalCode
       ? user.hospitalCode.name
-      : user.osCode 
+      : user.osCode
       ? user.osCode.name
       : 'Bedin'
       return newUser;
     })
-    res.send(users);  
+    res.send(users);
   })
   .catch(err => {
     return errorHandler.sendInternalServerError(res);
@@ -56,28 +56,28 @@ router.get('/type/:type', function(req, res, next) {
 
 //router.post('/', authValidator.isLoggedIn, function(req, res ,next) {
 router.post('/', function(req, res ,next) {
-  const newUser = new user ({ 
-    username: req.body.username, 
+  const newUser = new user ({
+    username: req.body.username,
     name:req.body.name,
-    type : req.body.type, 
+    type : req.body.type,
     hospitalCode: req.body.hospitalCode || null,
     osCode: req.body.osCode || null
   });
   user.register(newUser, req.body.password,
     function (err)  {
-      if (err) return errorHandler.sendCustomError(res, 'Hubo un error al registrar el ' + 
-        'usuario. Verifique que las credenciales sean correctas' + 
+      if (err) return errorHandler.sendCustomError(res, 'Hubo un error al registrar el ' +
+        'usuario. Verifique que las credenciales sean correctas' +
         ' o que el mismo no se haya agregado previamente.');
-      res.send();
+      res.send(newUser);
     }
   )
 });
 
 router.put('/', function(req, res, next) {
-  user.findByIdAndUpdate(req.body._id, 
-    { $set: 
-      { 
-        name : req.body.name 
+  user.findByIdAndUpdate(req.body._id,
+    { $set:
+      {
+        name : req.body.name
       }
     }, { new: true })
   .then(updateData => {
@@ -95,7 +95,7 @@ router.delete('/', function(req,res,next) {
     res.send();
   })
   .catch(err => {
-    return errorHandler.sendInternalServerError(res);  
+    return errorHandler.sendInternalServerError(res);
   })
 })
 

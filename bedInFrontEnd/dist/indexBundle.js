@@ -15666,9 +15666,37 @@ var _FinanciadorViewData = __webpack_require__(319);
 
 var _FinanciadorViewData2 = _interopRequireDefault(_FinanciadorViewData);
 
+var _FinanciadorUserForm = __webpack_require__(339);
+
+var _FinanciadorUserForm2 = _interopRequireDefault(_FinanciadorUserForm);
+
 var _FinanciadorUserViewData = __webpack_require__(322);
 
 var _FinanciadorUserViewData2 = _interopRequireDefault(_FinanciadorUserViewData);
+
+var _HospitalHome = __webpack_require__(330);
+
+var _HospitalHome2 = _interopRequireDefault(_HospitalHome);
+
+var _HospitalForm = __webpack_require__(341);
+
+var _HospitalForm2 = _interopRequireDefault(_HospitalForm);
+
+var _HospitalViewData = __webpack_require__(331);
+
+var _HospitalViewData2 = _interopRequireDefault(_HospitalViewData);
+
+var _HospitalUserViewData = __webpack_require__(334);
+
+var _HospitalUserViewData2 = _interopRequireDefault(_HospitalUserViewData);
+
+var _AdministradorHome = __webpack_require__(336);
+
+var _AdministradorHome2 = _interopRequireDefault(_AdministradorHome);
+
+var _BedinUserViewData = __webpack_require__(337);
+
+var _BedinUserViewData2 = _interopRequireDefault(_BedinUserViewData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15683,11 +15711,16 @@ var router = _react2.default.createElement(
       _reactRouter.Route,
       { path: '/Bedin', component: _BedinHome2.default },
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador', component: _FinanciadorHome2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver', component: _FinanciadorViewData2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entcrear', component: _FinanciadorForm2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver' }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/usercrear' }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/userver', component: _FinanciadorUserViewData2.default })
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/entver', component: _FinanciadorViewData2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/usercrear', component: _FinanciadorUserForm2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'financiador/userver', component: _FinanciadorUserViewData2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'hospital', component: _HospitalHome2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'hospital', component: _HospitalForm2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'hospital/entver', component: _HospitalViewData2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'hospital/userver', component: _HospitalUserViewData2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'administrador', component: _AdministradorHome2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'administrador/userver', component: _BedinUserViewData2.default })
     ),
     _react2.default.createElement(_reactRouter.Route, { path: '/Financiador' }),
     _react2.default.createElement(_reactRouter.Route, { path: '/Hospital' })
@@ -30619,18 +30652,22 @@ var _viewFinanciador = __webpack_require__(325);
 
 var _viewFinanciador2 = _interopRequireDefault(_viewFinanciador);
 
-var _viewUserFinanciador = __webpack_require__(326);
+var _viewUser = __webpack_require__(328);
 
-var _viewUserFinanciador2 = _interopRequireDefault(_viewUserFinanciador);
+var _viewUser2 = _interopRequireDefault(_viewUser);
+
+var _viewHospital = __webpack_require__(329);
+
+var _viewHospital2 = _interopRequireDefault(_viewHospital);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Import individual reducers here
 var rootReducer = (0, _redux.combineReducers)({
 	authentication: _authentication2.default,
 	formReducers: _formReducers2.default,
 	viewFinanciadores: _viewFinanciador2.default,
-	viewUserFinanciador: _viewUserFinanciador2.default,
+	viewUser: _viewUser2.default,
+	viewHospitals: _viewHospital2.default,
 	routing: _reactRouterRedux.routerReducer
 });
 
@@ -30717,11 +30754,16 @@ function formReducers() {
     phone: null,
     email: null,
     plans: [],
+    type: null,
+    osCode: null,
     receiveHospitals: false,
-    hospitals: []
+    hospitals: [],
+    receiveFinanciadors: false,
+    financiadors: []
   };
   var action = arguments[1];
 
+  console.log('ACTION', action);
   switch (action.type) {
     case 'REQUEST_CREATE':
       return Object.assign({}, state, { isRequesting: true });
@@ -30735,13 +30777,33 @@ function formReducers() {
         email: action.input.email,
         plans: action.input.plans
       });
+    case 'RECEIVE_CREATED_HOSPITAL':
+      return Objectassign({}, state, {
+        isRequesting: false,
+        createSuccess: true,
+        name: action.input.name,
+        address: action.input.address,
+        phone: action.input.phone,
+        email: action.input.email
+      });
+    case 'RECEIVE_CREATED_USER':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        createSuccess: true,
+        name: action.input.name,
+        address: action.input.address,
+        phone: action.input.phone,
+        email: action.input.email,
+        username: action.input.username,
+        type: action.input.type
+      });
     case 'FAILED_TO_CREATE':
       return Object.assign({}, state, {
         isRequesting: false,
         createSuccess: false,
         error: action.err
       });
-    case 'REQUEST_HOSPITAL_LIST':
+    case 'REQUEST_LIST':
       return Object.assign({}, state, { isRequesting: true });
     case 'RECEIVE_HOSPITALS':
       return Object.assign({}, state, {
@@ -30749,11 +30811,19 @@ function formReducers() {
         receiveHospitals: true,
         hospitals: action.hospitals // receiving a hospitals array from server
       });
+    case 'RECEIVE_FINANCIADORS':
+      return Object.assign({}, state, {
+        isRequesting: false,
+        receiveFinanciadors: true,
+        financiadors: action.financiadors // receiving a financiadors array from server
+      });
     case 'FAILED_REQUEST':
       return Object.assign({}, state, {
         isRequesting: false,
         error: action.err
       });
+    case 'RESET_CREATE_SUCCESS':
+      return Object.assign({}, state, { createSucces: false });
     default:
       return state;
   }
@@ -30802,7 +30872,7 @@ exports = module.exports = __webpack_require__(78)(undefined);
 
 
 // module
-exports.push([module.i, "/*LOGIN*/\r\n\r\n.container_a {\r\n  position: fixed;\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sign_up{\r\ncolor:black;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n     font-weight: bold;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nmargenes{\r\n    font-size: 20px;\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n\r\n}\r\n\r\n/*OBRAS SOCIALES HOME*/\r\n\r\n.btn-glyphicon {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n}\r\n.icon-btn {\r\n    padding: 1px 15px 3px 2px;\r\n\r\n}\r\n\r\n#radio{\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n.container-margin{\r\n    margin-top: 100px;\r\n}\r\n\r\n.title{\r\n     margin-left: 70px;\r\n}\r\n\r\n\r\n#button2:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n", ""]);
+exports.push([module.i, "/*LOGIN*/\r\n\r\n.container_a {\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sign_up{\r\ncolor:black;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n     font-weight: bold;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nmargenes{\r\n    font-size: 20px;\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n\r\n}\r\n\r\n/*OBRAS SOCIALES HOME*/\r\n\r\n.btn-glyphicon {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n}\r\n.icon-btn {\r\n    padding: 1px 15px 3px 2px;\r\n\r\n}\r\n\r\n#radio{\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n.container-margin{\r\n    margin-top: 100px;\r\n}\r\n\r\n.title{\r\n     margin-left: 70px;\r\n}\r\n\r\n\r\n#button2:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n", ""]);
 
 // exports
 
@@ -31127,7 +31197,7 @@ var navBarData = {
 		route: "/Bedin/hospital",
 		name: "HOSPITAL"
 	}, {
-		route: "/Bedin/admin",
+		route: "/Bedin/administrador",
 		name: "ADMINISTRADOR"
 	}],
 	logo: '/public/img/logo_original.jpg'
@@ -31158,27 +31228,6 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-
-/*
-<containercases localState>
-
-		<containerForm funcionNext>
-			<componenteForm1 >
-				
-			</componenteForm1>
-		</containerForm>
-
-		<containerPlanes funcionAgreg>
-			<componentePlan-Hospital>
-				
-			</componentePlan-Hospital>
-			<compnenteTabla>
-				
-			</compnenteTabla>
-		</containerPlanes>
-
-</containercases>
-	*/
 
 /***/ }),
 /* 311 */,
@@ -31221,7 +31270,7 @@ function FinanciadorHome(props) {
           _react2.default.createElement(
             'h2',
             { className: 'title' },
-            'Obra Social'
+            'Entidad Obra Social'
           ),
           _react2.default.createElement(
             _reactRouter.Link,
@@ -31233,7 +31282,7 @@ function FinanciadorHome(props) {
             _reactRouter.Link,
             { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'radio' },
             _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
-            'Obras Sociales'
+            'Lista de Obras Sociales'
           )
         ),
         _react2.default.createElement(
@@ -31242,11 +31291,11 @@ function FinanciadorHome(props) {
           _react2.default.createElement(
             'h2',
             { className: 'title' },
-            'Usuarios '
+            'Usuario Obra Social'
           ),
           _react2.default.createElement(
             _reactRouter.Link,
-            { to: '#', className: 'btn icon-btn btn-info', id: 'radio' },
+            { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'radio' },
             _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
             'Generar Usuario'
           ),
@@ -31451,6 +31500,11 @@ var FinanciadorForm = function (_React$Component) {
       this.props.fetchHospitalList();
     }
   }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.resetCreateSuccess();
+    }
+  }, {
     key: 'render',
     value: function render() {
       switch (this.state.step) {
@@ -31486,23 +31540,29 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.requestCreate = requestCreate;
-exports.requestHospitalList = requestHospitalList;
+exports.requestList = requestList;
 exports.receiveCreated = receiveCreated;
+exports.receiveCreatedHospital = receiveCreatedHospital;
+exports.receiveCreatedUser = receiveCreatedUser;
 exports.receiveHospitals = receiveHospitals;
+exports.receiveFinanciadors = receiveFinanciadors;
 exports.failedToCreate = failedToCreate;
 exports.failedRequest = failedRequest;
+exports.resetCreateSuccess = resetCreateSuccess;
 exports.createEntidadFinanciadora = createEntidadFinanciadora;
+exports.createEntidadHospital = createEntidadHospital;
 exports.fetchHospitalList = fetchHospitalList;
-exports.createUserFinanciador = createUserFinanciador;
+exports.fetchFinanciadorList = fetchFinanciadorList;
+exports.createUser = createUser;
 function requestCreate() {
   return {
     type: 'REQUEST_CREATE'
   };
 }
 
-function requestHospitalList() {
+function requestList() {
   return {
-    type: 'REQUEST_HOSPITAL_LIST'
+    type: 'REQUEST_LIST'
   };
 }
 
@@ -31513,10 +31573,31 @@ function receiveCreated(input) {
   };
 }
 
+function receiveCreatedHospital(input) {
+  return {
+    type: 'RECEIVE_CREATED_HOSPITAL',
+    input: input
+  };
+}
+
+function receiveCreatedUser(input) {
+  return {
+    type: 'RECEIVE_CREATED_USER',
+    input: input
+  };
+}
+
 function receiveHospitals(hospitals) {
   return {
     type: 'RECEIVE_HOSPITALS',
     hospitals: hospitals
+  };
+}
+
+function receiveFinanciadors(financiadors) {
+  return {
+    type: 'RECEIVE_FINANCIADORS',
+    financiadors: financiadors
   };
 }
 
@@ -31531,6 +31612,12 @@ function failedRequest(err) {
   return {
     type: 'FAILED_REQUEST',
     err: err
+  };
+}
+
+function resetCreateSuccess() {
+  return {
+    type: 'RESET_CREATE_SUCCESS'
   };
 }
 
@@ -31562,9 +31649,37 @@ function createEntidadFinanciadora(inputData) {
   };
 };
 
+function createEntidadHospital(inputData) {
+
+  return function (dispatch) {
+    dispatch(requestCreate());
+
+    return fetch('./bedin/hospitals', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputData)
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      //console.log('DATA', data)
+      if (data) {
+        dispatch(receiveCreatedHospital(data));
+      } else {
+        dispatch(failedToCreate(data.err));
+      }
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
 function fetchHospitalList() {
   return function (dispatch) {
-    dispatch(requestHospitalList());
+    dispatch(requestList());
 
     return fetch('./bedin/hospitals', {
       method: 'GET',
@@ -31582,7 +31697,27 @@ function fetchHospitalList() {
   };
 };
 
-function createUserFinanciador(inputData) {
+function fetchFinanciadorList() {
+  return function (dispatch) {
+    dispatch(requestList());
+
+    return fetch('./bedin/healthcares', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      return dispatch(receiveFinanciadors(data));
+    }).catch(function (err) {
+      return dispatch(failedRequest(err));
+    });
+  };
+};
+
+function createUser(inputData) {
 
   return function (dispatch) {
     dispatch(requestCreate());
@@ -31598,13 +31733,15 @@ function createUserFinanciador(inputData) {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      if (data.register) {
-        dispatch(receiveCreated());
+      console.log('DATA', data);
+      if (!data.error) {
+        dispatch(receiveCreatedUser(data));
       } else {
         dispatch(failedToCreate(data.err));
       }
     }).catch(function (err) {
-      return dispatch(failedRequest(err));
+      console.log(err);
+      dispatch(failedRequest(err));
     });
   };
 };
@@ -31902,7 +32039,7 @@ function GlobalNavbar(props) {
       { className: 'margenes', key: i },
       _react2.default.createElement(
         _reactRouter.Link,
-        { to: 'Bedin/financiador' },
+        { to: '' + linkData.route },
         linkData.name
       )
     );
@@ -32241,9 +32378,9 @@ var _redux = __webpack_require__(46);
 
 var _reactRedux = __webpack_require__(126);
 
-var _viewUserFinanciador = __webpack_require__(323);
+var _viewUser = __webpack_require__(327);
 
-var actionCreators = _interopRequireWildcard(_viewUserFinanciador);
+var actionCreators = _interopRequireWildcard(_viewUser);
 
 var _TableDataUserFinanciador = __webpack_require__(324);
 
@@ -32261,8 +32398,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function mapStateToProps(state) {
 	return {
-		usersFinanciador: state.viewUserFinanciador.usersFinanciador,
-		isRequesting: state.viewUserFinanciador.isRequesting
+		usersFinanciador: state.viewUser.users,
+		isRequesting: state.viewUser.isRequesting
 	};
 }
 
@@ -32306,81 +32443,7 @@ var FinanciadorUserViewData = function (_React$Component) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FinanciadorUserViewData);
 
 /***/ }),
-/* 323 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.isRequestingToServer = isRequestingToServer;
-exports.getUserById = getUserById;
-exports.getUsersByType = getUsersByType;
-exports.faildToGetUser = faildToGetUser;
-exports.fetchGetUserById = fetchGetUserById;
-exports.fetchGetUsersByType = fetchGetUsersByType;
-function isRequestingToServer() {
-	return {
-		type: 'IS_REQUESTING_TO_SERVER'
-	};
-}
-
-function getUserById(user) {
-	return {
-		type: 'GET_USER_BY_ID',
-		user: user
-	};
-}
-
-function getUsersByType(users) {
-	return {
-		type: 'GET_USER_BY_TYPE',
-		users: users
-	};
-}
-
-function faildToGetUser(err) {
-	return {
-		type: 'FAILED_TO_GET_USER',
-		err: err
-	};
-}
-
-function fetchGetUserById(id) {
-	return function (dispatch) {
-		dispatch(isRequestingToServer());
-		fetch('./bedin/users/id/' + id, {
-			method: 'GET',
-			credentials: 'include'
-		}).then(function (result) {
-			return result.json();
-		}).then(function (user) {
-			return dispatch(getUserById(user));
-		}).catch(function (error) {
-			return dispatch(faildToGetUser(error));
-		});
-	};
-}
-
-function fetchGetUsersByType(type) {
-	return function (dispatch) {
-		dispatch(isRequestingToServer());
-		fetch('./bedin/users/type/' + type, {
-			method: 'GET',
-			credentials: 'include'
-		}).then(function (result) {
-			return result.json();
-		}).then(function (users) {
-			return dispatch(getUsersByType(users));
-		}).catch(function (error) {
-			return dispatch(faildToGetUser(error));
-		});
-	};
-}
-
-/***/ }),
+/* 323 */,
 /* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32401,7 +32464,7 @@ function TableDataUserFinanciador(props) {
 	var users = props.users.map(function (user) {
 		return _react2.default.createElement(
 			'tr',
-			null,
+			{ key: user._id },
 			_react2.default.createElement(
 				'td',
 				null,
@@ -32516,7 +32579,8 @@ function viewFinanciadores() {
 exports.default = viewFinanciadores;
 
 /***/ }),
-/* 326 */
+/* 326 */,
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32525,10 +32589,85 @@ exports.default = viewFinanciadores;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-function viewUserFinanciador() {
+exports.isRequestingToServer = isRequestingToServer;
+exports.getUserById = getUserById;
+exports.getUsersByType = getUsersByType;
+exports.faildToGetUser = faildToGetUser;
+exports.fetchGetUserById = fetchGetUserById;
+exports.fetchGetUsersByType = fetchGetUsersByType;
+function isRequestingToServer() {
+	return {
+		type: 'IS_REQUESTING_TO_SERVER'
+	};
+}
+
+function getUserById(user) {
+	return {
+		type: 'GET_USER_BY_ID',
+		user: user
+	};
+}
+
+function getUsersByType(users) {
+	return {
+		type: 'GET_USER_BY_TYPE',
+		users: users
+	};
+}
+
+function faildToGetUser(err) {
+	return {
+		type: 'FAILED_TO_GET_USER',
+		err: err
+	};
+}
+
+function fetchGetUserById(id) {
+	return function (dispatch) {
+		dispatch(isRequestingToServer());
+		fetch('./bedin/users/id/' + id, {
+			method: 'GET',
+			credentials: 'include'
+		}).then(function (result) {
+			return result.json();
+		}).then(function (user) {
+			return dispatch(getUserById(user));
+		}).catch(function (error) {
+			return dispatch(faildToGetUser(error));
+		});
+	};
+}
+
+function fetchGetUsersByType(type) {
+	return function (dispatch) {
+		dispatch(isRequestingToServer());
+		fetch('./bedin/users/type/' + type, {
+			method: 'GET',
+			credentials: 'include'
+		}).then(function (result) {
+			return result.json();
+		}).then(function (users) {
+			return dispatch(getUsersByType(users));
+		}).catch(function (error) {
+			return dispatch(faildToGetUser(error));
+		});
+	};
+}
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function viewUser() {
 	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
 		isRequesting: false,
-		usersFinanciador: null,
+		users: null,
 		error: null
 	};
 	var action = arguments[1];
@@ -32537,17 +32676,18 @@ function viewUserFinanciador() {
 	switch (action.type) {
 		case 'IS_REQUESTING_TO_SERVER':
 			return Object.assign({}, state, {
+				users: null,
 				isRequesting: true
 			});
 		case 'GET_USER_BY_ID':
 			return Object.assign({}, state, {
 				isRequesting: false,
-				usersFinanciador: action.user
+				users: action.user
 			});
 		case 'GET_USER_BY_TYPE':
 			return Object.assign({}, state, {
 				isRequesting: false,
-				usersFinanciador: action.users
+				users: action.users
 			});
 		case 'FAILED_TO_GET_USER':
 			return Object.assign({}, state, {
@@ -32559,7 +32699,1245 @@ function viewUserFinanciador() {
 	}
 }
 
-exports.default = viewUserFinanciador;
+exports.default = viewUser;
+
+/***/ }),
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+function viewHospitals() {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+		hospitals: null,
+		isRequesting: false,
+		error: false
+	};
+	var action = arguments[1];
+
+	switch (action.type) {
+		case 'IS_REQUESTING_TO_SERVER':
+			return Object.assign({}, state, {
+				isRequesting: true
+			});
+		case 'GET_HOSPITALS':
+			return Object.assign({}, state, {
+				isRequesting: false,
+				hospitals: action.hospitals
+			});
+		case 'FAILED_REQUEST':
+			return Object.assign({}, state, {
+				isRequesting: false,
+				error: action.err
+			});
+		default:
+			return state;
+	}
+}
+
+exports.default = viewHospitals;
+
+/***/ }),
+/* 330 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LargeButton = __webpack_require__(313);
+
+var _LargeButton2 = _interopRequireDefault(_LargeButton);
+
+var _reactRouter = __webpack_require__(27);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function HospitalHome(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container-fluid container-margin' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Hospital'
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon-plus img-circle text-info' }),
+            'Adherir Hospital '
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/hospital/entver' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Hospitales'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Usuarios '
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
+            'Generar Usuario '
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/hospital/userver' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Lista de Usuarios '
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = HospitalHome;
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _viewHospital = __webpack_require__(332);
+
+var actionCreators = _interopRequireWildcard(_viewHospital);
+
+var _TableDataHospital = __webpack_require__(333);
+
+var _TableDataHospital2 = _interopRequireDefault(_TableDataHospital);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+	return {
+		isRequesting: state.viewHospitals.isRequesting,
+		hospitals: state.viewHospitals.hospitals
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var HospitalDataView = function (_React$Component) {
+	_inherits(HospitalDataView, _React$Component);
+
+	function HospitalDataView(props) {
+		_classCallCheck(this, HospitalDataView);
+
+		return _possibleConstructorReturn(this, (HospitalDataView.__proto__ || Object.getPrototypeOf(HospitalDataView)).call(this, props));
+	}
+
+	_createClass(HospitalDataView, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			this.props.fetchHospitals();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var dataHospitals = !this.props.hospitals ? _react2.default.createElement(
+				'p',
+				null,
+				'Cargando...'
+			) : _react2.default.createElement(_TableDataHospital2.default, { hospitals: this.props.hospitals });
+			return _react2.default.createElement(
+				'div',
+				null,
+				dataHospitals
+			);
+		}
+	}]);
+
+	return HospitalDataView;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HospitalDataView);
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.isRequestingToServer = isRequestingToServer;
+exports.getHospitals = getHospitals;
+exports.failedRequest = failedRequest;
+exports.fetchHospitals = fetchHospitals;
+function isRequestingToServer() {
+	return {
+		type: 'IS_REQUESTING_TO_SERVER'
+	};
+}
+
+function getHospitals(hospitals) {
+	return {
+		type: 'GET_HOSPITALS',
+		hospitals: hospitals
+	};
+}
+
+function failedRequest(err) {
+	return {
+		type: 'FAILED_REQUEST',
+		err: err
+	};
+}
+
+function fetchHospitals() {
+	return function (dispatch) {
+		dispatch(isRequestingToServer());
+		fetch('./bedin/hospitals', {
+			method: 'GET',
+			credentials: 'include'
+		}).then(function (response) {
+			return response.json();
+		}).then(function (hospitals) {
+			return dispatch(getHospitals(hospitals));
+		}).catch(function (err) {
+			return dispatch(failedRequest(err));
+		});
+	};
+}
+
+/***/ }),
+/* 333 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function TableDataHospital(props) {
+	var hospitals = props.hospitals.map(function (hospital) {
+		return _react2.default.createElement(
+			"tr",
+			{ key: hospital._id },
+			_react2.default.createElement(
+				"td",
+				null,
+				hospital.name
+			)
+		);
+	});
+	return _react2.default.createElement(
+		"table",
+		{ className: "table" },
+		_react2.default.createElement(
+			"thead",
+			null,
+			_react2.default.createElement(
+				"tr",
+				null,
+				_react2.default.createElement(
+					"th",
+					null,
+					"Nombre"
+				),
+				_react2.default.createElement(
+					"th",
+					null,
+					"Direccion"
+				),
+				_react2.default.createElement(
+					"th",
+					null,
+					"Telefono"
+				)
+			)
+		),
+		_react2.default.createElement(
+			"tbody",
+			null,
+			hospitals
+		)
+	);
+}
+
+exports.default = TableDataHospital;
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _viewUser = __webpack_require__(327);
+
+var actionCreators = _interopRequireWildcard(_viewUser);
+
+var _TableDataUserHospital = __webpack_require__(335);
+
+var _TableDataUserHospital2 = _interopRequireDefault(_TableDataUserHospital);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+	return {
+		usersHospital: state.viewUser.users,
+		isRequesting: state.viewUser.isRequesting
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var HospitalUserViewData = function (_React$Component) {
+	_inherits(HospitalUserViewData, _React$Component);
+
+	function HospitalUserViewData(props) {
+		_classCallCheck(this, HospitalUserViewData);
+
+		return _possibleConstructorReturn(this, (HospitalUserViewData.__proto__ || Object.getPrototypeOf(HospitalUserViewData)).call(this, props));
+	}
+
+	_createClass(HospitalUserViewData, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			this.props.fetchGetUsersByType('Hospital');
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var dataUserHospital = this.props.usersHospital === null ? _react2.default.createElement(
+				'p',
+				null,
+				'Cargando...'
+			) : _react2.default.createElement(_TableDataUserHospital2.default, { users: this.props.usersHospital });
+			return _react2.default.createElement(
+				'div',
+				null,
+				dataUserHospital
+			);
+		}
+	}]);
+
+	return HospitalUserViewData;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HospitalUserViewData);
+
+/***/ }),
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function TableDataUserHospital(props) {
+	var users = props.users.map(function (user) {
+		return _react2.default.createElement(
+			'tr',
+			{ key: user._id },
+			_react2.default.createElement(
+				'td',
+				null,
+				user.name
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.username
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.createdAt
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.workplace || 'Bedin'
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.rol || 'Admin'
+			)
+		);
+	});
+	return _react2.default.createElement(
+		'table',
+		{ className: 'table' },
+		_react2.default.createElement(
+			'thead',
+			null,
+			_react2.default.createElement(
+				'tr',
+				null,
+				_react2.default.createElement(
+					'th',
+					null,
+					'Nombre'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Usuario'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Fecha de creacion'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Entidad'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Rol'
+				)
+			)
+		),
+		_react2.default.createElement(
+			'tbody',
+			null,
+			users
+		)
+	);
+}
+
+exports.default = TableDataUserHospital;
+
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LargeButton = __webpack_require__(313);
+
+var _LargeButton2 = _interopRequireDefault(_LargeButton);
+
+var _reactRouter = __webpack_require__(27);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function AdministradorHome(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container-fluid container-margin' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'title' },
+            'Usuarios '
+          ),
+          _react2.default.createElement(
+            'a',
+            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
+            'Generar Usuario '
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/administrador/userver' },
+            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            'Lista de Usuarios '
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = AdministradorHome;
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _viewUser = __webpack_require__(327);
+
+var actionCreators = _interopRequireWildcard(_viewUser);
+
+var _TableDataUserBedin = __webpack_require__(338);
+
+var _TableDataUserBedin2 = _interopRequireDefault(_TableDataUserBedin);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+	return {
+		usersBedin: state.viewUser.users,
+		isRequesting: state.viewUser.isRequesting
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var BedinUserViewData = function (_React$Component) {
+	_inherits(BedinUserViewData, _React$Component);
+
+	function BedinUserViewData(props) {
+		_classCallCheck(this, BedinUserViewData);
+
+		return _possibleConstructorReturn(this, (BedinUserViewData.__proto__ || Object.getPrototypeOf(BedinUserViewData)).call(this, props));
+	}
+
+	_createClass(BedinUserViewData, [{
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			this.props.fetchGetUsersByType('Bedin');
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var dataUserBedin = this.props.usersBedin === null ? _react2.default.createElement(
+				'p',
+				null,
+				'Cargando...'
+			) : _react2.default.createElement(_TableDataUserBedin2.default, { users: this.props.usersBedin });
+			return _react2.default.createElement(
+				'div',
+				null,
+				dataUserBedin
+			);
+		}
+	}]);
+
+	return BedinUserViewData;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BedinUserViewData);
+
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function TableDataUserBedin(props) {
+	var users = props.users.map(function (user) {
+		return _react2.default.createElement(
+			'tr',
+			{ key: user._id },
+			_react2.default.createElement(
+				'td',
+				null,
+				user.name
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.username
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.createdAt
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.workplace || 'Bedin'
+			),
+			_react2.default.createElement(
+				'td',
+				null,
+				user.rol || 'Admin'
+			)
+		);
+	});
+	return _react2.default.createElement(
+		'table',
+		{ className: 'table' },
+		_react2.default.createElement(
+			'thead',
+			null,
+			_react2.default.createElement(
+				'tr',
+				null,
+				_react2.default.createElement(
+					'th',
+					null,
+					'Nombre'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Usuario'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Fecha de creacion'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Entidad'
+				),
+				_react2.default.createElement(
+					'th',
+					null,
+					'Rol'
+				)
+			)
+		),
+		_react2.default.createElement(
+			'tbody',
+			null,
+			users
+		)
+	);
+}
+
+exports.default = TableDataUserBedin;
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _formActions = __webpack_require__(315);
+
+var actionCreators = _interopRequireWildcard(_formActions);
+
+var _FinanciadorUserForm = __webpack_require__(340);
+
+var _FinanciadorUserForm2 = _interopRequireDefault(_FinanciadorUserForm);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+  return {
+    isRequesting: state.formReducers.isRequesting,
+    createSucces: state.formReducers.createSucces,
+    requestFail: state.formReducers.requestFail,
+    error: state.formReducers.error,
+    name: state.formReducers.name,
+    address: state.formReducers.address,
+    phone: state.formReducers.phone,
+    email: state.formReducers.email,
+    username: state.formReducers.username,
+    password: state.formReducers.password,
+    type: state.formReducers.type,
+    osCode: state.formReducers.osCode,
+    financiadors: state.formReducers.financiadors
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var FinanciadorUserForm = function (_React$Component) {
+  _inherits(FinanciadorUserForm, _React$Component);
+
+  function FinanciadorUserForm(props) {
+    _classCallCheck(this, FinanciadorUserForm);
+
+    var _this = _possibleConstructorReturn(this, (FinanciadorUserForm.__proto__ || Object.getPrototypeOf(FinanciadorUserForm)).call(this, props));
+
+    _this.create = _this.create.bind(_this);
+    return _this;
+  }
+
+  _createClass(FinanciadorUserForm, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.fetchFinanciadorList();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.resetCreateSuccess();
+    }
+  }, {
+    key: 'create',
+    value: function create(e) {
+      //console.log('HOLA...LLEGUE')
+      console.log('TARGET FINANCIADORS', e.target.financiadors);
+      var checkedFinanciador = this.props.financiadors.filter(function (financiador) {
+        return financiador.name === e.target.financiadors.value;
+      });
+      e.preventDefault();
+      this.props.createUser({
+        name: e.target.nombre.value,
+        //address: e.target.direccion.value,
+        //phone: e.target.telefono.value,
+        //email: e.target.email.value,
+        username: e.target.username.value,
+        password: e.target.password.value,
+        type: "Financiador",
+        osCode: checkedFinanciador[0]._id
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_FinanciadorUserForm2.default, { financiadors: this.props.financiadors, createUser: this.create })
+      );
+    }
+  }]);
+
+  return FinanciadorUserForm;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FinanciadorUserForm);
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function FinanciadorUserForm(props) {
+  console.log('USER FORM PROPS', props);
+  // props.createUser()
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container container_a' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-5' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-8 col-sm-6 col-lg-4 ' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Detalles de Usuario Financiador'
+          ),
+          _react2.default.createElement(
+            'form',
+            { onSubmit: props.createUser, className: 'form-horizontal' },
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group ' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
+                'Nombre'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'nombre', placeholder: 'Nombre' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
+                'Direcci\xF3n'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'direccion', placeholder: 'Direcci\xF3n' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'inputnumber3', className: 'col-sm-2 control-label' },
+                'Tel\xE9fono'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'tel', className: 'form-control', id: 'inputEmail3', name: 'telefono', placeholder: 'Tel\xE9fono' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
+                'Email'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'inputEmail3', name: 'email', placeholder: 'Email' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
+                'Temporary Username'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'username', placeholder: 'Username' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'label',
+                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
+                'Temporary Password'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-10' },
+                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'password', placeholder: 'Password' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'label',
+                null,
+                'Seleccione Financiadora del Usuario'
+              ),
+              props.financiadors.map(function (financiador, i) {
+                return _react2.default.createElement(
+                  'div',
+                  { key: i },
+                  _react2.default.createElement('input', { name: 'financiadors', type: 'radio', 'data-id': financiador._id, value: financiador.name }),
+                  financiador.name,
+                  _react2.default.createElement('br', null)
+                );
+              })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-offset-2 col-sm-10' },
+                _react2.default.createElement('input', { type: 'submit', value: 'Save', className: 'btn button', id: 'button2' })
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = FinanciadorUserForm;
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _formActions = __webpack_require__(315);
+
+var actionCreators = _interopRequireWildcard(_formActions);
+
+var _HospitalForm = __webpack_require__(342);
+
+var _HospitalForm2 = _interopRequireDefault(_HospitalForm);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+  return {
+    isRequesting: state.formReducers.isRequesting,
+    createSucces: state.formReducers.createSucces,
+    requestFail: state.formReducers.requestFail,
+    error: state.formReducers.error,
+    name: state.formReducers.name,
+    address: state.formReducers.address,
+    phone: state.formReducers.phone,
+    email: state.formReducers.email
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var HospitalForm = function (_React$Component) {
+  _inherits(HospitalForm, _React$Component);
+
+  function HospitalForm(props) {
+    _classCallCheck(this, HospitalForm);
+
+    var _this = _possibleConstructorReturn(this, (HospitalForm.__proto__ || Object.getPrototypeOf(HospitalForm)).call(this, props));
+
+    _this.create = _this.create.bind(_this);
+    return _this;
+  }
+
+  _createClass(HospitalForm, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.resetCreateSuccess();
+    }
+  }, {
+    key: 'create',
+    value: function create(e) {
+      e.preventDefault();
+      this.props.createEntidadHospital({
+        name: e.target.nombre.value,
+        address: e.target.direccion.value,
+        phone: e.target.telefono.value,
+        email: e.target.email.value
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_HospitalForm2.default, { createHospital: this.create })
+      );
+    }
+  }]);
+
+  return HospitalForm;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HospitalForm);
+
+/***/ }),
+/* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function HospitalForm(props) {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "div",
+      { className: "container container_a" },
+      _react2.default.createElement(
+        "div",
+        { className: "row" },
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement(
+          "div",
+          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          _react2.default.createElement(
+            "h2",
+            null,
+            "Detalles de Hospital"
+          ),
+          _react2.default.createElement(
+            "form",
+            { onSubmit: props.createUser, className: "form-horizontal" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group " },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Nombre"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "nombre", placeholder: "Nombre" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Direcci\xF3n"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "direccion", placeholder: "Direcci\xF3n" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputnumber3", className: "col-sm-2 control-label" },
+                "Tel\xE9fono"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "tel", className: "form-control", id: "inputEmail3", name: "telefono", placeholder: "Tel\xE9fono" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Email"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "email", className: "form-control", id: "inputEmail3", name: "email", placeholder: "Email" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-offset-2 col-sm-10" },
+                _react2.default.createElement("input", { type: "submit", value: "Save", className: "btn button", id: "button2" })
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = HospitalForm;
 
 /***/ })
 /******/ ]);
