@@ -30872,7 +30872,7 @@ exports = module.exports = __webpack_require__(78)(undefined);
 
 
 // module
-exports.push([module.i, "/*LOGIN*/\r\n\r\n.container_a {\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#button:hover {\r\n background: rgba(0,0,0,0);\r\n color: grey;\r\n display: block;\r\n margin: 10px auto;\r\n}\r\n\r\n#p{\r\n\tposition: absolute;\r\n\tmargin-top: 20%;\r\n}\r\n\r\n#Sign_up{\r\ncolor:black;\r\n}\r\n\r\n/*NAVBAR*/\r\n\r\n/*#btnLogout{\r\n\tmargin-top: 20px;\r\n}\r\n\r\n*/\r\n\r\n#nav > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n     font-weight: bold;\r\n}\r\n\r\n\r\n\r\n#navbar{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n\r\n}\r\n\r\n#buttom{\r\n\tcolor: black;\r\n}\r\n\r\n.btn-default {\r\n    background-color: #e3e7e5;\r\n }\r\n\r\n#a {\r\n\tcolor: #777;\r\n\tfont-size: 13px;\r\n\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\nli.margenes:hover{\r\n background-color: #e1e5e4;\r\n\r\n}\r\n\r\nmargenes{\r\n    font-size: 20px;\r\n}\r\n\r\nli > a:hover{\r\n background-color: #e1e5e4;\r\n\r\n\r\n}\r\n\r\n/*OBRAS SOCIALES HOME*/\r\n\r\n.btn-glyphicon {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n}\r\n.icon-btn {\r\n    padding: 1px 15px 3px 2px;\r\n\r\n}\r\n\r\n#radio{\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n.container-margin{\r\n    margin-top: 100px;\r\n}\r\n\r\n.title{\r\n     margin-left: 70px;\r\n}\r\n\r\n\r\n#button2:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n", ""]);
+exports.push([module.i, "/*Login*/\r\n\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:80px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n/*BedinNavbar*/\r\n\r\n#b3{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}\r\n\r\n#c3{ color: black;}\r\n\r\n#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\nli.e3:hover { background-color: #e1e5e4;}\r\n\r\nli > a:hover { background-color: #e1e5e4;}\r\n\r\n#aaa{\r\n    background-color: lightblue;\r\n}\r\n\r\n#bbb{\r\n    background-color: lightyellow;\r\n}\r\n\r\n#aaa{\r\n    background-color: lightgreen;\r\n}\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n    width: 43%;\r\n    height: 30%;\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 70px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n#c1:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n.row { margin-top: 50px; }\r\n\r\n#th {\r\n    border-bottom-width: 2px;\r\n    border-bottom-color:#777777;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n    background: white;\r\n    border-bottom-color: lightgrey;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: lightgrey;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #e7e7e7;\r\n    color: #777;\r\n }\r\n", ""]);
 
 // exports
 
@@ -31088,26 +31088,24 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function Login(props) {
 	return _react2.default.createElement(
 		"div",
 		null,
-		_react2.default.createElement("div", { className: "portada" }),
+		_react2.default.createElement("div", null),
 		_react2.default.createElement(
 			"div",
 			null,
 			_react2.default.createElement(
 				"div",
-				{ className: "container container_a" },
+				{ className: "container" },
 				_react2.default.createElement(
 					"div",
 					{ className: "row" },
-					_react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+					_react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-4" }),
 					_react2.default.createElement(
 						"div",
-						{ className: "col-xs-8 col-sm-6 col-lg-4 " },
+						{ className: "col-xs-8 col-sm-4 col-lg-4 ", id: "a1" },
 						_react2.default.createElement(
 							"form",
 							{ onSubmit: function onSubmit(e) {
@@ -31116,7 +31114,7 @@ function Login(props) {
 								} },
 							_react2.default.createElement(
 								"div",
-								{ className: "input-group", id: "trasparencia" },
+								{ className: "input-group" },
 								_react2.default.createElement(
 									"span",
 									{ className: "input-group-addon" },
@@ -31136,20 +31134,10 @@ function Login(props) {
 							),
 							_react2.default.createElement(
 								"button",
-								{ type: "submit", className: " btn button", id: "button" },
+								{ type: "submit", className: " btn button", id: "bb" },
 								"Login"
 							),
-							_react2.default.createElement("br", null),
-							_react2.default.createElement(
-								"p",
-								_defineProperty({ id: "p" }, "id", "Sing_up"),
-								"\xBFNo estas registrado? ",
-								_react2.default.createElement(
-									"a",
-									{ href: "" },
-									"Sign Up"
-								)
-							)
+							_react2.default.createElement("br", null)
 						)
 					)
 				)
@@ -31245,13 +31233,13 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(27);
-
 var _LargeButton = __webpack_require__(313);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function FinanciadorHome(props) {
   return _react2.default.createElement(
@@ -31259,7 +31247,7 @@ function FinanciadorHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      { className: 'container-fluid container-margin' },
+      { className: 'container-fluid b4' },
       _react2.default.createElement(
         'div',
         { className: 'row' },
@@ -31269,20 +31257,20 @@ function FinanciadorHome(props) {
           { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'title' },
-            'Entidad Obra Social'
+            { className: 'e4' },
+            'Obra Social'
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: 'Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'radio' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon-plus img-circle text-info' }),
-            'Adherir Obra Social'
+            Link,
+            { to: '/Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'c4' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
+            'Adherir Obra Social '
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'radio' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
-            'Lista de Obras Sociales'
+            Link,
+            { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'c4' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+            'Obras Sociales'
           )
         ),
         _react2.default.createElement(
@@ -31290,20 +31278,20 @@ function FinanciadorHome(props) {
           { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'title' },
-            'Usuario Obra Social'
+            { className: 'e4' },
+            'Usuarios '
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'radio' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
-            'Generar Usuario'
+            Link,
+            { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+            'Generar Usuario  '
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'radio' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
-            'Lista de Usuarios'
+            Link,
+            _defineProperty({ to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'c4' }, 'to', '/Bedin/hospital/userver'),
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+            'Lista de Usuarios '
           )
         )
       )
@@ -31764,94 +31752,102 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FinanciadorFormStep1(props) {
-  console.log('PROPS @ STEP 1', props);
+  console.log(props);
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'div',
-      { className: 'container container_a' },
+      "div",
+      { className: "container a1" },
       _react2.default.createElement(
-        'div',
-        { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-5' }),
+        "div",
+        { className: "row" },
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
         _react2.default.createElement(
-          'div',
-          { className: 'col-xs-8 col-sm-6 col-lg-4 ' },
+          "div",
+          { className: "col-xs-8 col-sm-6 col-lg-4 " },
           _react2.default.createElement(
-            'h2',
-            null,
-            'Detalles de Financiador'
-          ),
-          _react2.default.createElement(
-            'form',
-            { className: 'form-horizontal', onSubmit: props.nextStep },
+            "form",
+            { className: "form-horizontal", onSubmit: props.nextStep },
             _react2.default.createElement(
-              'div',
-              { className: 'form-group ' },
+              "div",
+              { className: "form-group " },
               _react2.default.createElement(
-                'label',
-                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
-                'Nombre'
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'nombre', placeholder: 'Nombre' })
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
-              _react2.default.createElement(
-                'label',
-                { htmlFor: 'exampleInputName2', className: 'col-sm-2 control-label' },
-                'Direcci\xF3n'
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'inputEmail3', name: 'direccion', placeholder: 'Direcci\xF3n' })
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
-              _react2.default.createElement(
-                'label',
-                { htmlFor: 'inputnumber3', className: 'col-sm-2 control-label' },
-                'Tel\xE9fono'
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'tel', className: 'form-control', id: 'inputEmail3', name: 'telefono', placeholder: 'Tel\xE9fono' })
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
-              _react2.default.createElement(
-                'label',
-                { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
-                'Email'
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-10' },
-                _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'inputEmail3', name: 'email', placeholder: 'Email' })
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'form-group' },
-              _react2.default.createElement(
-                'div',
-                { className: 'col-sm-offset-2 col-sm-10' },
+                "div",
+                { id: "b1" },
                 _react2.default.createElement(
-                  'button',
-                  { className: 'btn button', id: 'button2' },
-                  'Save and Continue'
+                  "span",
+                  null,
+                  _react2.default.createElement(
+                    "h",
+                    null,
+                    "INGRESE NUEVA OBRA SOCIAL"
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Nombre"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "nombre", placeholder: "Nombre" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Direcci\xF3n "
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "direccion", placeholder: "Direcci\xF3n" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputnumber3", className: "col-sm-2 control-label" },
+                "Tel\xE9fono"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "telefono", placeholder: "Telefono" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Email"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "email", className: "form-control", id: "inputEmail3", name: "email", placeholder: "Email" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-offset-2 col-sm-10" },
+                _react2.default.createElement(
+                  "button",
+                  { className: " btn button", id: "c1" },
+                  "Next"
                 )
               )
             )
@@ -31863,9 +31859,6 @@ function FinanciadorFormStep1(props) {
 }
 
 exports.default = FinanciadorFormStep1;
-
-// <button onClick={this.nextStep}>Save &amp; Continue</button>
-// onClick={props.nextStep.bind(this)}
 
 /***/ }),
 /* 317 */
@@ -31884,118 +31877,158 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function FinanciadorFormStep2(props) {
-  console.log('PROPS @ Step 2', props);
   var popup = null;
   if (props.success) {
     popup = _react2.default.createElement(
-      'div',
+      "div",
       null,
-      'FINANCIADOR CREADO'
+      "OBRA SOCIAL CREADA"
     );
   }
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'label',
-      null,
-      'Plan'
-    ),
-    _react2.default.createElement('input', { type: 'text', name: 'plan' }),
-    ' ',
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(
-      'label',
-      null,
-      'Seleccione Hospital(es) Perteneciente(s) al Plan'
-    ),
-    _react2.default.createElement(
-      'form',
-      { name: 'hospitalChecklist' },
-      props.hospitals.map(function (hospital, i) {
-        return _react2.default.createElement(
-          'div',
-          { key: i },
-          _react2.default.createElement('input', { name: 'hospitals', type: 'checkbox', 'data-id': hospital._id, value: hospital.name }),
-          hospital.name,
-          _react2.default.createElement('br', null)
-        );
-      })
-    ),
-    _react2.default.createElement(
-      'button',
-      { onClick: function onClick(e) {
-          e.preventDefault();
-          var plan = document.querySelector('input').value;
-          var hospitals = [];
-          document.querySelector('form').elements.hospitals.forEach(function (input) {
-            if (input.checked) hospitals.push({ value: input.value, id: input.dataset.id });
-          });
-          props.add(plan, hospitals);
-          document.querySelector('input').value = "";
-          document.querySelector('form').reset();
-        }
-      },
-      'Add'
-    ),
-    _react2.default.createElement(
-      'table',
-      { style: { border: "1px solid black" } },
+      "div",
+      { className: "container container_a" },
       _react2.default.createElement(
-        'thead',
-        { style: { border: "1px solid black" } },
+        "div",
+        { className: "row" },
+        _react2.default.createElement("div", { className: "col-xs- col-sm-2 col-lg-2" }),
         _react2.default.createElement(
-          'tr',
-          null,
+          "div",
+          { className: "col-xs-5 col-sm-4 col-lg-4", id: "a" },
           _react2.default.createElement(
-            'th',
-            { style: { border: "1px solid black" } },
-            'Plan'
+            "div",
+            { className: "form-horizontal" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group ", id: "b" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Plan"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("span", { "aria-hidden": "true" }),
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "plan", placeholder: "Ingrese Plan" })
+              )
+            )
           ),
           _react2.default.createElement(
-            'th',
-            { style: { border: "1px solid black" } },
-            'Hospitales del Plan'
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'tbody',
-        null,
-        props.planInputs.map(function (plan, i) {
-          return _react2.default.createElement(
-            'tr',
-            { key: i, style: { border: "1px solid black" } },
+            "label",
+            null,
+            "Seleccione Hospital(es) Perteneciente(s) al Plan"
+          ),
+          _react2.default.createElement(
+            "form",
+            { name: "hospitalChecklist" },
+            props.hospitals.map(function (hospital, i) {
+              var _React$createElement;
+
+              return _react2.default.createElement(
+                "div",
+                { key: i, className: "checkbox", id: "c" },
+                _react2.default.createElement("input", (_React$createElement = { type: "checkbox", name: "hospitals" }, _defineProperty(_React$createElement, "type", "checkbox"), _defineProperty(_React$createElement, "data-id", hospital._id), _defineProperty(_React$createElement, "value", hospital.name), _React$createElement)),
+                hospital.name,
+                _react2.default.createElement("br", null)
+              );
+            })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "form-group", id: "d" },
             _react2.default.createElement(
-              'td',
-              { style: { border: "1px solid black" } },
-              props.planInputs[i]
+              "div",
+              { className: "col-sm-offset-3 col-sm-10" },
+              _react2.default.createElement(
+                "button",
+                { onClick: function onClick(e) {
+                    e.preventDefault();
+                    var plan = document.querySelector('input').value;
+                    var hospitals = [];
+                    document.querySelector('form').elements.hospitals.forEach(function (input) {
+                      if (input.checked) hospitals.push({ value: input.value, id: input.dataset.id });
+                    });
+                    props.add(plan, hospitals);
+                    document.querySelector('input').value = "";
+                    document.querySelector('form').reset();
+                  }, className: " btn button", id: "button2"
+                },
+                "Add"
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "col-xs-5 col-sm-4 col-lg-4", id: "f" },
+          _react2.default.createElement(
+            "table",
+            { className: "table table-bordered g" },
+            _react2.default.createElement(
+              "thead",
+              null,
+              _react2.default.createElement(
+                "tr",
+                { id: "th" },
+                _react2.default.createElement(
+                  "th",
+                  null,
+                  "PLANES"
+                ),
+                _react2.default.createElement(
+                  "th",
+                  null,
+                  "HOSPITALES"
+                )
+              )
             ),
             _react2.default.createElement(
-              'td',
-              { style: { border: "1px solid black" } },
-              props.hospitalInputs[i].map(function (singleHospital) {
+              "tbody",
+              null,
+              props.planInputs.map(function (plan, i) {
                 return _react2.default.createElement(
-                  'p',
-                  { key: singleHospital.id },
-                  ' ',
-                  singleHospital.value,
-                  ' '
+                  "tr",
+                  { key: i },
+                  _react2.default.createElement(
+                    "td",
+                    null,
+                    props.planInputs[i]
+                  ),
+                  _react2.default.createElement(
+                    "td",
+                    null,
+                    props.hospitalInputs[i].map(function (singleHospital) {
+                      return _react2.default.createElement(
+                        "p",
+                        { key: singleHospital.id },
+                        " ",
+                        singleHospital.value,
+                        " "
+                      );
+                    })
+                  )
                 );
               })
             )
-          );
-        })
+          ),
+          _react2.default.createElement(
+            "button",
+            { onClick: props.submitAll },
+            "Submit All"
+          )
+        ),
+        _react2.default.createElement("div", { className: "col-xs-1 col-sm-3 col-lg-3 " })
       )
     ),
     _react2.default.createElement(
-      'button',
-      { onClick: props.submitAll },
-      'Submit All'
-    ),
-    _react2.default.createElement(
-      'div',
+      "div",
       null,
       popup
     )
@@ -32030,8 +32063,6 @@ var _reactRouter = __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function GlobalNavbar(props) {
   var links = props.data.linkArray.map(function (linkData, i) {
     return _react2.default.createElement(
@@ -32048,10 +32079,9 @@ function GlobalNavbar(props) {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement('div', { className: 'portada' }),
     _react2.default.createElement(
       'nav',
-      { className: 'navbar navbar-default', id: 'navbar' },
+      { className: 'navbar navbar-default', id: 'b3' },
       _react2.default.createElement(
         'div',
         { className: 'container-fluid' },
@@ -32060,7 +32090,7 @@ function GlobalNavbar(props) {
           { className: 'navbar-header' },
           _react2.default.createElement(
             'button',
-            { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+            { type: 'c3', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
             _react2.default.createElement(
               'span',
               { className: 'sr-only' },
@@ -32070,16 +32100,15 @@ function GlobalNavbar(props) {
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/', className: 'navbar-brand' },
-            _react2.default.createElement('img', { src: logo, width: '30', height: '30',
-              alt: '' })
+            _react2.default.createElement('img', { src: '/public/img/drawing2.png', width: '60', height: '20', alt: '' })
           )
         ),
         _react2.default.createElement(
           'div',
-          _defineProperty({ className: 'collapse navbar-collapse margenes', id: 'bs-example-navbar-collapse-1' }, 'id', 'navbar_bed'),
+          { className: 'collapse navbar-collapse e3' },
           _react2.default.createElement(
             'ul',
-            { className: 'nav navbar-nav', id: 'nav' },
+            { className: 'nav navbar-nav', id: 'd3' },
             links
           ),
           _react2.default.createElement(
@@ -32091,8 +32120,8 @@ function GlobalNavbar(props) {
               _react2.default.createElement(
                 'a',
                 { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                _react2.default.createElement('span', { className: 'glyphicon glyphicon-user', id: 'f3' }),
                 'USUARIO ',
-                _react2.default.createElement('span', { className: 'glyphicon glyphicon-chevron-down', 'aria-hidden': 'true' }),
                 _react2.default.createElement('span', { className: 'caret' })
               ),
               _react2.default.createElement(
@@ -32114,7 +32143,7 @@ function GlobalNavbar(props) {
                     _reactRouter.Link,
                     { to: '#' },
                     'Log Out ',
-                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-off', 'aria-hidden': 'true' })
+                    _react2.default.createElement('span', { className: 'glyphicon glyphicon-off', 'aria-hidden': 'true', id: 'e3' })
                   )
                 )
               )
@@ -32288,68 +32317,81 @@ function TableDataFinanciador(props) {
 		null,
 		_react2.default.createElement(
 			"div",
-			null,
+			{ className: "container" },
 			_react2.default.createElement(
-				"p",
-				null,
-				"Name:  ",
-				props.financiador.name
-			),
-			_react2.default.createElement(
-				"p",
-				null,
-				"Email: ",
-				props.financiador.email
-			)
-		),
-		_react2.default.createElement(
-			"table",
-			{ style: { border: "1px solid black" }, className: "table" },
-			_react2.default.createElement(
-				"thead",
-				{ style: { border: "1px solid black" } },
+				"div",
+				{ className: "row" },
+				_react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-3" }),
 				_react2.default.createElement(
-					"tr",
-					null,
+					"div",
+					{ className: "col-xs-8 col-sm-6 col-lg-6 " },
 					_react2.default.createElement(
-						"th",
-						{ style: { border: "1px solid black" } },
-						"Plan"
-					),
-					_react2.default.createElement(
-						"th",
-						{ style: { border: "1px solid black" } },
-						"Hospitales del Plan"
-					)
-				)
-			),
-			_react2.default.createElement(
-				"tbody",
-				null,
-				props.financiador.plans.map(function (plan, i) {
-					return _react2.default.createElement(
-						"tr",
-						{ key: i, style: { border: "1px solid black" } },
+						"div",
+						null,
 						_react2.default.createElement(
-							"td",
-							{ style: { border: "1px solid black" } },
-							plan.name
+							"p",
+							null,
+							"NOMBRE:  ",
+							props.financiador.name
 						),
 						_react2.default.createElement(
-							"td",
-							{ style: { border: "1px solid black" } },
-							plan.hospitals.map(function (singleHospital) {
+							"p",
+							null,
+							"Email: ",
+							props.financiador.email
+						)
+					),
+					_react2.default.createElement(
+						"table",
+						{ className: "table" },
+						_react2.default.createElement(
+							"thead",
+							{ className: "a6" },
+							_react2.default.createElement(
+								"tr",
+								null,
+								_react2.default.createElement(
+									"th",
+									{ className: "a6 b6" },
+									"PLAN"
+								),
+								_react2.default.createElement(
+									"th",
+									{ className: "a6 b6" },
+									"HOSPITALES"
+								)
+							)
+						),
+						_react2.default.createElement(
+							"tbody",
+							null,
+							props.financiador.plans.map(function (plan, i) {
 								return _react2.default.createElement(
-									"p",
-									{ key: singleHospital._id },
-									" ",
-									singleHospital.name,
-									" "
+									"tr",
+									{ key: i, style: { border: "1px solid black" } },
+									_react2.default.createElement(
+										"td",
+										{ className: "a6" },
+										plan.name
+									),
+									_react2.default.createElement(
+										"td",
+										{ className: "a6" },
+										plan.hospitals.map(function (singleHospital) {
+											return _react2.default.createElement(
+												"p",
+												{ key: singleHospital._id },
+												" ",
+												singleHospital.name,
+												" "
+											);
+										})
+									)
 								);
 							})
 						)
-					);
-				})
+					)
+				)
 			)
 		)
 	);
@@ -32770,7 +32812,7 @@ function HospitalHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      { className: 'container-fluid container-margin' },
+      { className: 'container-fluid b4' },
       _react2.default.createElement(
         'div',
         { className: 'row' },
@@ -32780,20 +32822,20 @@ function HospitalHome(props) {
           { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'title' },
+            { className: 'e4' },
             'Hospital'
           ),
           _react2.default.createElement(
             'a',
-            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon-plus img-circle text-info' }),
+            { className: 'btn  btn-info', id: 'c4', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
             'Adherir Hospital '
           ),
           _react2.default.createElement(
             _reactRouter.Link,
-            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/hospital/entver' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
-            'Hospitales'
+            { className: 'btn btn-info', id: 'c4', to: '/Bedin/hospital/entver' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+            'Lista de Hospitales'
           )
         ),
         _react2.default.createElement(
@@ -32801,19 +32843,19 @@ function HospitalHome(props) {
           { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'title' },
+            { className: 'e4' },
             'Usuarios '
           ),
           _react2.default.createElement(
             'a',
-            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
+            { className: 'btn btn-info', id: 'c4', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
             'Generar Usuario '
           ),
           _react2.default.createElement(
             _reactRouter.Link,
-            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/hospital/userver' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            { className: 'btn   btn-info', id: 'c4', to: '/Bedin/hospital/userver' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
             'Lista de Usuarios '
           )
         )
@@ -33233,29 +33275,29 @@ function AdministradorHome(props) {
     null,
     _react2.default.createElement(
       'div',
-      { className: 'container-fluid container-margin' },
+      { className: 'container-fluid b4' },
       _react2.default.createElement(
         'div',
         { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-2 col-xl-5' }),
+        _react2.default.createElement('div', { className: 'col-xs-hidden col-sm-2 col-lg-4 col-xl-4' }),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-2 ' },
+          { className: 'col-xs-12 col-sm-4 col-lg-4 col-xl-4 ' },
           _react2.default.createElement(
             'h2',
-            { className: 'title' },
+            { className: 'e4' },
             'Usuarios '
           ),
           _react2.default.createElement(
             'a',
-            { className: 'btn icon-btn btn-info', id: 'radio', href: '#' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-user img-circle text-info' }),
+            { className: 'btn icon-btn btn-info', id: 'c4', href: '#' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
             'Generar Usuario '
           ),
           _react2.default.createElement(
             _reactRouter.Link,
-            { className: 'btn icon-btn btn-info', id: 'radio', to: '/Bedin/administrador/userver' },
-            _react2.default.createElement('span', { className: 'glyphicon btn-glyphicon glyphicon glyphicon-list img-circle text-info' }),
+            { className: 'btn icon-btn btn-info', id: 'c4', to: '/Bedin/administrador/userver' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
             'Lista de Usuarios '
           )
         )
