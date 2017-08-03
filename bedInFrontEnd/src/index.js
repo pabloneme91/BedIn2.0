@@ -22,9 +22,11 @@ import FinanciadorUserViewData from './containers/FinanciadorUserViewData.jsx';
 import HospitalHome from './components/bedinViews/HospitalHome.jsx';
 import HospitalForm from './containers/HospitalForm.jsx';
 import HospitalViewData from './containers/HospitalViewData.jsx';
+import HospitalUserForm from './containers/HospitalUserForm.jsx';
 import HospitalUserViewData from './containers/HospitalUserViewData.jsx';
 
 import AdministradorHome from './components/bedinViews/AdministradorHome.jsx';
+import AdminUserForm from './containers/AdminUserForm.jsx';
 import BedinUserViewData from './containers/BedinUserViewData.jsx';
 
 const router = (
@@ -43,9 +45,11 @@ const router = (
         <Route path="hospital" component={HospitalHome}></Route>
         <Route path="hospital/entcrear" component={HospitalForm}></Route>
         <Route path="hospital/entver" component={HospitalViewData}></Route>
+        <Route path="hospital/usercrear" component={HospitalUserForm}></Route>
         <Route path="hospital/userver" component={HospitalUserViewData}></Route>
 
         <Route path="administrador" component={AdministradorHome}></Route>
+        <Route path="administrador/usercrear" component={AdminUserForm}></Route>
         <Route path="administrador/userver" component={BedinUserViewData}></Route>
 
       </Route>

@@ -15686,6 +15686,10 @@ var _HospitalViewData = __webpack_require__(331);
 
 var _HospitalViewData2 = _interopRequireDefault(_HospitalViewData);
 
+var _HospitalUserForm = __webpack_require__(343);
+
+var _HospitalUserForm2 = _interopRequireDefault(_HospitalUserForm);
+
 var _HospitalUserViewData = __webpack_require__(334);
 
 var _HospitalUserViewData2 = _interopRequireDefault(_HospitalUserViewData);
@@ -15693,6 +15697,10 @@ var _HospitalUserViewData2 = _interopRequireDefault(_HospitalUserViewData);
 var _AdministradorHome = __webpack_require__(336);
 
 var _AdministradorHome2 = _interopRequireDefault(_AdministradorHome);
+
+var _AdminUserForm = __webpack_require__(345);
+
+var _AdminUserForm2 = _interopRequireDefault(_AdminUserForm);
 
 var _BedinUserViewData = __webpack_require__(337);
 
@@ -15718,8 +15726,10 @@ var router = _react2.default.createElement(
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital', component: _HospitalHome2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital/entcrear', component: _HospitalForm2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital/entver', component: _HospitalViewData2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'hospital/usercrear', component: _HospitalUserForm2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital/userver', component: _HospitalUserViewData2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'administrador', component: _AdministradorHome2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'administrador/usercrear', component: _AdminUserForm2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'administrador/userver', component: _BedinUserViewData2.default })
     ),
     _react2.default.createElement(_reactRouter.Route, { path: '/Financiador' }),
@@ -30756,6 +30766,7 @@ function formReducers() {
     plans: [],
     type: null,
     osCode: null,
+    hospitalCode: null,
     receiveHospitals: false,
     hospitals: [],
     receiveFinanciadors: false,
@@ -30796,6 +30807,7 @@ function formReducers() {
         email: action.input.email,
         username: action.input.username,
         type: action.input.type
+        // TODO: Add workplace id maybe
       });
     case 'FAILED_TO_CREATE':
       return Object.assign({}, state, {
@@ -32847,8 +32859,8 @@ function HospitalHome(props) {
             'Usuarios '
           ),
           _react2.default.createElement(
-            'a',
-            { className: 'btn btn-info', id: 'c4', href: '#' },
+            _reactRouter.Link,
+            { to: 'Bedin/hospital/usercrear', className: 'btn btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
             'Generar Usuario'
           ),
@@ -33286,19 +33298,19 @@ function AdministradorHome(props) {
           _react2.default.createElement(
             'h2',
             { className: 'e4' },
-            'Usuarios '
-          ),
-          _react2.default.createElement(
-            'a',
-            { className: 'btn icon-btn btn-info', id: 'c4', href: '#' },
-            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
-            'Generar Usuario '
+            'Usuarios'
           ),
           _react2.default.createElement(
             _reactRouter.Link,
-            { className: 'btn icon-btn btn-info', id: 'c4', to: '/Bedin/administrador/userver' },
+            { to: '/Bedin/administrador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
+            _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+            'Generar Usuario'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/Bedin/administrador/userver', className: 'btn icon-btn btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
-            'Lista de Usuarios '
+            'Lista de Usuarios'
           )
         )
       )
@@ -33980,6 +33992,530 @@ function HospitalForm(props) {
 }
 
 exports.default = HospitalForm;
+
+/***/ }),
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _formActions = __webpack_require__(315);
+
+var actionCreators = _interopRequireWildcard(_formActions);
+
+var _HospitalUserForm = __webpack_require__(344);
+
+var _HospitalUserForm2 = _interopRequireDefault(_HospitalUserForm);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+  return {
+    isRequesting: state.formReducers.isRequesting,
+    createSuccess: state.formReducers.createSuccess,
+    requestFail: state.formReducers.requestFail,
+    error: state.formReducers.error,
+    name: state.formReducers.name,
+    address: state.formReducers.address,
+    phone: state.formReducers.phone,
+    email: state.formReducers.email,
+    username: state.formReducers.username,
+    password: state.formReducers.password,
+    type: state.formReducers.type,
+    hospitalCode: state.formReducers.osCode,
+    hospitals: state.formReducers.hospitals
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var HospitalUserForm = function (_React$Component) {
+  _inherits(HospitalUserForm, _React$Component);
+
+  function HospitalUserForm(props) {
+    _classCallCheck(this, HospitalUserForm);
+
+    var _this = _possibleConstructorReturn(this, (HospitalUserForm.__proto__ || Object.getPrototypeOf(HospitalUserForm)).call(this, props));
+
+    _this.create = _this.create.bind(_this);
+    return _this;
+  }
+
+  _createClass(HospitalUserForm, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.fetchHospitalList();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.resetCreateSuccess();
+    }
+  }, {
+    key: 'create',
+    value: function create(e) {
+      //console.log('HOLA...LLEGUE')
+      var checkedHospital = this.props.hospitals.filter(function (hospital) {
+        return hospital.name === e.target.hospitals.value;
+      });
+      e.preventDefault();
+      this.props.createUser({
+        name: e.target.nombre.value,
+        //address: e.target.direccion.value,
+        //phone: e.target.telefono.value,
+        //email: e.target.email.value,
+        username: e.target.username.value,
+        password: e.target.password.value,
+        type: "Hospital",
+        hospitalCode: checkedHospital[0]._id
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_HospitalUserForm2.default, { hospitals: this.props.hospitals, createUser: this.create })
+      );
+    }
+  }]);
+
+  return HospitalUserForm;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HospitalUserForm);
+
+/***/ }),
+/* 344 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function HospitalUserForm(props) {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "div",
+      { className: "container container_a" },
+      _react2.default.createElement(
+        "div",
+        { className: "row" },
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement(
+          "div",
+          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          _react2.default.createElement(
+            "h2",
+            null,
+            "Detalles de Usuario de Hospital"
+          ),
+          _react2.default.createElement(
+            "form",
+            { onSubmit: props.createUser, className: "form-horizontal" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group " },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Nombre"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "nombre", placeholder: "Nombre" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Direcci\xF3n"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "direccion", placeholder: "Direcci\xF3n" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputnumber3", className: "col-sm-2 control-label" },
+                "Tel\xE9fono"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "tel", className: "form-control", id: "inputEmail3", name: "telefono", placeholder: "Tel\xE9fono" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Email"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "email", className: "form-control", id: "inputEmail3", name: "email", placeholder: "Email" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Temporary Username"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "username", placeholder: "Username" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Temporary Password"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "password", placeholder: "Password" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              null,
+              _react2.default.createElement(
+                "label",
+                null,
+                "Seleccione Hospital del Usuario"
+              ),
+              props.hospitals.map(function (hospital, i) {
+                return _react2.default.createElement(
+                  "div",
+                  { key: i },
+                  _react2.default.createElement("input", { name: "hospitals", type: "radio", "data-id": hospital._id, value: hospital.name }),
+                  hospital.name,
+                  _react2.default.createElement("br", null)
+                );
+              })
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-offset-2 col-sm-10" },
+                _react2.default.createElement("input", { type: "submit", value: "Save", className: "btn button", id: "button2" })
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = HospitalUserForm;
+
+/***/ }),
+/* 345 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(46);
+
+var _reactRedux = __webpack_require__(126);
+
+var _formActions = __webpack_require__(315);
+
+var actionCreators = _interopRequireWildcard(_formActions);
+
+var _AdminUserForm = __webpack_require__(346);
+
+var _AdminUserForm2 = _interopRequireDefault(_AdminUserForm);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function mapStateToProps(state) {
+  return {
+    isRequesting: state.formReducers.isRequesting,
+    createSuccess: state.formReducers.createSuccess,
+    requestFail: state.formReducers.requestFail,
+    error: state.formReducers.error,
+    name: state.formReducers.name,
+    address: state.formReducers.address,
+    phone: state.formReducers.phone,
+    email: state.formReducers.email,
+    username: state.formReducers.username,
+    password: state.formReducers.password,
+    type: state.formReducers.type
+  };
+};
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)(actionCreators, dispatch);
+}
+
+var AdminUserForm = function (_React$Component) {
+  _inherits(AdminUserForm, _React$Component);
+
+  function AdminUserForm(props) {
+    _classCallCheck(this, AdminUserForm);
+
+    var _this = _possibleConstructorReturn(this, (AdminUserForm.__proto__ || Object.getPrototypeOf(AdminUserForm)).call(this, props));
+
+    _this.create = _this.create.bind(_this);
+    return _this;
+  }
+
+  _createClass(AdminUserForm, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.resetCreateSuccess();
+    }
+  }, {
+    key: 'create',
+    value: function create(e) {
+      e.preventDefault();
+      this.props.createUser({
+        name: e.target.nombre.value,
+        address: e.target.direccion.value,
+        phone: e.target.telefono.value,
+        email: e.target.email.value,
+        username: e.target.username.value,
+        password: e.target.password.value,
+        type: "Bedin"
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_AdminUserForm2.default, { createUser: this.create })
+      );
+    }
+  }]);
+
+  return AdminUserForm;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AdminUserForm);
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function HospitalUserForm(props) {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "div",
+      { className: "container container_a" },
+      _react2.default.createElement(
+        "div",
+        { className: "row" },
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement(
+          "div",
+          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          _react2.default.createElement(
+            "h2",
+            null,
+            "Detalles de Usuario Bedin"
+          ),
+          _react2.default.createElement(
+            "form",
+            { onSubmit: props.createUser, className: "form-horizontal" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group " },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Nombre"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "nombre", placeholder: "Nombre" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "exampleInputName2", className: "col-sm-2 control-label" },
+                "Direcci\xF3n"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "direccion", placeholder: "Direcci\xF3n" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputnumber3", className: "col-sm-2 control-label" },
+                "Tel\xE9fono"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "tel", className: "form-control", id: "inputEmail3", name: "telefono", placeholder: "Tel\xE9fono" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Email"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "email", className: "form-control", id: "inputEmail3", name: "email", placeholder: "Email" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Temporary Username"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "username", placeholder: "Username" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
+                "Temporary Password"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-10" },
+                _react2.default.createElement("input", { type: "text", className: "form-control", id: "inputEmail3", name: "password", placeholder: "Password" })
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-sm-offset-2 col-sm-10" },
+                _react2.default.createElement("input", { type: "submit", value: "Save", className: "btn button", id: "button2" })
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+exports.default = HospitalUserForm;
 
 /***/ })
 /******/ ]);

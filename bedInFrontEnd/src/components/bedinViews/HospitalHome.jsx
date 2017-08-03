@@ -30,10 +30,10 @@ function HospitalHome(props) {
 
             <h2 className="e4">Usuarios </h2>
 
-            <a className="btn btn-info" id="c4" href="#">
+            <Link to="Bedin/hospital/usercrear" className="btn btn-info" id="c4">
               <span className="glyphicon a4 glyphicon glyphicon-user img-circle text-info"></span>
               Generar Usuario
-            </a>
+            </Link>
 
             <Link to="/Bedin/hospital/userver" className="btn   btn-info" id="c4">
               <span className="glyphicon a4 glyphicon glyphicon-list img-circle text-info"></span>

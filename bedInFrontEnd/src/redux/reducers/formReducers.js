@@ -10,6 +10,7 @@ function formReducers(state = {
   plans: [],
   type: null,
   osCode: null,
+  hospitalCode: null,
   receiveHospitals: false,
   hospitals: [],
   receiveFinanciadors: false,
@@ -48,6 +49,7 @@ switch(action.type) {
       email: action.input.email,
       username: action.input.username,
       type: action.input.type
+      // TODO: Add workplace id maybe
     })
   case 'FAILED_TO_CREATE':
     return Object.assign({}, state, {
