@@ -8,15 +8,15 @@ function Login (props) {
 			</div>
 
 			<div>
-				<div className="container a1">
+				<div className="container">
 					<div className="row">
-						<div className="col-xs-2 col-sm-4 col-lg-5"></div>
-						<div className="col-xs-8 col-sm-6 col-lg-4 ">
+						<div className="col-xs-2 col-sm-4 col-lg-4"></div>
+						<div className="col-xs-8 col-sm-4 col-lg-4 " id="a1">
 							<form onSubmit = {(e) => {
 								e.preventDefault();
 								props.fetchLogin(`${e.target.username.value}`,`${e.target.password.value}`);
 								}}>
-								<div className="input-group" id="trasparencia">
+								<div className="input-group">
 									<span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
 									<input id="email" type="text" className="form-control" name="username" placeholder="Username"></input>
 								</div>

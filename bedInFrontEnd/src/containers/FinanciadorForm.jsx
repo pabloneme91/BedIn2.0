@@ -104,10 +104,10 @@ class FinanciadorForm extends React.Component {
 
   render() {
     switch (this.state.step) {
-			case 1:
-				return <FinanciadorFormStep1 nextStep={this.nextStep} />
-			case 2:
-				return <FinanciadorFormStep2
+      case 1:
+        return <FinanciadorFormStep1 nextStep={this.nextStep} />
+      case 2:
+        return <FinanciadorFormStep2
           planInputs={this.state.planInputs}
           hospitalInputs={this.state.hospitalInputs}
           hospitals={this.props.hospitals}
@@ -116,7 +116,7 @@ class FinanciadorForm extends React.Component {
           submitAll={this.submitAllToStore}
           success={this.props.createSucces}
         />
-		}
+    }
   }
 }
 

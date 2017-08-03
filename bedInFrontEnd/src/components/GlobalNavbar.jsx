@@ -19,18 +19,12 @@ function GlobalNavbar (props) {
           <div className="navbar-header">
                   <button type="c3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar">OBRAS SOCIALES</span>
-                    <span className="icon-bar">HOSPITALES</span>
-                    <span className="icon-bar">ADMINISTRADOR</span>
                   </button>
             <Link to="/" className="navbar-brand"><img src="/public/img/drawing2.png" width="60" height="20" alt=""></img></Link>
             </div>
                 <div className="collapse navbar-collapse e3">
                   <ul className="nav navbar-nav" id="d3" >
-                    <li className="e3"><Link to="/Bedin/financiador">OBRAS SOCIALES</Link></li>
-                    <li className="e3"><Link to="/Bedin/hospital">HOSPITALES</Link></li>
-                    <li className="e3"><Link to="/Bedin/admin">ADMINISTRADOR</Link></li>
-                    {links}
+                   {links}
                   </ul>
             <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">

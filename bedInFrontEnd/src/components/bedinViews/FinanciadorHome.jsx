@@ -13,21 +13,21 @@ function FinanciadorHome(props) {
               <div className="col-xs-hidden col-sm-2 col-lg-2 col-xl-5"></div>
               <div className="col-xs-12 col-sm-4 col-lg-4 col-xl-2 ">
                 <h2 className="e4">Obra Social</h2>
-                <a className="btn icon-btn btn-info" id="c4" href="#">
+                <Link className="btn icon-btn btn-info" id="c4" to="/Bedin/financiador/entcrear">
                 <span className="glyphicon a4 glyphicon-plus img-circle text-info"></span>
-                Adherir Obra Social </a>
+                Adherir Obra Social </Link>
                 <Link className="btn icon-btn btn-info" id="c4" to="/Bedin/financiador/entver">
                 <span className="glyphicon a4 glyphicon glyphicon-list img-circle text-info"></span>
                 Obras Sociales</Link>
               </div>
               <div className="col-xs-12 col-sm-4 col-lg-4 col-xl-2 ">
                 <h2 className="e4">Usuarios </h2>
-                <a className="btn icon-btn btn-info" id="c4" href="#">
+                <Link to="/Bedin/financiador/usercrear" className="btn icon-btn btn-info" id="c4">
                 <span className="glyphicon a4 glyphicon glyphicon-user img-circle text-info"></span>
-                Generar Usuario </a>
-                <a className="btn icon-btn btn-info" id="c4" to = "/Bedin/hospital/userver">
+                Generar Usuario  </Link>
+                <Link to="/Bedin/financiador/userver"  className="btn icon-btn btn-info" id="c4" to = "/Bedin/hospital/userver">
                 <span className="glyphicon a4 glyphicon glyphicon-list img-circle text-info"></span>
-                Lista de Usuarios </a>
+                Lista de Usuarios </Link>
               </div>
             </div>
         </div>
