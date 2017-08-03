@@ -14,10 +14,6 @@ router.get('/', function(req, res, next) {
   })
 });
 
-id : 21312
-
-type : 'asda'
-
 router.get('/id/:id', function(req, res, next) {
   user.findById(req.params.id)
   .then(_user =>{
