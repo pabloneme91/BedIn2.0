@@ -10,7 +10,7 @@ import HospitalForm1 from '../components/bedinViews/HospitalForm1.jsx';
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
-    createSucces: state.formReducers.createSucces,
+    createSuccess: state.formReducers.createSuccess,
     requestFail: state.formReducers.requestFail,
     error: state.formReducers.error,
     name: state.formReducers.name,

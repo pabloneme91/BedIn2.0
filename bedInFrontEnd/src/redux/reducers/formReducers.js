@@ -1,6 +1,6 @@
 function formReducers(state = {
   isRequesting: false,
-  createSucces: false,
+  createSuccess: false,
   requestFail: false,
   error: null,
   name: null,
@@ -22,7 +22,7 @@ switch(action.type) {
   case 'RECEIVE_CREATED':
     return Object.assign({}, state, {
       isRequesting: false,
-      createSucces: true,
+      createSuccess: true,
       name: action.input.name,
       address: action.input.address,
       phone: action.input.phone,
@@ -30,7 +30,7 @@ switch(action.type) {
       plans: action.input.plans
     });
   case 'RECEIVE_CREATED_HOSPITAL':
-    return Objectassign({}, state, {
+    return Object.assign({}, state, {
       isRequesting: false,
       createSuccess: true,
       name: action.input.name,
@@ -75,7 +75,7 @@ switch(action.type) {
       error: action.err
     });
   case 'RESET_CREATE_SUCCESS':
-    return Object.assign({}, state, {createSucces: false});
+    return Object.assign({}, state, {createSuccess: false});
   default:
     return state;
 }

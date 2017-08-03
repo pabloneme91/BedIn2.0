@@ -41,7 +41,7 @@ const router = (
         <Route path="financiador/userver" component ={FinanciadorUserViewData}></Route>
 
         <Route path="hospital" component={HospitalHome}></Route>
-        <Route path="hospital" component={HospitalForm}></Route>
+        <Route path="hospital/entcrear" component={HospitalForm}></Route>
         <Route path="hospital/entver" component={HospitalViewData}></Route>
         <Route path="hospital/userver" component={HospitalUserViewData}></Route>
 

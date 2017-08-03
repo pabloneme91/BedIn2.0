@@ -1,8 +1,8 @@
-
 import React from 'react';
 
 import LargeButton from '../LargeButton.jsx';
 
+import { Link } from 'react-router';
 
 function FinanciadorHome(props) {
   return (
@@ -24,7 +24,7 @@ function FinanciadorHome(props) {
             <Link to="/Bedin/financiador/usercrear" className="btn icon-btn btn-info" id="c4">
             <span className="glyphicon a4 glyphicon glyphicon-user img-circle text-info"></span>
             Generar Usuario  </Link>
-            <Link to="/Bedin/financiador/userver"  className="btn icon-btn btn-info" id="c4" to = "/Bedin/hospital/userver">
+            <Link to="/Bedin/financiador/userver"  className="btn icon-btn btn-info" id="c4">
             <span className="glyphicon a4 glyphicon glyphicon-list img-circle text-info"></span>
             Lista de Usuarios </Link>
           </div>

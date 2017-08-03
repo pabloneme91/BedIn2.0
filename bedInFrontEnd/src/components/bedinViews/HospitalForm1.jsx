@@ -12,7 +12,7 @@ function HospitalForm(props) {
 
       <h2>Detalles de Hospital</h2>
 
-      <form onSubmit={props.createUser} className="form-horizontal">
+      <form onSubmit={props.createHospital} className="form-horizontal">
         <div className="form-group ">
           <label htmlFor="exampleInputName2" className="col-sm-2 control-label">Nombre</label>
           <div className="col-sm-10">

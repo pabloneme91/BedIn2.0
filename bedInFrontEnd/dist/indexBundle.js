@@ -15716,7 +15716,7 @@ var router = _react2.default.createElement(
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador/usercrear', component: _FinanciadorUserForm2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'financiador/userver', component: _FinanciadorUserViewData2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital', component: _HospitalHome2.default }),
-      _react2.default.createElement(_reactRouter.Route, { path: 'hospital', component: _HospitalForm2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'hospital/entcrear', component: _HospitalForm2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital/entver', component: _HospitalViewData2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'hospital/userver', component: _HospitalUserViewData2.default }),
       _react2.default.createElement(_reactRouter.Route, { path: 'administrador', component: _AdministradorHome2.default }),
@@ -30746,7 +30746,7 @@ Object.defineProperty(exports, "__esModule", {
 function formReducers() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
     isRequesting: false,
-    createSucces: false,
+    createSuccess: false,
     requestFail: false,
     error: null,
     name: null,
@@ -30770,7 +30770,7 @@ function formReducers() {
     case 'RECEIVE_CREATED':
       return Object.assign({}, state, {
         isRequesting: false,
-        createSucces: true,
+        createSuccess: true,
         name: action.input.name,
         address: action.input.address,
         phone: action.input.phone,
@@ -30778,7 +30778,7 @@ function formReducers() {
         plans: action.input.plans
       });
     case 'RECEIVE_CREATED_HOSPITAL':
-      return Objectassign({}, state, {
+      return Object.assign({}, state, {
         isRequesting: false,
         createSuccess: true,
         name: action.input.name,
@@ -30823,7 +30823,7 @@ function formReducers() {
         error: action.err
       });
     case 'RESET_CREATE_SUCCESS':
-      return Object.assign({}, state, { createSucces: false });
+      return Object.assign({}, state, { createSuccess: false });
     default:
       return state;
   }
@@ -30872,7 +30872,7 @@ exports = module.exports = __webpack_require__(78)(undefined);
 
 
 // module
-exports.push([module.i, "/*Login*/\r\n\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:80px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n/*BedinNavbar*/\r\n\r\n#b3{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}\r\n\r\n#c3{ color: black;}\r\n\r\n#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\nli.e3:hover { background-color: #e1e5e4;}\r\n\r\nli > a:hover { background-color: #e1e5e4;}\r\n\r\n#aaa{\r\n    background-color: lightblue;\r\n}\r\n\r\n#bbb{\r\n    background-color: lightyellow;\r\n}\r\n\r\n#aaa{\r\n    background-color: lightgreen;\r\n}\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n    width: 43%;\r\n    height: 30%;\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 70px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n#c1:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n.row { margin-top: 50px; }\r\n\r\n#th {\r\n    border-bottom-width: 2px;\r\n    border-bottom-color:#777777;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n    background: white;\r\n    border-bottom-color: lightgrey;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: lightgrey;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #e7e7e7;\r\n    color: #777;\r\n }\r\n", ""]);
+exports.push([module.i, "/*Login*/\r\n\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:80px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n/*BedinNavbar*/\r\n\r\n#b3{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}\r\n\r\n#c3{ color: black;}\r\n\r\n#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\nli.e3:hover { background-color: #e1e5e4;}\r\n\r\nli > a:hover { background-color: #e1e5e4;}\r\n\r\n#aaa{\r\n    background-color: lightblue;\r\n}\r\n\r\n#bbb{\r\n    background-color: lightyellow;\r\n}\r\n\r\n#aaa{\r\n    background-color: lightgreen;\r\n}\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 70px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n#c1:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n.row { margin-top: 50px; }\r\n\r\n#th {\r\n    border-bottom-width: 2px;\r\n    border-bottom-color:#777777;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n    background: white;\r\n    border-bottom-color: lightgrey;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: lightgrey;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #e7e7e7;\r\n    color: #777;\r\n }\r\n", ""]);
 
 // exports
 
@@ -31237,9 +31237,9 @@ var _LargeButton = __webpack_require__(313);
 
 var _LargeButton2 = _interopRequireDefault(_LargeButton);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _reactRouter = __webpack_require__(27);
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FinanciadorHome(props) {
   return _react2.default.createElement(
@@ -31261,13 +31261,13 @@ function FinanciadorHome(props) {
             'Obra Social'
           ),
           _react2.default.createElement(
-            Link,
+            _reactRouter.Link,
             { to: '/Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
             'Adherir Obra Social '
           ),
           _react2.default.createElement(
-            Link,
+            _reactRouter.Link,
             { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
             'Obras Sociales'
@@ -31282,14 +31282,14 @@ function FinanciadorHome(props) {
             'Usuarios '
           ),
           _react2.default.createElement(
-            Link,
+            _reactRouter.Link,
             { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
             'Generar Usuario  '
           ),
           _react2.default.createElement(
-            Link,
-            _defineProperty({ to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'c4' }, 'to', '/Bedin/hospital/userver'),
+            _reactRouter.Link,
+            { to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
             'Lista de Usuarios '
           )
@@ -31385,7 +31385,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
-    createSucces: state.formReducers.createSucces,
+    createSuccess: state.formReducers.createSuccess,
     requestFail: state.formReducers.requestFail,
     error: state.formReducers.error,
     name: state.formReducers.name,
@@ -31506,7 +31506,7 @@ var FinanciadorForm = function (_React$Component) {
             add: this.add,
             previousStep: this.previousStep,
             submitAll: this.submitAllToStore,
-            success: this.props.createSucces
+            success: this.props.createSuccess
           });
       }
     }
@@ -32826,10 +32826,10 @@ function HospitalHome(props) {
             'Hospital'
           ),
           _react2.default.createElement(
-            'a',
-            { className: 'btn  btn-info', id: 'c4', href: '#' },
+            _reactRouter.Link,
+            { to: 'Bedin/hospital/entcrear', className: 'btn  btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
-            'Adherir Hospital '
+            'Adherir Hospital'
           ),
           _react2.default.createElement(
             _reactRouter.Link,
@@ -32850,13 +32850,13 @@ function HospitalHome(props) {
             'a',
             { className: 'btn btn-info', id: 'c4', href: '#' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
-            'Generar Usuario '
+            'Generar Usuario'
           ),
           _react2.default.createElement(
             _reactRouter.Link,
-            { className: 'btn   btn-info', id: 'c4', to: '/Bedin/hospital/userver' },
+            { to: '/Bedin/hospital/userver', className: 'btn   btn-info', id: 'c4' },
             _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
-            'Lista de Usuarios '
+            'Lista de Usuarios'
           )
         )
       )
@@ -33530,7 +33530,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
-    createSucces: state.formReducers.createSucces,
+    createSuccess: state.formReducers.createSuccess,
     requestFail: state.formReducers.requestFail,
     error: state.formReducers.error,
     name: state.formReducers.name,
@@ -33810,7 +33810,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
-    createSucces: state.formReducers.createSucces,
+    createSuccess: state.formReducers.createSuccess,
     requestFail: state.formReducers.requestFail,
     error: state.formReducers.error,
     name: state.formReducers.name,
@@ -33906,7 +33906,7 @@ function HospitalForm(props) {
           ),
           _react2.default.createElement(
             "form",
-            { onSubmit: props.createUser, className: "form-horizontal" },
+            { onSubmit: props.createHospital, className: "form-horizontal" },
             _react2.default.createElement(
               "div",
               { className: "form-group " },
