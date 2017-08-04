@@ -18,7 +18,7 @@ function viewUser (state = {
 		case 'GET_USER_BY_TYPE': 
 			return Object.assign({}, state, {
 				isRequesting: false,
-				users: action.user
+				users: action.users
 			})
 		case 'FAILED_TO_GET_USER':
 			return Object.assign({}, state, {

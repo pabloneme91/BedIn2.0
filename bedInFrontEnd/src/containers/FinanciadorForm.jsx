@@ -11,7 +11,7 @@ import FinanciadorFormStep2 from '../components/bedinViews/FinanciadorFormStep2.
 function mapStateToProps(state) {
   return {
     isRequesting: state.formReducers.isRequesting,
-    createSucces: state.formReducers.createSucces,
+    createSuccess: state.formReducers.createSuccess,
     requestFail: state.formReducers.requestFail,
     error: state.formReducers.error,
     name: state.formReducers.name,
@@ -102,21 +102,25 @@ class FinanciadorForm extends React.Component {
     this.props.fetchHospitalList();
   }
 
+  componentWillUnmount() {
+    this.props.resetCreateSuccess();
+  }
+
   render() {
     switch (this.state.step) {
-			case 1:
-				return <FinanciadorFormStep1 nextStep={this.nextStep} />
-			case 2:
-				return <FinanciadorFormStep2
+      case 1:
+        return <FinanciadorFormStep1 nextStep={this.nextStep} />
+      case 2:
+        return <FinanciadorFormStep2
           planInputs={this.state.planInputs}
           hospitalInputs={this.state.hospitalInputs}
           hospitals={this.props.hospitals}
           add={this.add}
           previousStep={this.previousStep}
           submitAll={this.submitAllToStore}
-          success={this.props.createSucces}
+          success={this.props.createSuccess}
         />
-		}
+    }
   }
 }
 

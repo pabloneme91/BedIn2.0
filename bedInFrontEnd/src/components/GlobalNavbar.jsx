@@ -12,29 +12,27 @@ function GlobalNavbar (props) {
   return (
 
     <div>
-      <div className="portada"></div>
-
-      <nav className="navbar navbar-default" id="navbar" >
+      
+      <nav className="navbar navbar-default" id="b3" >
         <div className="container-fluid" >
 
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span className="sr-only">Toggle navigation</span>
-            </button>
-            <Link to="/" className="navbar-brand"><img src={logo} width="30" height="30" 
-              alt=""></img></Link>
-          </div>
-
-          <div className="collapse navbar-collapse margenes" id="bs-example-navbar-collapse-1" id="navbar_bed">
-            <ul className="nav navbar-nav" id="nav" >
-            {links}
-            </ul>
+                  <button type="c3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span className="sr-only">Toggle navigation</span>
+                  </button>
+            <Link to="/" className="navbar-brand"><img src="/public/img/drawing2.png" width="60" height="20" alt=""></img></Link>
+            </div>
+                <div className="collapse navbar-collapse e3">
+                  <ul className="nav navbar-nav" id="d3" >
+                   {links}
+                  </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{props.username}<span className="glyphicon glyphicon-chevron-down" aria-hidden="true"></span><span className="caret"></span></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span className="glyphicon glyphicon-user" id="f3">{props.username}
+                  </span><span className="caret"></span></a>
                 <ul className="dropdown-menu">
                   <li><Link to={`/Bedin/perfil/${props.userId}`}>Perfil</Link></li>
-                  <li><Link onClick={props.logOut} to="#">Log Out <span className="glyphicon glyphicon-off" aria-hidden="true"></span></Link></li>
+                  <li><Link onClick={props.logOut} to="#">Log Out <span className="glyphicon glyphicon-off" aria-hidden="true" id="e3"></span></Link></li>
                 </ul>
               </li>
             </ul>
