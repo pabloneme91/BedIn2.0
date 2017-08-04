@@ -31737,7 +31737,7 @@ var Home = function (_React$Component) {
 	}, {
 		key: 'componentWillMount',
 		value: function componentWillMount() {
-			//hashHistory.push('/Bedin/financiador');
+			_reactRouter.hashHistory.push('/Bedin/financiador');
 		}
 	}, {
 		key: 'componentWillReceiveProps',

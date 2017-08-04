@@ -49,7 +49,7 @@ class Home extends React.Component {
 	}
 
 	componentWillMount() {
-		//hashHistory.push('/Bedin/financiador');
+		hashHistory.push('/Bedin/financiador');
 	}
 
 	componentWillReceiveProps(props) {
