@@ -1,8 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 import LargeButton from '../LargeButton.jsx';
-
-import { Link } from 'react-router';
 
 function FinanciadorHome(props) {
   return (
@@ -29,7 +28,8 @@ function FinanciadorHome(props) {
             Lista de Usuarios </Link>
           </div>
         </div>
-    </div>
+      </div>
+      {props.children}
     </div>
   )
 }

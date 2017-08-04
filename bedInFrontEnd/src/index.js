@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -13,21 +14,30 @@ import '../style/style.css';
 import LoginContainer from './containers/LoginContainer.jsx';
 import BedinHome from './components/bedinViews/BedinHome.jsx';
 
-import FinanciadorHome from './components/bedinViews/FinanciadorHome.jsx';
-import FinanciadorForm from './containers/FinanciadorForm.jsx';
-import FinanciadorViewData from './containers/FinanciadorViewData.jsx';
-import FinanciadorUserForm from './containers/FinanciadorUserForm.jsx';
-import FinanciadorUserViewData from './containers/FinanciadorUserViewData.jsx';
+import BedinFinanciadorHome from './components/bedinViews/FinanciadorHome.jsx';
+import BedinFinanciadorForm from './containers/FinanciadorForm.jsx';
+import BedinFinanciadorViewData from './containers/FinanciadorViewData.jsx';
+import BedinFinanciadorUserViewData from './containers/FinanciadorUserViewData.jsx';
+import BedinFinanciadorUserForm from './containers/FinanciadorUserForm.jsx';
 
-import HospitalHome from './components/bedinViews/HospitalHome.jsx';
-import HospitalForm from './containers/HospitalForm.jsx';
-import HospitalViewData from './containers/HospitalViewData.jsx';
-import HospitalUserForm from './containers/HospitalUserForm.jsx';
-import HospitalUserViewData from './containers/HospitalUserViewData.jsx';
+import BedinHospitalHome from './components/bedinViews/HospitalHome.jsx';
+import BedinHospitalForm from './containers/HospitalForm.jsx';
+import BedinHospitalViewData from './containers/HospitalViewData.jsx';
+import BedinHospitalUserViewData from './containers/HospitalUserViewData.jsx';
+import BedinHospitalUserForm from './containers/HospitalUserForm.jsx';
 
 import AdministradorHome from './components/bedinViews/AdministradorHome.jsx';
-import AdminUserForm from './containers/AdminUserForm.jsx';
-import BedinUserViewData from './containers/BedinUserViewData.jsx';
+import AdministradorUserForm from './containers/AdminUserForm.jsx';
+import AdministradorUserViewData from './containers/BedinUserViewData.jsx';
+
+import PerfilContainer from './containers/PerfilContainer.jsx';
+
+
+//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
+import CreatePatientContainerTestCSS from './containers/financiadorContainers/CreatePatientContainerTestCSS.jsx'
+import ViewPatientRequestsTestCSS from './containers/financiadorContainers/ViewPatientRequestsTestCSS.jsx'
+
+
 
 const router = (
   <Provider store={store}>
@@ -36,27 +46,35 @@ const router = (
 
       <Route path="/Bedin" component={BedinHome}>
 
-        <Route path="financiador" component={FinanciadorHome}></Route>
-        <Route path="financiador/entcrear" component={FinanciadorForm}></Route>
-        <Route path="financiador/entver" component={FinanciadorViewData}></Route>
-        <Route path="financiador/usercrear" component={FinanciadorUserForm}></Route>
-        <Route path="financiador/userver" component ={FinanciadorUserViewData}></Route>
+        <Route path="perfil/:id" component={PerfilContainer}/>
+        
+        <Route path="financiador">
+          <IndexRoute component={BedinFinanciadorHome}/>
+          <Route path="entcrear" component={BedinFinanciadorForm}/>
+          <Route path="entver" component={BedinFinanciadorViewData}/>
+          <Route path="usercrear" component={BedinFinanciadorUserForm}/>
+          <Route path="userver" component={BedinFinanciadorUserViewData}/>
+        </Route>
 
-        <Route path="hospital" component={HospitalHome}></Route>
-        <Route path="hospital/entcrear" component={HospitalForm}></Route>
-        <Route path="hospital/entver" component={HospitalViewData}></Route>
-        <Route path="hospital/usercrear" component={HospitalUserForm}></Route>
-        <Route path="hospital/userver" component={HospitalUserViewData}></Route>
-
-        <Route path="administrador" component={AdministradorHome}></Route>
-        <Route path="administrador/usercrear" component={AdminUserForm}></Route>
-        <Route path="administrador/userver" component={BedinUserViewData}></Route>
+        <Route path="hospital">
+          <IndexRoute component={BedinHospitalHome}/>
+          <Route path="entcrear" component={BedinHospitalForm}/>
+          <Route path="entver" component={BedinHospitalViewData}/>
+          <Route path="usercrear" component={BedinHospitalUserForm}/>
+          <Route path="userver" component={BedinHospitalUserViewData}/>
+        </Route>
+        
+        <Route path="administrador" >
+          <IndexRoute component={AdministradorHome}/>
+          <Route path="usercrear" component={AdministradorUserForm}></Route>
+          <Route path="userver" component={AdministradorUserViewData}/>
+        </Route>
 
       </Route>
 
       <Route path="/Financiador">
-
-      </Route>
+        <IndexRoute component={ViewPatientRequestsTestCSS}/>
+      </Route> 
 
       <Route path="/Hospital">
 

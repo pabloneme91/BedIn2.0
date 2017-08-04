@@ -13,6 +13,7 @@ router.post('/login', userMiddleWare.authenticateUser,
     name : req.user.name,
     username : req.user.userName,
     type : req.user.type,
+    id: req.user._id,
     data : req.user.data
   }
   res.send(userData);

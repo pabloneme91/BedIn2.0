@@ -24,9 +24,8 @@ function AdministradorHome(props) {
               Lista de Usuarios
             </Link>
           </div>
-
         </div>
-    </div>
+      </div>
     </div>
   )
 }
