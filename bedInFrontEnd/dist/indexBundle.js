@@ -15797,9 +15797,7 @@ function loginFetch(username, password) {
       },
       body: JSON.stringify(userData)
     }).then(function (response) {
-      console.log('response', response);
       var test = response.json();
-      console.log(test);
       return test;
     }).then(function (data) {
       if (data.error) return dispatch(userFailedToLogin(data.error));
@@ -16175,7 +16173,8 @@ var router = _react2.default.createElement(
     _react2.default.createElement(
       _reactRouter.Route,
       { path: '/Financiador' },
-      _react2.default.createElement(_reactRouter.IndexRoute, { component: _ViewPatientRequestsTestCSS2.default })
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: _ViewPatientRequestsTestCSS2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: 'create', component: _CreatePatientContainerTestCSS2.default })
     ),
     _react2.default.createElement(_reactRouter.Route, { path: '/Hospital' })
   )
@@ -31742,7 +31741,7 @@ var Home = function (_React$Component) {
 	}, {
 		key: 'componentWillReceiveProps',
 		value: function componentWillReceiveProps(props) {
-			if (!props.isLoggedIn) _reactRouter.hashHistory.push('/');
+			//if(!props.isLoggedIn) hashHistory.push('/');
 		}
 	}, {
 		key: 'render',
@@ -35047,9 +35046,13 @@ var _redux = __webpack_require__(7);
 
 var _reactRedux = __webpack_require__(9);
 
-var _TableViewPatientRequests = __webpack_require__(349);
+var _TableViewPendingPatientRequests = __webpack_require__(350);
 
-var _TableViewPatientRequests2 = _interopRequireDefault(_TableViewPatientRequests);
+var _TableViewPendingPatientRequests2 = _interopRequireDefault(_TableViewPendingPatientRequests);
+
+var _TableViewAcceptedPatientRequests = __webpack_require__(351);
+
+var _TableViewAcceptedPatientRequests2 = _interopRequireDefault(_TableViewAcceptedPatientRequests);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35080,6 +35083,7 @@ var ViewPatientRequestsTestCSS = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (ViewPatientRequestsTestCSS.__proto__ || Object.getPrototypeOf(ViewPatientRequestsTestCSS)).call(this, props));
 
 		_this.sendPatient = _this.sendPatient.bind(_this);
+		_this.pacientType = 'Pending';
 		return _this;
 	}
 
@@ -35089,12 +35093,20 @@ var ViewPatientRequestsTestCSS = function (_React$Component) {
 			alert('ok');
 		}
 	}, {
+		key: 'componentWillMount',
+		value: function componentWillMount() {}
+	}, {
 		key: 'render',
 		value: function render() {
+			var selectTable = this.pacientType === 'Pending' ? _react2.default.createElement(_TableViewPendingPatientRequests2.default, { sendPatient: this.sendPatient }) : _react2.default.createElement(
+				'p',
+				null,
+				'hola'
+			);
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_TableViewPatientRequests2.default, { sendPatient: this.sendPatient })
+				selectTable
 			);
 		}
 	}]);
@@ -35107,7 +35119,8 @@ var ViewPatientRequestsTestCSS = function (_React$Component) {
 exports.default = ViewPatientRequestsTestCSS;
 
 /***/ }),
-/* 349 */
+/* 349 */,
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35128,6 +35141,7 @@ var marginLeft = { marginLeft: "5px" };
 
 var props = {
 	patients: [{
+		fecha: '01/01/2017',
 		documento: 3224973,
 		plan: "01",
 		CIE: "A01",
@@ -35152,6 +35166,9 @@ var props = {
 		acceptedHospitals: [{
 			name: 'Fleming',
 			_id: '1'
+		}, {
+			name: 'hospital test',
+			_id: '4'
 		}]
 	}],
 	matchHospital: function matchHospital(e) {
@@ -35160,7 +35177,7 @@ var props = {
 	}
 };
 
-function TableViewPatientRequests() {
+function TableViewPendingPatientRequests() {
 
 	var listHospitals = function listHospitals(hospitals, isAcceptedHospital) {
 		return hospitals.map(function (hospital) {
@@ -35188,6 +35205,11 @@ function TableViewPatientRequests() {
 		return _react2.default.createElement(
 			"tr",
 			{ style: tableStyle, key: patient.documento },
+			_react2.default.createElement(
+				"td",
+				{ style: tableStyle },
+				patient.fecha
+			),
 			_react2.default.createElement(
 				"td",
 				{ style: tableStyle },
@@ -35241,6 +35263,11 @@ function TableViewPatientRequests() {
 					_react2.default.createElement(
 						"th",
 						{ style: { border: "1px solid black" } },
+						"Fecha"
+					),
+					_react2.default.createElement(
+						"th",
+						{ style: { border: "1px solid black" } },
 						"DNI"
 					),
 					_react2.default.createElement(
@@ -35261,17 +35288,17 @@ function TableViewPatientRequests() {
 					_react2.default.createElement(
 						"th",
 						{ style: { border: "1px solid black" } },
-						"Hospitals"
+						"Hospital solicitados"
 					),
 					_react2.default.createElement(
 						"th",
 						{ style: { border: "1px solid black" } },
-						"Vistos"
+						"Visto por"
 					),
 					_react2.default.createElement(
 						"th",
 						{ style: { border: "1px solid black" } },
-						"Aceptados"
+						"Aceptado por"
 					)
 				)
 			),
@@ -35284,7 +35311,134 @@ function TableViewPatientRequests() {
 	);
 }
 
-exports.default = TableViewPatientRequests;
+exports.default = TableViewPendingPatientRequests;
+
+/***/ }),
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var tableStyle = { border: "1px solid black" };
+
+var props = {
+	patients: [{
+		fecha: '01/01/2017',
+		documento: 3224973,
+		plan: "01",
+		CIE: "A01",
+		complejidad: "Grado 1",
+		hospital: {
+			name: 'Fleming',
+			_id: '1'
+		}
+	}]
+};
+
+function TableViewAcceptedPatientRequests() {
+
+	var tableBody = props.patients.map(function (patient, i) {
+		return _react2.default.createElement(
+			'tr',
+			{ style: tableStyle, key: patient.documento },
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				patient.fecha
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				patient.documento
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				patient.plan
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				patient.CIE
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				patient.complejidad
+			),
+			_react2.default.createElement(
+				'td',
+				{ style: tableStyle },
+				patient.hospital.name
+			)
+		);
+	});
+
+	return _react2.default.createElement(
+		'div',
+		null,
+		_react2.default.createElement(
+			'table',
+			{ style: { border: "1px solid black" }, className: 'table' },
+			_react2.default.createElement(
+				'thead',
+				{ style: { border: "1px solid black" } },
+				_react2.default.createElement(
+					'tr',
+					null,
+					_react2.default.createElement(
+						'th',
+						{ style: { border: "1px solid black" } },
+						'Fecha'
+					),
+					_react2.default.createElement(
+						'th',
+						{ style: { border: "1px solid black" } },
+						'DNI'
+					),
+					_react2.default.createElement(
+						'th',
+						{ style: { border: "1px solid black" } },
+						'Plan'
+					),
+					_react2.default.createElement(
+						'th',
+						{ style: { border: "1px solid black" } },
+						'CIE'
+					),
+					_react2.default.createElement(
+						'th',
+						{ style: { border: "1px solid black" } },
+						'Complejidad'
+					),
+					_react2.default.createElement(
+						'th',
+						{ style: { border: "1px solid black" } },
+						'Hospital'
+					)
+				)
+			),
+			_react2.default.createElement(
+				'tbody',
+				null,
+				tableBody
+			)
+		)
+	);
+}
+
+exports.default = TableViewAcceptedPatientRequests;
 
 /***/ })
 /******/ ]);

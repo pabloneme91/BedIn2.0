@@ -53,7 +53,7 @@ class Home extends React.Component {
 	}
 
 	componentWillReceiveProps(props) {
-		if(!props.isLoggedIn) hashHistory.push('/');
+		//if(!props.isLoggedIn) hashHistory.push('/');
 	}
 
   render() {

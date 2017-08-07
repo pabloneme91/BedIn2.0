@@ -74,6 +74,7 @@ const router = (
 
       <Route path="/Financiador">
         <IndexRoute component={ViewPatientRequestsTestCSS}/>
+        <Route path="create" component={CreatePatientContainerTestCSS}></Route>
       </Route> 
 
       <Route path="/Hospital">
