@@ -52,9 +52,9 @@ class Home extends React.Component {
 		hashHistory.push('/Bedin/financiador');
 	}
 
-	componentWillReceiveProps(props) {
-		if(!props.isLoggedIn) hashHistory.push('/');
-	}
+	// componentWillReceiveProps(props) {
+	// 	if(!props.isLoggedIn) hashHistory.push('/');
+	// }
 
   render() {
     return (

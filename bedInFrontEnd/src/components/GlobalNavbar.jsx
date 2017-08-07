@@ -20,7 +20,7 @@ function GlobalNavbar (props) {
                   <button type="c3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span className="sr-only">Toggle navigation</span>
                   </button>
-            <Link to="/" className="navbar-brand"><img src="/public/img/drawing2.png" width="60" height="20" alt=""></img></Link>
+            <Link to="/" className="navbar-brand"><img src="/public/img/bedin-logo-transparent.png" width="60" height="20" alt="" id="a3"></img></Link>
             </div>
                 <div className="collapse navbar-collapse e3">
                   <ul className="nav navbar-nav" id="d3" >

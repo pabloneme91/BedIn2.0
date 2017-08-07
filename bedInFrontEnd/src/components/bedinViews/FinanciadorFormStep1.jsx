@@ -6,12 +6,12 @@ function FinanciadorFormStep1(props) {
     <div>
       <div className="container a1">
         <div className="row">
-          <div className="col-xs-2 col-sm-4 col-lg-5"></div>
-          <div className="col-xs-8 col-sm-6 col-lg-4 ">
+          <div className="col-xs-2 col-sm-3 col-lg-3"></div>
+          <div className="col-xs-8 col-sm-5 col-lg-5 ">
             <form className="form-horizontal" onSubmit={props.nextStep}>
               <div className="form-group ">
                 <div id="b1">
-                  <span><h>INGRESE NUEVA OBRA SOCIAL</h></span>
+                  <span id="e1"><h>INGRESE NUEVA OBRA SOCIAL</h></span>
                 </div>
                   <label htmlFor="exampleInputName2" className="col-sm-2 control-label">Nombre</label>
                     <div className="col-sm-10">
