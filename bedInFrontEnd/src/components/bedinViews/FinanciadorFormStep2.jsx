@@ -26,7 +26,7 @@ function FinanciadorFormStep2(props) {
                   </div>
                 </div>
               
-              <label>Seleccione Hospital(es) Perteneciente(s) al Plan</label>
+              <label>Seleccione Hospital/es <br/>acorde al plan</label>
               <form name="hospitalChecklist">
                     {props.hospitals.map((hospital, i) =>
                       <div key={i} className="checkbox" id="c">
@@ -46,7 +46,7 @@ function FinanciadorFormStep2(props) {
                           props.add(plan, hospitals)
                           document.querySelector('input').value = "";
                           document.querySelector('form').reset()
-                        }} className=" btn button" id="button2"
+                        }} id="k" 
                       >Add</button> 
                 </div>
                 </div>
@@ -54,7 +54,7 @@ function FinanciadorFormStep2(props) {
             
 
             <div className="col-xs-5 col-sm-4 col-lg-4" id="f">
-                <table className="table table-bordered g" >
+                <table className="table  g" >
                   <thead>
                     <tr id="th" >
                       <th >PLANES</th>
@@ -70,14 +70,14 @@ function FinanciadorFormStep2(props) {
                     )}
                   </tbody>
                 </table>
-                <button onClick={props.submitAll}>Submit All</button>
+                <button  id="j"onClick={props.submitAll}>Submit All</button>
             </div>
 
             <div className="col-xs-1 col-sm-3 col-lg-3 "></div>
             
           </div>
         </div>
-        <div>{popup}</div>
+        <div id="l">{popup}</div>
 
      </div>
   

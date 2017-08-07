@@ -16130,9 +16130,12 @@ var _ViewPatientRequestsTestCSS = __webpack_require__(348);
 
 var _ViewPatientRequestsTestCSS2 = _interopRequireDefault(_ViewPatientRequestsTestCSS);
 
+var _opcionHome = __webpack_require__(352);
+
+var _opcionHome2 = _interopRequireDefault(_opcionHome);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
 var router = _react2.default.createElement(
   _reactRedux.Provider,
   { store: _store2.default },
@@ -16166,7 +16169,7 @@ var router = _react2.default.createElement(
         _reactRouter.Route,
         { path: 'administrador' },
         _react2.default.createElement(_reactRouter.IndexRoute, { component: _AdministradorHome2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: 'usercrear', component: _AdminUserForm2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: 'usercrear', component: _FinanciadorUserForm2.default }),
         _react2.default.createElement(_reactRouter.Route, { path: 'userver', component: _BedinUserViewData2.default })
       )
     ),
@@ -16179,6 +16182,9 @@ var router = _react2.default.createElement(
     _react2.default.createElement(_reactRouter.Route, { path: '/Hospital' })
   )
 );
+
+//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
+
 
 _reactDom2.default.render(router, document.getElementById('app'));
 
@@ -31466,7 +31472,7 @@ exports = module.exports = __webpack_require__(80)(undefined);
 
 
 // module
-exports.push([module.i, "/*Login*/\r\n\r\n.container_a {\r\n  top: 200px;\r\n}\r\n\r\n.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:80px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n/*BedinNavbar*/\r\n\r\n#b3{\r\n\r\n    margin-right: 10px;\r\n    margin-left: 10px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}\r\n\r\n#c3{ color: black;}\r\n\r\n#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\nli.e3:hover { background-color: #e1e5e4;}\r\n\r\nli > a:hover { background-color: #e1e5e4;}\r\n\r\n#aaa{\r\n    background-color: lightblue;\r\n}\r\n\r\n#bbb{\r\n    background-color: lightyellow;\r\n}\r\n\r\n#aaa{\r\n    background-color: lightgreen;\r\n}\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 70px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n#c1:hover {\r\n background: rgba(0,0,0,0);\r\n color: black;\r\n\r\n}\r\n\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n.row { margin-top: 50px; }\r\n\r\n#th {\r\n    border-bottom-width: 2px;\r\n    border-bottom-color:#777777;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n    background: white;\r\n    border-bottom-color: lightgrey;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: lightgrey;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #e7e7e7;\r\n    color: #777;\r\n }\r\n", ""]);
+exports.push([module.i, "/*Login*/\r\n\r\n.container_a {\r\n  top: 200px;\r\n}\r\n\r\n/*.portada {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background-size: 100%;\r\n    background-repeat: no-repeat;\r\n    opacity: 0.6;\r\n    position: absolute;\r\n    z-index: -9999\r\n}*/\r\n\r\n#button{\r\n\tbackground: white;\r\n\tborder-color: lightgrey;\r\n\tcolor: gray;\r\n\tdisplay: block;\r\n    margin: 10px auto;\r\n}\r\n#a {\r\n    color: #777;\r\n    font-size: 13px;\r\n}\r\n\r\n#a1 {\r\n    top:80px;\r\n\r\n}\r\n\r\n/*.aa {\r\n   fondo. Esperar.\r\n}*/\r\n\r\n#bb {\r\n    background-color: #e7e7e7;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n#bb:hover {\r\n    background-color: #777;\r\n    color: black;\r\n    display: block;\r\n    margin: 10px auto;\r\n}\r\n\r\n/*BedinNavbar*/\r\n\r\n#a3{\r\n    \r\n    width: 65px;\r\n    height: 35px;\r\n    position: relative;\r\n    top: -10px;\r\n    left: 10px;\r\n  \r\n\r\n}\r\n\r\n#b3{\r\n\r\n    margin-right: 50px;\r\n    margin-left: 50px;\r\n    padding-left: 50px;\r\n    padding-right: 50px;\r\n    margin-top: 0px;\r\n    border-top-width: -;\r\n    padding-top: -;\r\n    border-radius: 25px;\r\n    position: relative;\r\n    top: 10px;\r\n}\r\n\r\n#c3{ color: black;}\r\n\r\n#e3 { font-size: 11px;}\r\n\r\n\r\n#f3 { margin-right: 5px;}\r\n\r\n\r\n/*#buttom {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.btn-default { background-color: #e3e7e5;}*/\r\n\r\n\r\n\r\n#d3 > li > a {\r\n    position: relative;\r\n    display: block;\r\n    padding: 15px 20px;\r\n    font-weight: bold;\r\n}\r\n\r\n.active {\r\n        color: #2aa0c2 !important;\r\n        font-size: 16px !important;\r\n        font-weight: bold !important;\r\n\r\n}\r\n\r\n\r\n/*\r\n#bbb{\r\n    background-color: lightyellow;\r\n}*/\r\n\r\n/*#aaa{\r\n    background-color: lightgreen;\r\n}*/\r\n\r\n/*FinanciadorHome*/\r\n\r\n.a4 {\r\n    padding:8px;\r\n    background:#ffffff;\r\n    margin-right:4px;\r\n\r\n}\r\n\r\n.b4 { padding: 1px 15px 3px 2px;}\r\n\r\n#c4 {\r\n    border-radius:20px;\r\n    margin-top: 10px;\r\n    margin-left: 70px;\r\n}\r\n\r\n/*.d4 { margin-top: 100px; }*/\r\n\r\n.e4 { margin-left: 70px; }\r\n\r\n/*FinanciadorFormStep1*/\r\n\r\n#b1 {\r\n    margin-bottom: 20px;\r\n    margin-left: 90px;\r\n    font-size: 15px;\r\n    font-weight: bold;\r\n}\r\n\r\n#c1 {\r\n     float: right;\r\n     border-radius:20px;\r\n     margin-top: 10px;\r\n     margin-left: 70px;\r\n     width: 20%;\r\n}\r\n\r\n#e1{\r\n    position: relative;\r\n    left: 10px;\r\n}\r\n\r\n#f1 {\r\n    height: 250px;\r\n    \r\n}\r\n\r\n#g1{\r\n    height: 15%;\r\n    margin-left: 35%;\r\n}\r\n\r\n/*FinanciadorFormStep2*/\r\n\r\n.row { \r\n    margin-top: 50px;\r\n    margin-bottom: 8px;\r\n}\r\n\r\n#th {\r\n   \r\n     background-color: #fbfbfb;\r\n\r\n     }\r\n\r\n#a {\r\n    background-color: rgba(250, 250, 250, 0.90);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    padding: 35px;\r\n    padding-top: 30px;\r\n    margin: 8px;\r\n}\r\n\r\n#b { margin-bottom: 40px; }\r\n\r\n#c { padding: 1px; }\r\n\r\n#d {\r\n    margin-top: 40px;\r\n    margin-left: 140px;\r\n}\r\n\r\n\r\n\r\n#f {\r\n    background-color: rgba(250, 250, 250, 0.89);\r\n    width: 300px;\r\n    height: 400px;\r\n    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);\r\n    border-radius: 20px;\r\n    margin: 8px;\r\n    padding: 25px;\r\n    padding-top: 25px;\r\n}\r\n\r\n.g {\r\n       \r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    border-spacing: 5px;\r\n    empty-cells: hide;\r\n    border-collapse: separate;\r\n    width: 250px;\r\n    box-shadow: 0 4px 4px 4 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\r\n    text-align: center;\r\n    height: 350px;\r\n}\r\n\r\n#j {\r\n\r\n    position: absolute;\r\n    bottom: 10%;\r\n}\r\n\r\n#k {\r\n    \r\n    position: fixed;\r\n    bottom: 175px;\r\n}    \r\n\r\n#l{\r\n    color: black;\r\n    text-align: center;\r\n    margin-top: 5%;\r\n}\r\n\r\n\r\n\r\n/*TableDataFinanciador*/\r\n\r\n.a6{\r\n\r\n    border-width: 1px;\r\n    border-color: lightgrey;\r\n    border-style: solid;\r\n    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.b6 {\r\n\r\n    background-color: #e7e7e7;\r\n    color: #777;\r\n }\r\n\r\n/*OpcionaHome*/\r\n\r\n.oh {\r\n    background-color: #e9ebee;\r\n\r\n}\r\n\r\n/*opcionHome*/\r\n\r\n#a7{\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n\r\n\r\n}\r\n\r\n#b7{\r\n\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n}\r\n\r\n#c7{\r\n\r\n    background-color: #c3e0f9;\r\n    height: 400px;\r\n    border-width: 1.5px;\r\n    border-radius: 20px;\r\n    margin-bottom: 10%;\r\n}\r\n\r\n/*#d7, #e7 {\r\n    background-color: #e9ebee;\r\n    height: 500px;\r\n}*/\r\n", ""]);
 
 // exports
 
@@ -31738,11 +31744,11 @@ var Home = function (_React$Component) {
 		value: function componentWillMount() {
 			_reactRouter.hashHistory.push('/Bedin/financiador');
 		}
-	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps(props) {
-			//if(!props.isLoggedIn) hashHistory.push('/');
-		}
+
+		//componentWillReceiveProps(props) {
+		//	if(!props.isLoggedIn) hashHistory.push('/');
+		//}
+
 	}, {
 		key: 'render',
 		value: function render() {
@@ -31820,7 +31826,7 @@ function GlobalNavbar(props) {
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/', className: 'navbar-brand' },
-            _react2.default.createElement('img', { src: '/public/img/drawing2.png', width: '60', height: '20', alt: '' })
+            _react2.default.createElement('img', { src: '/public/img/bedin-logo-transparent.png', width: '60', height: '20', alt: '', id: 'a3' })
           )
         ),
         _react2.default.createElement(
@@ -32170,10 +32176,10 @@ function FinanciadorFormStep1(props) {
       _react2.default.createElement(
         "div",
         { className: "row" },
-        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-3 col-lg-3" }),
         _react2.default.createElement(
           "div",
-          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          { className: "col-xs-8 col-sm-5 col-lg-5 " },
           _react2.default.createElement(
             "form",
             { className: "form-horizontal", onSubmit: props.nextStep },
@@ -32185,7 +32191,7 @@ function FinanciadorFormStep1(props) {
                 { id: "b1" },
                 _react2.default.createElement(
                   "span",
-                  null,
+                  { id: "e1" },
                   _react2.default.createElement(
                     "h",
                     null,
@@ -32331,7 +32337,9 @@ function FinanciadorFormStep2(props) {
           _react2.default.createElement(
             "label",
             null,
-            "Seleccione Hospital(es) Perteneciente(s) al Plan"
+            "Seleccione Hospital/es ",
+            _react2.default.createElement("br", null),
+            "acorde al plan"
           ),
           _react2.default.createElement(
             "form",
@@ -32366,7 +32374,7 @@ function FinanciadorFormStep2(props) {
                     props.add(plan, hospitals);
                     document.querySelector('input').value = "";
                     document.querySelector('form').reset();
-                  }, className: " btn button", id: "button2"
+                  }, id: "k"
                 },
                 "Add"
               )
@@ -32378,7 +32386,7 @@ function FinanciadorFormStep2(props) {
           { className: "col-xs-5 col-sm-4 col-lg-4", id: "f" },
           _react2.default.createElement(
             "table",
-            { className: "table table-bordered g" },
+            { className: "table  g" },
             _react2.default.createElement(
               "thead",
               null,
@@ -32428,7 +32436,7 @@ function FinanciadorFormStep2(props) {
           ),
           _react2.default.createElement(
             "button",
-            { onClick: props.submitAll },
+            { id: "j", onClick: props.submitAll },
             "Submit All"
           )
         ),
@@ -32437,7 +32445,7 @@ function FinanciadorFormStep2(props) {
     ),
     _react2.default.createElement(
       "div",
-      null,
+      { id: "l" },
       popup
     )
   );
@@ -32833,45 +32841,63 @@ function TableDataUserFinanciador(props) {
 		);
 	});
 	return _react2.default.createElement(
-		'table',
-		{ className: 'table' },
+		'div',
+		null,
 		_react2.default.createElement(
-			'thead',
-			null,
+			'div',
+			{ className: 'container' },
 			_react2.default.createElement(
-				'tr',
-				null,
+				'div',
+				{ className: 'row' },
+				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-1 col-lg-1' }),
 				_react2.default.createElement(
-					'th',
-					null,
-					'Nombre'
+					'div',
+					{ className: 'col-xs-2 col-sm-10 col-lg-10' },
+					_react2.default.createElement(
+						'table',
+						{ className: 'table' },
+						_react2.default.createElement(
+							'thead',
+							null,
+							_react2.default.createElement(
+								'tr',
+								null,
+								_react2.default.createElement(
+									'th',
+									null,
+									'NOMBRE'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'USUARIO'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'FECHA DE CREACI\xD3N'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'ENTIDAD'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'ROL'
+								)
+							)
+						),
+						_react2.default.createElement(
+							'tbody',
+							null,
+							users
+						)
+					)
 				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Usuario'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Fecha de creacion'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Entidad'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Rol'
-				)
+				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-10 col-lg-10' })
 			)
-		),
-		_react2.default.createElement(
-			'tbody',
-			null,
-			users
 		)
 	);
 }
@@ -33026,10 +33052,10 @@ function FinanciadorUserForm(props) {
       _react2.default.createElement(
         'div',
         { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-4 col-lg-5' }),
+        _react2.default.createElement('div', { className: 'col-xs-2 col-sm-3 col-lg-3' }),
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-8 col-sm-6 col-lg-4 ' },
+          { className: 'col-xs-8 col-sm-6 col-lg-6 ' },
           _react2.default.createElement(
             'h2',
             null,
@@ -33100,7 +33126,7 @@ function FinanciadorUserForm(props) {
               _react2.default.createElement(
                 'label',
                 { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
-                'Temporary Username'
+                'Username Temporal'
               ),
               _react2.default.createElement(
                 'div',
@@ -33114,7 +33140,7 @@ function FinanciadorUserForm(props) {
               _react2.default.createElement(
                 'label',
                 { htmlFor: 'inputEmail3', className: 'col-sm-2 control-label' },
-                'Temporary Password'
+                'Password Temporal'
               ),
               _react2.default.createElement(
                 'div',
@@ -33124,16 +33150,16 @@ function FinanciadorUserForm(props) {
             ),
             _react2.default.createElement(
               'div',
-              null,
+              { id: 'f1' },
               _react2.default.createElement(
                 'label',
                 null,
-                'Seleccione Financiadora del Usuario'
+                'Obra Social'
               ),
               props.financiadors.map(function (financiador, i) {
                 return _react2.default.createElement(
                   'div',
-                  { key: i },
+                  { key: i, id: 'g1' },
                   _react2.default.createElement('input', { name: 'financiadors', type: 'radio', 'data-id': financiador._id, value: financiador.name }),
                   financiador.name,
                   _react2.default.createElement('br', null)
@@ -33368,10 +33394,10 @@ function HospitalForm(props) {
       _react2.default.createElement(
         "div",
         { className: "row" },
-        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-3 col-lg-3" }),
         _react2.default.createElement(
           "div",
-          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          { className: "col-xs-8 col-sm-6 col-lg-6 " },
           _react2.default.createElement(
             "h2",
             null,
@@ -33618,36 +33644,55 @@ function TableDataHospital(props) {
 			)
 		);
 	});
+
 	return _react2.default.createElement(
-		"table",
-		{ className: "table" },
+		"div",
+		null,
 		_react2.default.createElement(
-			"thead",
-			null,
+			"div",
+			{ className: "container a1" },
 			_react2.default.createElement(
-				"tr",
-				null,
+				"div",
+				{ className: "row" },
+				_react2.default.createElement("div", { className: "col-xs-2 col-sm-1 col-lg-1" }),
 				_react2.default.createElement(
-					"th",
-					null,
-					"Nombre"
+					"div",
+					{ className: "col-xs-2 col-sm-10 col-lg-10" },
+					_react2.default.createElement(
+						"table",
+						{ className: "table" },
+						_react2.default.createElement(
+							"thead",
+							null,
+							_react2.default.createElement(
+								"tr",
+								null,
+								_react2.default.createElement(
+									"th",
+									null,
+									"Nombre"
+								),
+								_react2.default.createElement(
+									"th",
+									null,
+									"Direccion"
+								),
+								_react2.default.createElement(
+									"th",
+									null,
+									"Telefono"
+								)
+							)
+						),
+						_react2.default.createElement(
+							"tbody",
+							null,
+							hospitals
+						)
+					)
 				),
-				_react2.default.createElement(
-					"th",
-					null,
-					"Direccion"
-				),
-				_react2.default.createElement(
-					"th",
-					null,
-					"Telefono"
-				)
+				_react2.default.createElement("div", { className: "col-xs-2 col-sm-1 col-lg-1" })
 			)
-		),
-		_react2.default.createElement(
-			"tbody",
-			null,
-			hospitals
 		)
 	);
 }
@@ -33789,45 +33834,63 @@ function TableDataUserHospital(props) {
 		);
 	});
 	return _react2.default.createElement(
-		'table',
-		{ className: 'table' },
+		'div',
+		null,
 		_react2.default.createElement(
-			'thead',
-			null,
+			'div',
+			{ className: 'container' },
 			_react2.default.createElement(
-				'tr',
-				null,
+				'div',
+				{ className: 'row' },
+				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-1 col-lg-1' }),
 				_react2.default.createElement(
-					'th',
-					null,
-					'Nombre'
+					'div',
+					{ className: 'col-xs-2 col-sm-10 col-lg-10' },
+					_react2.default.createElement(
+						'table',
+						{ className: 'table' },
+						_react2.default.createElement(
+							'thead',
+							null,
+							_react2.default.createElement(
+								'tr',
+								null,
+								_react2.default.createElement(
+									'th',
+									null,
+									'NOMBRE'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'USUARIO'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'FECHA DE CREACI\xD3N'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'ENTIDAD'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'ROL'
+								)
+							)
+						),
+						_react2.default.createElement(
+							'tbody',
+							null,
+							users
+						)
+					)
 				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Usuario'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Fecha de creacion'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Entidad'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Rol'
-				)
+				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-10 col-lg-10' })
 			)
-		),
-		_react2.default.createElement(
-			'tbody',
-			null,
-			users
 		)
 	);
 }
@@ -33979,10 +34042,10 @@ function HospitalUserForm(props) {
       _react2.default.createElement(
         "div",
         { className: "row" },
-        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-3 col-lg-3" }),
         _react2.default.createElement(
           "div",
-          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          { className: "col-xs-8 col-sm-6 col-lg-6 " },
           _react2.default.createElement(
             "h2",
             null,
@@ -34053,7 +34116,7 @@ function HospitalUserForm(props) {
               _react2.default.createElement(
                 "label",
                 { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
-                "Temporary Username"
+                "Username Temporario"
               ),
               _react2.default.createElement(
                 "div",
@@ -34067,7 +34130,7 @@ function HospitalUserForm(props) {
               _react2.default.createElement(
                 "label",
                 { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
-                "Temporary Password"
+                "Password Temporario"
               ),
               _react2.default.createElement(
                 "div",
@@ -34077,7 +34140,7 @@ function HospitalUserForm(props) {
             ),
             _react2.default.createElement(
               "div",
-              null,
+              { id: "f1" },
               _react2.default.createElement(
                 "label",
                 null,
@@ -34086,7 +34149,7 @@ function HospitalUserForm(props) {
               props.hospitals.map(function (hospital, i) {
                 return _react2.default.createElement(
                   "div",
-                  { key: i },
+                  { key: i, id: "g1" },
                   _react2.default.createElement("input", { name: "hospitals", type: "radio", "data-id": hospital._id, value: hospital.name }),
                   hospital.name,
                   _react2.default.createElement("br", null)
@@ -34306,10 +34369,10 @@ function HospitalUserForm(props) {
       _react2.default.createElement(
         "div",
         { className: "row" },
-        _react2.default.createElement("div", { className: "col-xs-2 col-sm-4 col-lg-5" }),
+        _react2.default.createElement("div", { className: "col-xs-2 col-sm-3 col-lg-3" }),
         _react2.default.createElement(
           "div",
-          { className: "col-xs-8 col-sm-6 col-lg-4 " },
+          { className: "col-xs-8 col-sm-6 col-lg-6 " },
           _react2.default.createElement(
             "h2",
             null,
@@ -34380,7 +34443,7 @@ function HospitalUserForm(props) {
               _react2.default.createElement(
                 "label",
                 { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
-                "Temporary Username"
+                "Username Temporario"
               ),
               _react2.default.createElement(
                 "div",
@@ -34394,7 +34457,7 @@ function HospitalUserForm(props) {
               _react2.default.createElement(
                 "label",
                 { htmlFor: "inputEmail3", className: "col-sm-2 control-label" },
-                "Temporary Password"
+                "Password Temporario"
               ),
               _react2.default.createElement(
                 "div",
@@ -34555,45 +34618,63 @@ function TableDataUserBedin(props) {
 		);
 	});
 	return _react2.default.createElement(
-		'table',
-		{ className: 'table' },
+		'div',
+		null,
 		_react2.default.createElement(
-			'thead',
-			null,
+			'div',
+			{ className: 'container' },
 			_react2.default.createElement(
-				'tr',
-				null,
+				'div',
+				{ className: 'row' },
+				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-2 col-lg-2' }),
 				_react2.default.createElement(
-					'th',
-					null,
-					'Nombre'
+					'div',
+					{ className: 'col-xs-2 col-sm-8 col-lg-8' },
+					_react2.default.createElement(
+						'table',
+						{ className: 'table' },
+						_react2.default.createElement(
+							'thead',
+							null,
+							_react2.default.createElement(
+								'tr',
+								null,
+								_react2.default.createElement(
+									'th',
+									null,
+									'NOMBRE'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'USUARIO'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'FECHA DE CREACI\xD3N'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'ENTIDAD'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'ROL'
+								)
+							)
+						),
+						_react2.default.createElement(
+							'tbody',
+							null,
+							users
+						)
+					)
 				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Usuario'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Fecha de creacion'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Entidad'
-				),
-				_react2.default.createElement(
-					'th',
-					null,
-					'Rol'
-				)
+				_react2.default.createElement('div', { className: 'col-xs-2 col-sm-2 col-lg-2' })
 			)
-		),
-		_react2.default.createElement(
-			'tbody',
-			null,
-			users
 		)
 	);
 }
@@ -35439,6 +35520,157 @@ function TableViewAcceptedPatientRequests() {
 }
 
 exports.default = TableViewAcceptedPatientRequests;
+
+/***/ }),
+/* 352 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _LargeButton = __webpack_require__(79);
+
+var _LargeButton2 = _interopRequireDefault(_LargeButton);
+
+var _reactRouter = __webpack_require__(20);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function opcionHome(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'container-fluid b4' },
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-2 col-lg-1  col-xl-2 ', id: 'e7' }),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh' },
+          _react2.default.createElement(
+            'div',
+            { id: 'a7' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'e4' },
+              'Obra Social'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/financiador/entcrear', className: 'btn icon-btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
+              'Adherir Obra Social '
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/financiador/entver', className: 'btn icon-btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              'Obras Sociales'
+            ),
+            _react2.default.createElement(
+              'h2',
+              { className: 'e4' },
+              'Usuarios '
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/financiador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+              'Generar Usuario  '
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/financiador/userver', className: 'btn icon-btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              'Lista de Usuarios '
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh' },
+          _react2.default.createElement(
+            'div',
+            { id: 'b7' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'e4' },
+              'Hospital'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: 'Bedin/hospital/entcrear', className: 'btn  btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon-plus img-circle text-info' }),
+              'Adherir Hospital'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { className: 'btn btn-info', id: 'c4', to: '/Bedin/hospital/entver' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              'Lista de Hospitales'
+            ),
+            _react2.default.createElement(
+              'h2',
+              { className: 'e4' },
+              'Usuarios '
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: 'Bedin/hospital/usercrear', className: 'btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+              'Generar Usuario'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/hospital/userver', className: 'btn   btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              'Lista de Usuarios'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'col-xs-12 col-sm-4 col-lg-3 col-xl-3 oh' },
+          _react2.default.createElement(
+            'div',
+            { id: 'c7' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'e4' },
+              'Usuarios'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/administrador/usercrear', className: 'btn icon-btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-user img-circle text-info' }),
+              'Generar Usuario'
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/Bedin/administrador/userver', className: 'btn icon-btn btn-info', id: 'c4' },
+              _react2.default.createElement('span', { className: 'glyphicon a4 glyphicon glyphicon-list img-circle text-info' }),
+              'Lista de Usuarios'
+            )
+          )
+        ),
+        _react2.default.createElement('div', { className: 'col-xs-12 col-sm-4 col-lg-1 col-xl-1 ', id: 'd7' })
+      )
+    )
+  );
+}
+
+exports.default = opcionHome;
 
 /***/ })
 /******/ ]);
