@@ -11,20 +11,32 @@ function TableDataUserFinanciador(props) {
 		</tr>
 	)
 	return (
-		<table className = "table">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Usuario</th>
-					<th>Fecha de creacion</th>
-					<th>Entidad</th>
-					<th>Rol</th>
-				</tr>
-			</thead>
-			<tbody>
-			{users}
-			</tbody>
-		</table>
+		<div>
+			
+			<div className="container">
+				<div className="row">
+					<div className="col-xs-2 col-sm-1 col-lg-1"></div>
+					<div className="col-xs-2 col-sm-10 col-lg-10">
+						<table className = "table" >
+							<thead>
+								<tr>
+									<th>NOMBRE</th>
+									<th>USUARIO</th>
+									<th>FECHA DE CREACIÓN</th>
+									<th>ENTIDAD</th>
+									<th>ROL</th>
+								</tr>
+							</thead>
+							<tbody>
+							{users}
+							</tbody>
+						</table>
+					</div>
+					<div className="col-xs-2 col-sm-10 col-lg-10"></div>
+				</div>
+			</div>
+
+		</div>
 	)
 }
 

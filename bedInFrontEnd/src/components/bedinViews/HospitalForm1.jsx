@@ -7,8 +7,8 @@ function HospitalForm(props) {
 
         <div className="container container_a">
           <div className="row">
-            <div className="col-xs-2 col-sm-4 col-lg-5"></div>
-            <div className="col-xs-8 col-sm-6 col-lg-4 ">
+            <div className="col-xs-2 col-sm-3 col-lg-3"></div>
+            <div className="col-xs-8 col-sm-6 col-lg-6 ">
 
       <h2>Detalles de Hospital</h2>
 
