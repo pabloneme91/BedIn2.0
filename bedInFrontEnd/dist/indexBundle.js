@@ -16162,7 +16162,7 @@ var router = _react2.default.createElement(
         _reactRouter.Route,
         { path: 'administrador' },
         _react2.default.createElement(_reactRouter.IndexRoute, { component: _AdministradorHome2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: 'usercrear', component: _AdminUserForm2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: 'usercrear', component: _FinanciadorUserForm2.default }),
         _react2.default.createElement(_reactRouter.Route, { path: 'userver', component: _BedinUserViewData2.default })
       )
     ),

@@ -66,7 +66,7 @@ const router = (
         
         <Route path="administrador" >
           <IndexRoute component={AdministradorHome}/>
-          <Route path="usercrear" component={AdministradorUserForm}></Route>
+          <Route path="usercrear" component={BedinFinanciadorUserForm}></Route>
           <Route path="userver" component={AdministradorUserViewData}/>
         </Route>
 
