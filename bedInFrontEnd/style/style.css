@@ -52,13 +52,13 @@
 /*BedinNavbar*/
 
 #a3{
-    
+
     width: 65px;
     height: 35px;
     position: relative;
     top: -10px;
     left: 10px;
-  
+
 
 }
 
@@ -162,7 +162,7 @@
 
 #f1 {
     height: 250px;
-    
+
 }
 
 #g1{
@@ -172,13 +172,13 @@
 
 /*FinanciadorFormStep2*/
 
-.row { 
+.row {
     margin-top: 50px;
     margin-bottom: 8px;
 }
 
 #th {
-   
+
      background-color: #fbfbfb;
 
      }
@@ -217,7 +217,7 @@
 }
 
 .g {
-       
+
     border-width: 1.5px;
     border-radius: 20px;
     border-spacing: 5px;
@@ -236,10 +236,10 @@
 }
 
 #k {
-    
+
     position: fixed;
     bottom: 175px;
-}    
+}
 
 #l{
     color: black;
@@ -306,3 +306,13 @@
     background-color: #e9ebee;
     height: 500px;
 }*/
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

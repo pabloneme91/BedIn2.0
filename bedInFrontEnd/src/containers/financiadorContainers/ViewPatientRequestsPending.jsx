@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 */
-class ViewPatientRequestsTestCSS extends React.Component {
+class ViewPatientRequestsPending extends React.Component {
 	constructor(props) {
 		super(props);
 		this.sendPatient = this.sendPatient.bind(this);
@@ -25,7 +25,7 @@ class ViewPatientRequestsTestCSS extends React.Component {
 
 	sendPatient(info) {
 		alert('ok');
-	}	
+	}
 
 	componentWillMount() {
 
@@ -46,4 +46,4 @@ class ViewPatientRequestsTestCSS extends React.Component {
 
 //export default connect(mapStateToProps, mapDispatchToProps)(ViewPatientRequests);
 
-export default ViewPatientRequestsTestCSS;
+export default ViewPatientRequestsPending;

@@ -5,8 +5,9 @@ import authentication from './authentication';
 import formReducers from './formReducers';
 import viewFinanciadores from './viewFinanciador';
 import viewUser from './viewUser';
-
 import viewHospitals from './viewHospital';
+import patientRequestReducers from './patientRequestReducers';
+
 
 const rootReducer = combineReducers({
 	authentication : authentication,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
 	viewFinanciadores: viewFinanciadores,
 	viewUser: viewUser,
 	viewHospitals: viewHospitals,
+	patientRequestReducers: patientRequestReducers,
  	routing: routerReducer
 })
 
