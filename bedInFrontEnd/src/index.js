@@ -33,9 +33,11 @@ import AdministradorUserViewData from './containers/BedinUserViewData.jsx';
 import PerfilContainer from './containers/PerfilContainer.jsx';
 
 
-//import FinanciadorHomeTestCSS from './containers/financiadorContainers/FinanciadorHomeTestCSS.jsx'
-import CreatePatientContainerTestCSS from './containers/financiadorContainers/CreatePatientContainerTestCSS.jsx'
-import ViewPatientRequestsTestCSS from './containers/financiadorContainers/ViewPatientRequestsTestCSS.jsx'
+import FinanciadorHome from './containers/financiadorContainers/FinanciadorHome.jsx';
+import CreatePatientRequest from './containers/financiadorContainers/CreatePatientRequest.jsx';
+import ViewPatientRequestsPending from './containers/financiadorContainers/ViewPatientRequestsPending.jsx';
+import ViewPatientRequestsMatched from './components/financiadorViews/TableViewAcceptedPatientRequests.jsx';
+
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 
 
@@ -47,7 +49,7 @@ const router = (
       <Route path="/Bedin" component={BedinHome}>
 
         <Route path="perfil/:id" component={PerfilContainer}/>
-        
+
         <Route path="financiador">
           <IndexRoute component={BedinFinanciadorHome}/>
           <Route path="entcrear" component={BedinFinanciadorForm}/>
@@ -63,7 +65,7 @@ const router = (
           <Route path="usercrear" component={BedinHospitalUserForm}/>
           <Route path="userver" component={BedinHospitalUserViewData}/>
         </Route>
-        
+
         <Route path="administrador" >
           <IndexRoute component={AdministradorHome}/>
           <Route path="usercrear" component={BedinFinanciadorUserForm}></Route>
@@ -72,10 +74,11 @@ const router = (
 
       </Route>
 
-      <Route path="/Financiador">
-        <IndexRoute component={ViewPatientRequestsTestCSS}/>
-        <Route path="create" component={CreatePatientContainerTestCSS}></Route>
-      </Route> 
+      <Route path="/Financiador" component={FinanciadorHome}>
+        <Route path="createrequest" component={CreatePatientRequest}/>
+        <Route path="viewpending" component={ViewPatientRequestsPending}></Route>
+        <Route path="viewmatched" component={ViewPatientRequestsMatched}></Route>
+      </Route>
 
       <Route path="/Hospital">
 

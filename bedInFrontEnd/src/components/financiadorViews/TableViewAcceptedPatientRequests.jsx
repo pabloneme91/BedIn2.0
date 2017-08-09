@@ -2,7 +2,7 @@ import React from 'react';
 
 const tableStyle = {border:"1px solid black"};
 
-const props = 
+const props =
 	{
 		patients: [
 			{
@@ -19,9 +19,9 @@ const props =
 		]
 	}
 
-function TableViewAcceptedPatientRequests() {
+function ViewPatientRequestsMatchedTable() {
 
-	const tableBody = props.patients.map((patient, i) => 
+	const tableBody = props.patients.map((patient, i) =>
 		<tr style={tableStyle} key={patient.documento}>
 			<td style={tableStyle}>{patient.fecha}</td>
 			<td style={tableStyle}>{patient.documento}</td>
@@ -52,4 +52,4 @@ function TableViewAcceptedPatientRequests() {
 	)
 }
 
-export default TableViewAcceptedPatientRequests;
+export default ViewPatientRequestsMatchedTable;
