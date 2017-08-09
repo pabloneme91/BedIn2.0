@@ -1,6 +1,11 @@
 import React from 'react';
 
 function CreatePatientRequestForm(props) {
+  let popup = null;
+  if(props.success) {
+     popup = <div>PATIENT REQUEST CREADO</div>
+ }
+
   return (
 
     <div className="container container_a">
@@ -33,14 +38,14 @@ function CreatePatientRequestForm(props) {
             <div className="form-group">
               <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Edad</label>
                 <div className="col-sm-9">
-                  <input type="number" className="form-control" id="inputEmail3" name="edad" placeholder="Edad"></input>
+                  <input type="number" className="form-control" name="edad" placeholder="Edad"></input>
                 </div>
             </div>
 
             <div className="form-group ">
               <label htmlFor="exampleInputName2" className="col-sm-3 control-label">Diagnostico CIE 10</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control" id="inputEmail3" name="cie" placeholder="CIE"></input>
+                <input type="text" className="form-control" name="cie" placeholder="CIE"></input>
               </div>
             </div>
 
@@ -49,11 +54,11 @@ function CreatePatientRequestForm(props) {
               <div className="col-sm-9">
                 <select className="form-control" name="complejidad" id="complexity-select">
                   <option value="select-option">---Seleccione Una Opción---</option>
-                  <option value="Complejidad1">Neonatología</option>
-                  <option value="Complejidad2">UTI Pediátrica</option>
-                  <option value="Complejidad3">Sala Pediátrica</option>
-                  <option value="Complejidad4">UTI Adultos</option>
-                  <option value="Complejidad5">UCO</option>
+                  <option>Neonatología</option>
+                  <option>UTI Pediátrica</option>
+                  <option>Sala Pediátrica</option>
+                  <option>UTI Adultos</option>
+                  <option>UCO</option>
                 </select>
               </div>
             </div>
@@ -62,10 +67,9 @@ function CreatePatientRequestForm(props) {
               <label htmlFor="sel1" className="control-label col-sm-3">Plan</label>
               <div className="col-sm-9">
                 <select className="form-control" name="plan" id="plan-select">
+                  <option>---Selecccione Plan del Paciente---</option>
                   {props.plans.map((plan, i) =>
-                    <div key={i}>
-                      <option data-id={plan._id}>{plan.name}</option>
-                    </div>
+                    <option key={i} value={plan._id}>{plan.name}</option>
                   )}
                 </select>
               </div>
@@ -81,6 +85,9 @@ function CreatePatientRequestForm(props) {
 
         </div>
       </div>
+
+      <div id="l">{popup}</div>
+
     </div>
   )
 }

@@ -19,7 +19,8 @@ function mapStateToProps(state) {
 	  patientPlan: state.patientRequestReducers.patientPlan,
 	  dateCreated: state.patientRequestReducers.dateCreated,
 	  hospitalsRequested: state.patientRequestReducers.hospitalsRequested,
-		plans: state.patientRequestReducers.plans
+		plans: state.patientRequestReducers.plans,
+		error: state.patientRequestReducers.error
   }
 };
 
@@ -31,6 +32,7 @@ function mapDispatchToProps(dispatch) {
 class CreatePatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
+		this.create = this.create.bind(this)
 	}
 
 	componentWillMount() {
@@ -38,17 +40,19 @@ class CreatePatientRequest extends React.Component {
   }
 
 	create(e) {
+		e.preventDefault();
 		let selectedSex = document.getElementById("sex-select").value;
 		let selectedComplexity = document.getElementById("complexity-select").value;
-		let selectedPlan = document.getElementById("plan-select").value; // TODO: Only send id to back!!!!
-    e.preventDefault();
+		console.log('TARGET', e.target.plan.value);
+		let selectedPlan = e.target.plan.value;
+
     this.props.createPatientRequest({
       dni: e.target.dni.value,
       age: e.target.edad.value,
       sex: selectedSex,
 			cie10: e.target.cie.value,
 			complexity: selectedComplexity,
-			plan: selectedPlan[0]._id
+			healthcareplan: selectedPlan
     })
   }
 
@@ -58,7 +62,7 @@ class CreatePatientRequest extends React.Component {
 
 	render() {
 		return (
-			<CreatePatientRequestForm plans={this.props.plans} createRequest={this.create}/>
+			<CreatePatientRequestForm plans={this.props.plans} createRequest={this.create} success={this.props.createSuccess} />
 		)
 	}
 }
