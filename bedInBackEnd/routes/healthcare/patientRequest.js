@@ -30,10 +30,11 @@ app.get('/pending', function(req,res) {
 			eachPatient.acceptedByHospital = [];
 			eachPatient.allRequestedHospitals.forEach(eachHospital => {
 				if(eachHospital.state === 'Visto') return eachPatient.viewedByHospitals.push(eachHospital)
-				if(eachHospital.state === 'Aceptado') return eachPatient.acceptedByHospital.push(eachHospital)	
+				if(eachHospital.state === 'Aceptado') return eachPatient.acceptedByHospital.push(eachHospital)
 			})
 			return eachPatient
 		})
+		console.log(JSON.stringify(patient,null,2))
 		res.send(patient)
 	})
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
@@ -66,4 +67,4 @@ app.post('/matched', function(req,res) {
 
 
 
-module.exports = app; 
+module.exports = app;

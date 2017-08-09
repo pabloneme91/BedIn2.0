@@ -3,77 +3,19 @@ import React from 'react';
 const tableStyle = {border:"1px solid black"};
 const marginLeft = {marginLeft:"5px"}
 
-const props =
-
-	{
-		patients: [
-			{
-				fecha: '01/01/2017',
-				documento: 3224973,
-				edad: "25",
-				sexo: "F",
-				plan: "01",
-				CIE: "A01",
-				complejidad: "Grado 1",
-				allHospitals: [
-					{
-						name: 'Fleming',
-						_id: '1'
-					},
-					{
-						name: 'Los Arcos',
-						_id: 2
-					},
-					{
-						name: 'Padilla',
-						_id: 3
-					},
-				],
-				viewedHospitals: [
-					{
-						name: 'Los Arcos',
-						_id: 2
-					},
-					{
-						name: 'Padilla',
-						_id: 3
-					},
-				],
-				acceptedHospitals: [
-					{
-						name: 'Fleming',
-						_id: '1'
-					},
-					{
-						name: 'hospital test',
-						_id: '4'
-					},
-				]
-			}
-		],
-		matchHospital: (e) => {
-			e.preventDefault();
-			alert('matcheado')
-
-		}
-	}
-
 
 function ViewPatientRequestsPendingTable(props) {
-
-	const buildPendingTable = (listOfPending, acceptedByHospital) => {
-		return listOfPending.map(hospital =>
+	console.log(props)
+	const buildPendingTable = (listOfPending = [], acceptedByHospital) => {
+		return listOfPending.map(eachPending =>
 			acceptedByHospital ?
-			<p key={hospital._id} >{hospital.name}
-      	<button type="button"
-      		className="btn btn-success btn-xs"
-      		style={marginLeft}
-      		onClick={props.matchHospital}>
+			<p key={eachPending._id} >{eachPending.name}
+      	<button type="button" className="btn btn-success btn-xs" style={marginLeft} onClick={props.matchHospital}>
         	<span className="glyphicon glyphicon-ok"></span>
       	</button>
   		</p>
-    	: <p key={hospital._id}>{hospital.name}</p>
-    )
+    	: <p key={eachPending._id}>{eachPending.name}</p>
+	)
 	}
 
 	const tableBody = props.listOfPending.map((pending, i) =>
@@ -88,14 +30,9 @@ function ViewPatientRequestsPendingTable(props) {
 			<td style={tableStyle}>{pending.plan}</td>
 
 			<td style={tableStyle}>
-				{buildPendingTable(pending.allHospitals)}
+				{buildPendingTable(pending.allRequestedHospitals)}
 			</td>
-			<td style={tableStyle}>
-				{buildPendingTable(pending.viewedHospitals)}
-			</td>
-			<td style={tableStyle}>
-				{buildPendingTable(pending.acceptedHospitals, true)}
-			</td>
+
 		</tr>)
 
 	return (

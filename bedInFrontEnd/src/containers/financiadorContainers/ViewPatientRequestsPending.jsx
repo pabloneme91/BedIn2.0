@@ -32,10 +32,11 @@ class ViewPatientRequestsPending extends React.Component {
 	}
 
 	render() {
-
+    const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
+    : <TableViewPendingPatientRequests listOfPending={this.props.pendingList} />
 		return (
 			<div>
-				<TableViewPendingPatientRequests listOfPending={this.props.pendingList} />
+				{tableRequests}
 			</div>
 		)
 	}
