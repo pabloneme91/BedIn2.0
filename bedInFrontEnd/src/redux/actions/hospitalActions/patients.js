@@ -33,7 +33,7 @@ export function failedToGetPatients (err) {
 export function fetchGetPatients () {
 	return (dispatch => {
 		dispatch(isRequestingToServer());
-		return fetch('urlGetPatient', {
+		return fetch('./hospital/patientRequest', {
 			method: 'GET',
 			credentials: 'include'
 		})
