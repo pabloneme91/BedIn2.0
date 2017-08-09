@@ -11,8 +11,8 @@ module.exports = {
 		.populate('hospitals')
 		.exec()
 		.then(healthcareplan => {
-			req.hospitals = healthcareplan.hospitals;
-			//return res.send(healthcareplan)
+			req.hospitals = healthcareplan.hospitals.map(eachHospital => { return {hospital: eachHospital._id} })
+			console.log(req.hospitals)
 			next();
 		})
 		.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});

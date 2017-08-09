@@ -10,7 +10,7 @@ app.post('/',hospitalsController.getHospitalsByPlan, function(req,res) {
 	req.body.healthcare = req.user.osCode;
 	patientRequest.create(req.body)
 	.then(newRequest => res.send(newRequest))
-	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});	//res.send(req.body)
+	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
 
 app.get('/pending', function(req,res) {
@@ -18,6 +18,9 @@ app.get('/pending', function(req,res) {
 		healthcare: req.user.osCode,
 		'sentTo.hospital': null
 	})
+	.populate('healthcareplan', 'name')
+	.populate('hospitalsAndState.hospital', 'name')
+	.exec()
 	.then(patient => res.send(patient))
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
@@ -27,6 +30,10 @@ app.get('/matched', function(req,res) {
 		healthcare: req.user.osCode,
 		'sentTo.hospital' : {"$ne": null}
 	})
+	.populate('healthcareplan', 'name')
+	.populate('sentTo.hospital')
+	.populate('sentTo.idUserFinanciador', 'name username')
+	.exec()
 	.then(patient => res.send(patient))
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })

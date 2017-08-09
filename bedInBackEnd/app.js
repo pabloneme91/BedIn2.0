@@ -30,6 +30,12 @@ app.use('/healthcare', indexHealthcare);
 app.use('/hospital', indexHospital);
 
 
+const moment = require('moment');
+
+const controllerHealthcare = require('./controladores/healthcare');
+
+controllerHealthcare.setPatientTimeOut();
+
 //app.use('/bedin/healthcares', healthcares)
 //app.use('/users',isLoggin , users);
 //app.use('/hospitals', hospitals)
