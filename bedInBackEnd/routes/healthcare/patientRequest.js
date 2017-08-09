@@ -21,7 +21,21 @@ app.get('/pending', function(req,res) {
 	.populate('healthcareplan', 'name')
 	.populate('hospitalsAndState.hospital', 'name')
 	.exec()
-	.then(patient => res.send(patient))
+	.then(patient => {
+		patient = patient.map(eachPatient => {
+			eachPatient = eachPatient.toObject();
+			eachPatient.allRequestedHospitals = eachPatient.hospitalsAndState;
+			delete eachPatient.hospitalsAndState;
+			eachPatient.viewedByHospitals = [];
+			eachPatient.acceptedByHospital = [];
+			eachPatient.allRequestedHospitals.forEach(eachHospital => {
+				if(eachHospital.state === 'Visto') return eachPatient.viewedByHospitals.push(eachHospital)
+				if(eachHospital.state === 'Aceptado') return eachPatient.acceptedByHospital.push(eachHospital)	
+			})
+			return eachPatient
+		})
+		res.send(patient)
+	})
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
 
