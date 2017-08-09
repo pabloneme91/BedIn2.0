@@ -60,19 +60,18 @@ const props =
 
 
 function ViewPatientRequestsPendingTable(props) {
-
+	let allRequestedHospitals = [];
+	let viewedByHospitals = [];
+	let acceptedByHospitals = [];
 	const buildPendingTable = (listOfPending, acceptedByHospital) => {
-		return listOfPending.map(hospital =>
+		return listOfPending.map(eachPending =>
 			acceptedByHospital ?
-			<p key={hospital._id} >{hospital.name}
-      	<button type="button"
-      		className="btn btn-success btn-xs"
-      		style={marginLeft}
-      		onClick={props.matchHospital}>
+			<p key={eachPending._id} >{eachPending.name}
+      	<button type="button" className="btn btn-success btn-xs" style={marginLeft} onClick={props.matchHospital}>
         	<span className="glyphicon glyphicon-ok"></span>
       	</button>
   		</p>
-    	: <p key={hospital._id}>{hospital.name}</p>
+    	: <p key={eachPending._id}>{eachPending.name}</p>
     )
 	}
 
