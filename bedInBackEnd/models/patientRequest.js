@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const ObjectId = mongoose.Schema.Types.ObjectId;
-
 
 const patientRequest = new mongoose.Schema({
   dni: { type: Number, required: true },
@@ -10,20 +10,21 @@ const patientRequest = new mongoose.Schema({
   cie10: { type: String }, // , required: true
   complexity: { type: String }, // , required: true
   healthcare: {type: ObjectId, ref: 'healthcares'},
-  plan: { type: ObjectId, ref: 'healthcareplans' },
+  healthcareplan: { type: ObjectId, ref: 'healthcareplans' },
   sentTo: { 
             hospital: {type: ObjectId, ref: 'hospitals', default: null},
             matchedDate: {type: Date, default: null},
-            idUserFinanciador: {type: ObjectId, default: null}
+            idUserFinanciador: {type: ObjectId, default: null, ref:'users'}
           },            
   hospitalsAndState: [{
-                _id: {type: ObjectId, ref:'hospitals'}, //id Hospital
+                _id: false,
+                hospital: {type: ObjectId, ref:'hospitals'}, //id Hospital
                 state: {type: String, default: null},
                 updatedDate: {type: Date, default: null},
                 idUserHospital: {type: ObjectId, ref: 'users', default: null}
               }],
-  dateCreated: { type: Date, default: Date.now},
+  dateCreated: { type: Date, default: moment},
+  timeout: {type: Boolean, default: false}
 }, { collections: 'patientRequest' })
-
 
 module.exports = mongoose.model('patientRequest', patientRequest);
