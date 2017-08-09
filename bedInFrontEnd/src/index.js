@@ -38,6 +38,7 @@ import ViewPatientRequestsPending from './containers/financiadorContainers/ViewP
 import ViewPatientRequestsMatched from './components/financiadorViews/TableViewAcceptedPatientRequests.jsx';
 
 import HospitalHome from './containers/hospitalContainers/HospitalHome.jsx';
+import ViewHospitalPatientRequestsPending from './containers/hospitalContainers/ViewPatientRequestPending.jsx';
 
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 
@@ -82,7 +83,7 @@ const router = (
       </Route>
 
       <Route path="/Hospital" component={HospitalHome}>
-        <Route path="viewpending"></Route>
+        <Route path="viewpending" component={ViewHospitalPatientRequestsPending}></Route>
         <Route path="viewaccepted"></Route>
       </Route>
 

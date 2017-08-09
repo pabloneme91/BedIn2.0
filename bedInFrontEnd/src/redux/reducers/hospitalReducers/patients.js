@@ -20,3 +20,5 @@ function patients(state = {
 			})
 	}
 }
+
+export default patients;
