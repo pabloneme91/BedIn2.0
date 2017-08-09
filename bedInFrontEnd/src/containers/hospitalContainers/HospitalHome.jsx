@@ -10,16 +10,12 @@ import GlobalNavbar from '../../components/GlobalNavbar.jsx';
 const navBarData = {
 	linkArray: [
 		{
-			route: "/Financiador/createrequest",
-			name: "GENERAR SOLICITUD"
-		},
-		{
-			route: "/Financiador/viewpending",
+			route: "/Hospital/viewpending",
 			name: "PENDIENTES"
 		},
 		{
-			route: "/Financiador/viewmatched",
-			name: "MATCHED"
+			route: "/Hospital/viewaccepted",
+			name: "ACCEPTADOS"
 		}
 	],
 	logo : '/public/img/logo_original.jpg'
@@ -38,7 +34,7 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 
-class FinanciadorHome extends React.Component {
+class HospitalHome extends React.Component {
   constructor (props) {
 		super(props);
 		this.logOut = this.logOut.bind(this)
@@ -49,7 +45,7 @@ class FinanciadorHome extends React.Component {
 	}
 
 	// componentWillMount() {
-	// 	hashHistory.push('/Financiador/createrequest');
+	// 	hashHistory.push('/Hospital/viewpending');
 	// }
 
 	//componentWillReceiveProps(props) {
@@ -70,4 +66,4 @@ class FinanciadorHome extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FinanciadorHome);
+export default connect(mapStateToProps, mapDispatchToProps)(HospitalHome);

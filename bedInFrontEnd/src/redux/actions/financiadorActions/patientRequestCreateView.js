@@ -50,14 +50,16 @@ export function fetchPlanList() {
 
     return fetch('./healthcare/plans', {
       method: 'GET',
+      credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
     })
       .then(response => response.json())
-      console.log('DATA PLAN LIST', data)
-      .then(data => dispatch(receivePlans(data)))
+      .then(data => {
+        console.log('PLANS ARRAY DATA', data)
+        dispatch(receivePlans(data))})
       .catch(err => dispatch(failedRequest(err)))
   };
 };
@@ -66,7 +68,7 @@ export function fetchPlanList() {
 export function createPatientRequest(inputData) {
   return (dispatch) => {
     dispatch(requestCreate());
-    return fetch('./bedin/healthcares', {
+    return fetch('./healthcare/patientRequest', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -77,13 +79,38 @@ export function createPatientRequest(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        //console.log('DATA', data)
+        console.log('PATIENT DATA', data)
         if(data) {
           dispatch(receiveCreatedPatient(data))
         } else {
           dispatch(failedToCreate(data.err))
         }
       })
+      .catch(err => dispatch(failedRequest(err)))
+  };
+};
+
+export function receivePending(pending) {
+  return {
+    type: 'RECEIVE_PENDING',
+    pending
+  };
+}
+
+export function fetchPendingPatientRequests() {
+  return (dispatch) => {
+    dispatch(requestList());
+
+    return fetch('./healthcare/patientRequest/pending', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => dispatch(receivePending(data)))
       .catch(err => dispatch(failedRequest(err)))
   };
 };

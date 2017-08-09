@@ -32,11 +32,12 @@ import AdministradorUserViewData from './containers/BedinUserViewData.jsx';
 
 import PerfilContainer from './containers/PerfilContainer.jsx';
 
-
 import FinanciadorHome from './containers/financiadorContainers/FinanciadorHome.jsx';
 import CreatePatientRequest from './containers/financiadorContainers/CreatePatientRequest.jsx';
 import ViewPatientRequestsPending from './containers/financiadorContainers/ViewPatientRequestsPending.jsx';
 import ViewPatientRequestsMatched from './components/financiadorViews/TableViewAcceptedPatientRequests.jsx';
+
+import HospitalHome from './containers/hospitalContainers/HospitalHome.jsx';
 
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 
@@ -80,8 +81,9 @@ const router = (
         <Route path="viewmatched" component={ViewPatientRequestsMatched}></Route>
       </Route>
 
-      <Route path="/Hospital">
-
+      <Route path="/Hospital" component={HospitalHome}>
+        <Route path="viewpending"></Route>
+        <Route path="viewaccepted"></Route>
       </Route>
 
     </Router>

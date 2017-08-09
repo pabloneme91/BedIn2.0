@@ -13,6 +13,8 @@ function patientRequestReducers(state = {
   receivePlans: false,
   plans: [],
   requestFail: false,
+  receivePending: false,
+  pendingList: []
 }, action) {
 switch(action.type) {
   case 'REQUEST_CREATE':
@@ -26,7 +28,7 @@ switch(action.type) {
       sex: action.input.sex,
       cie10: action.input.cie10,
       complexity: action.input.complexity,
-      patientPlan: action.input.plan,
+      patientPlan: action.input.healthcareplan,
       dateCreated: action.input.dateCreated,
       hospitalsRequested: action.input.hospitalsAndState
     });
@@ -51,6 +53,12 @@ switch(action.type) {
     });
   case 'RESET_CREATE_SUCCESS':
     return Object.assign({}, state, {createSuccess: false});
+  case 'RECEIVE_PENDING':
+    return Object.assign({}, state, {
+      isRequesting: false,
+      receivePending: true,
+      pendingList: action.pending
+    })
   default:
     return state;
 }

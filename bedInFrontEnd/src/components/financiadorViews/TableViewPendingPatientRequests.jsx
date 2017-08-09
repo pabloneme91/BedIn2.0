@@ -4,6 +4,7 @@ const tableStyle = {border:"1px solid black"};
 const marginLeft = {marginLeft:"5px"}
 
 const props =
+
 	{
 		patients: [
 			{
@@ -58,11 +59,11 @@ const props =
 	}
 
 
-function ViewPatientRequestsPendingTable() {
+function ViewPatientRequestsPendingTable(props) {
 
-	const listHospitals = (hospitals, isAcceptedHospital) => {
-		return hospitals.map(hospital =>
-			isAcceptedHospital ?
+	const buildPendingTable = (listOfPending, acceptedByHospital) => {
+		return listOfPending.map(hospital =>
+			acceptedByHospital ?
 			<p key={hospital._id} >{hospital.name}
       	<button type="button"
       		className="btn btn-success btn-xs"
@@ -75,25 +76,25 @@ function ViewPatientRequestsPendingTable() {
     )
 	}
 
-	const tableBody = props.patients.map((patient, i) =>
-		<tr style={tableStyle} key={patient.documento}>
+	const tableBody = props.listOfPending.map((pending, i) =>
+		<tr style={tableStyle} key={pending.dni}>
 
-			<td style={tableStyle}>{patient.fecha}</td>
-			<td style={tableStyle}>{patient.documento}</td>
-			<td style={tableStyle}>{patient.edad}</td>
-			<td style={tableStyle}>{patient.sexo}</td>
-			<td style={tableStyle}>{patient.CIE}</td>
-			<td style={tableStyle}>{patient.complejidad}</td>
-			<td style={tableStyle}>{patient.plan}</td>
+			<td style={tableStyle}>{pending.dateCreated}</td>
+			<td style={tableStyle}>{pending.dni}</td>
+			<td style={tableStyle}>{pending.age}</td>
+			<td style={tableStyle}>{pending.sex}</td>
+			<td style={tableStyle}>{pending.cie10}</td>
+			<td style={tableStyle}>{pending.complexity}</td>
+			<td style={tableStyle}>{pending.plan}</td>
 
 			<td style={tableStyle}>
-				{listHospitals(patient.allHospitals)}
+				{buildPendingTable(pending.allHospitals)}
 			</td>
 			<td style={tableStyle}>
-				{listHospitals(patient.viewedHospitals)}
+				{buildPendingTable(pending.viewedHospitals)}
 			</td>
 			<td style={tableStyle}>
-				{listHospitals(patient.acceptedHospitals, true)}
+				{buildPendingTable(pending.acceptedHospitals, true)}
 			</td>
 		</tr>)
 
@@ -106,13 +107,13 @@ function ViewPatientRequestsPendingTable() {
 						<th style={{border:"1px solid black"}}>DNI</th>
 						<th style={{border:"1px solid black"}}>Edad</th>
 						<th style={{border:"1px solid black"}}>Sexo</th>
-						<th style={{border:"1px solid black"}}>CIE</th>
-						<th style={{border:"1px solid black"}}>Complejidad</th>
+						<th style={{border:"1px solid black"}}>CIE 10</th>
+						<th style={{border:"1px solid black"}}>Complejidad de Cama</th>
 						<th style={{border:"1px solid black"}}>Plan</th>
 
 			      <th style={{border:"1px solid black"}}>Hospitales Solicitados:</th>
 			      <th style={{border:"1px solid black"}}>Visto Por:</th>
-			      <th style={{border:"1px solid black"}}>Matched Con:</th>
+			      <th style={{border:"1px solid black"}}>Aceptado Por:</th>
 			    </tr>
 			  </thead>
 			  <tbody>
