@@ -12,17 +12,17 @@ const patientRequest = new mongoose.Schema({
   healthcare: {type: ObjectId, ref: 'healthcares'},
   healthcareplan: { type: ObjectId, ref: 'healthcareplans' },
   sentTo: { 
-            hospital: {type: ObjectId, ref: 'hospitals', default: null},
-            matchedDate: {type: Date, default: null},
-            idUserFinanciador: {type: ObjectId, default: null, ref:'users'}
-          },            
+    hospital: {type: ObjectId, ref: 'hospitals', default: null},
+    matchedDate: {type: Date, default: null},
+    userFinanciador: {type: ObjectId, default: null, ref:'users'}
+  },            
   hospitalsAndState: [{
-                _id: false,
-                hospital: {type: ObjectId, ref:'hospitals'}, //id Hospital
-                state: {type: String, default: null},
-                updatedDate: {type: Date, default: null},
-                idUserHospital: {type: ObjectId, ref: 'users', default: null}
-              }],
+    _id: false,
+    hospital: {type: ObjectId, ref:'hospitals'}, //id Hospital
+    state: {type: String, default: null},
+    updatedDate: {type: Date, default: null},
+    userHospital: {type: ObjectId, ref: 'users', default: null}
+  }],
   dateCreated: { type: Date, default: moment},
   timeout: {type: Boolean, default: false}
 }, { collections: 'patientRequest' })

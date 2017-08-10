@@ -17,10 +17,12 @@ app.get('/', function(req,res) {
 			timeout: false
 		}
 	)
+	.populate('healthcareplan', 'name')
+	.populate('healthcare', 'name')
+	.exec()
 	.then(data => res.send(data))
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
-
 
 app.put('/', function(req,res) {
 	patientRequest.findById(req.body.idPatientRequest)
@@ -29,7 +31,7 @@ app.put('/', function(req,res) {
 			String(eachHospital.hospital) === String(req.user.hospitalCode))
 		selectHospital.state = req.body.state;
 		selectHospital.updatedDate = Date.now();
-		selectHospital.idUserHospital = req.user._id;
+		selectHospital.userHospital = req.user._id;
 		patientRequestData.save()
 		.then(saveData => res.send(saveData));
 	})
@@ -47,11 +49,22 @@ app.get('/accepted', function(req,res) {
 	})
 	.populate('healthcareplan', 'name')
 	.populate('healthcare', 'name')
-	.populate('hospitalsAndState.idUserHospital', 'name username')
+	.populate('hospitalsAndState.userHospital', 'name username')
 	.exec()
-	.then(patient => res.send(patient))
+	.then(patientRequestData => {
+		if(patientRequestData.length) {
+			patientRequestData = patientRequestData.map(eachPatientRequestData => {
+				let selectHospital = eachPatientRequestData.hospitalsAndState.find(eachHospital =>	
+					String(eachHospital.hospital) === String(req.user.hospitalCode))
+				eachPatientRequestData = eachPatientRequestData.toObject();
+				eachPatientRequestData.hospitalsAndState = selectHospital;
+				return eachPatientRequestData;
+			})	
+			return res.send(patientRequestData)
+		}
+		res.send(patientRequestData)
+	})
 	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
 })
-
 
 module.exports = app;

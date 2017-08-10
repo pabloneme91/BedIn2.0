@@ -12,7 +12,6 @@ module.exports = {
 		.exec()
 		.then(healthcareplan => {
 			req.hospitals = healthcareplan.hospitals.map(eachHospital => { return {hospital: eachHospital._id} })
-			console.log(req.hospitals)
 			next();
 		})
 		.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
