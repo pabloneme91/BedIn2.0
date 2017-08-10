@@ -2,33 +2,17 @@ import React from 'react';
 
 const tableStyle = {border:"1px solid black"};
 
-const props =
-	{
-		patients: [
-			{
-				fecha: '01/01/2017',
-				documento: 3224973,
-				plan: "01",
-				CIE: "A01",
-				complejidad: "Grado 1",
-				hospital: {
-					name: 'Fleming',
-					_id: '1'
-				},
-			}
-		]
-	}
-
-function ViewPatientRequestsMatchedTable() {
+function ViewPatientRequestsMatchedTable(props) {
 
 	const tableBody = props.patients.map((patient, i) =>
-		<tr style={tableStyle} key={patient.documento}>
-			<td style={tableStyle}>{patient.fecha}</td>
-			<td style={tableStyle}>{patient.documento}</td>
-			<td style={tableStyle}>{patient.plan}</td>
-			<td style={tableStyle}>{patient.CIE}</td>
-			<td style={tableStyle}>{patient.complejidad}</td>
-			<td style={tableStyle}>{patient.hospital.name}</td>
+		<tr style={tableStyle} key={patient.dni}>
+			<td style={tableStyle}>{patient.dateCreated}</td>
+			<td style={tableStyle}>{patient.dni}</td>
+			<td style={tableStyle}>{patient.healthcareplan.name}</td>
+			<td style={tableStyle}>{patient.cie10}</td>
+			<td style={tableStyle}>{patient.complexity}</td>
+			<td style={tableStyle}>{patient.sentTo.hospital.name}</td>
+			<td style={tableStyle}>{patient.sentTo.userFinanciador.username}</td>
 		</tr>)
 
 	return (
@@ -42,6 +26,7 @@ function ViewPatientRequestsMatchedTable() {
 			      <th style={{border:"1px solid black"}}>CIE</th>
 			      <th style={{border:"1px solid black"}}>Complejidad</th>
 			      <th style={{border:"1px solid black"}}>Hospital</th>
+			      <th style={{border:"1px solid black"}}>Usuario</th>
 			    </tr>
 			  </thead>
 			  <tbody>

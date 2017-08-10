@@ -35,10 +35,11 @@ import PerfilContainer from './containers/PerfilContainer.jsx';
 import FinanciadorHome from './containers/financiadorContainers/FinanciadorHome.jsx';
 import CreatePatientRequest from './containers/financiadorContainers/CreatePatientRequest.jsx';
 import ViewPatientRequestsPending from './containers/financiadorContainers/ViewPatientRequestsPending.jsx';
-import ViewPatientRequestsMatched from './components/financiadorViews/TableViewAcceptedPatientRequests.jsx';
+import ViewPatientRequestsMatched from './containers/financiadorContainers/ViewPatientRequestsMatched.jsx';
 
 import HospitalHome from './containers/hospitalContainers/HospitalHome.jsx';
 import ViewHospitalPatientRequestsPending from './containers/hospitalContainers/ViewPatientRequestPending.jsx';
+import ViewHospitalPatientRequestsAccepted from './containers/hospitalContainers/ViewPatientRequestAccepted.jsx';
 
 import opcionalHome from './components/bedinViews/opcionHome.jsx';
 
@@ -83,8 +84,8 @@ const router = (
       </Route>
 
       <Route path="/Hospital" component={HospitalHome}>
-        <Route path="viewpending" component={ViewHospitalPatientRequestsPending}></Route>
-        <Route path="viewaccepted"></Route>
+        <Route path="viewpending" component={ViewHospitalPatientRequestsPending}/>
+        <Route path="viewaccepted" component={ViewHospitalPatientRequestsAccepted}/>
       </Route>
 
     </Router>

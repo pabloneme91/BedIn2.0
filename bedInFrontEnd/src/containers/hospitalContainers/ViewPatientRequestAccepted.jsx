@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actions/hospitalActions/patients';
 
-import TableViewPendingPatientRequests from '../../components/hospitalViews/TableViewPendingPatientRequests.jsx';
+import TableViewAcceptedPatientRequests from '../../components/hospitalViews/TableViewAcceptedPatientRequests.jsx';
 
 function mapStateToProps(state) {
 	return {
@@ -16,24 +16,19 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 
-class ViewPatientRequest extends React.Component {
+class ViewAcceptedPatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setState = this.setState.bind(this);
 	}
 
 	componentWillMount() {
-		this.props.fetchGetPatients();
-	}
-
-	setState(idPatient,state) {
-		this.props.fecthSetPatientState(idPatient, state)
+		this.props.fetchGetAcceptedPatients();
 	}
 
 	render() {
-		console.log('this.props', this.props)
 		let patients = (!this.props.patients) ? <p>Cargando...</p>
-		: <TableViewPendingPatientRequests 
+		: <TableViewAcceptedPatientRequests 
 			patientsList = {this.props.patients} 
 			setState = {this.setState}/>
 		return (
@@ -44,4 +39,4 @@ class ViewPatientRequest extends React.Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewPatientRequest);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewAcceptedPatientRequest);

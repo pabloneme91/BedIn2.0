@@ -14,7 +14,8 @@ function patientRequestReducers(state = {
   plans: [],
   requestFail: false,
   receivePending: false,
-  pendingList: []
+  pendingList: [],
+  matchedList: []
 }, action) {
 switch(action.type) {
   case 'REQUEST_CREATE':
@@ -58,6 +59,12 @@ switch(action.type) {
       isRequesting: false,
       receivePending: true,
       pendingList: action.pending
+    })
+  case 'RECEIVE_MATCHED':
+    return Object.assign({}, state, {
+      isRequesting: false,
+      receivePending: true,
+      matchedList: action.matched
     })
   default:
     return state;

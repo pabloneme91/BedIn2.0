@@ -1,6 +1,6 @@
 function patients(state = {
 		isRequesting: false,
-		error: null
+		error: null,
 		patientsData: null,
 	}, action) {
 	switch(action.type) {
@@ -9,15 +9,18 @@ function patients(state = {
 				isRequesting: true
 			})
 		case 'GET_PATIENTS': 
+		console.log('action.patients', action.patients)
 			return Object.assign({}, state, {
 				isRequesting: false,
-				patients: action.patients
+				patientsData: action.patients
 			})
 		case 'FAILED_TO_GET_PATIENTS':
 			return Object.assign({}, state, {
 				isRequesting: false,
 				error: action.err
 			})
+		default: 
+			return state
 	}
 }
 

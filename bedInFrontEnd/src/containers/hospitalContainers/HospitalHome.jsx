@@ -15,7 +15,7 @@ const navBarData = {
 		},
 		{
 			route: "/Hospital/viewaccepted",
-			name: "ACCEPTADOS"
+			name: "ACEPTADOS"
 		}
 	],
 	logo : '/public/img/logo_original.jpg'

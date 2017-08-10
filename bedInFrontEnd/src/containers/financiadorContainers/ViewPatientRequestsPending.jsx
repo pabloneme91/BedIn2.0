@@ -24,6 +24,7 @@ function mapDispatchToProps(dispatch) {
 class ViewPatientRequestsPending extends React.Component {
 	constructor(props) {
 		super(props);
+		this.matchHospital = this.matchHospital.bind(this);
 	}
 
 
@@ -31,9 +32,14 @@ class ViewPatientRequestsPending extends React.Component {
 		this.props.fetchPendingPatientRequests();
 	}
 
+	matchHospital(idPatientRequest, idHospital) {
+		this.props.matchWithHospital(idPatientRequest, idHospital)
+	}
+
 	render() {
     const tableRequests = this.props.isRequesting ? <p>Cargando..</p>
-    : <TableViewPendingPatientRequests listOfPending={this.props.pendingList} />
+    : <TableViewPendingPatientRequests listOfPending={this.props.pendingList} 
+    matchHospital = {this.matchHospital}/>
 		return (
 			<div>
 				{tableRequests}
@@ -43,10 +49,3 @@ class ViewPatientRequestsPending extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPatientRequestsPending);
-
-// const loading =
-// 	(!this.props.pendingList) ? <p>LOADING...</p> : this.props.pendingList
-//
-// (!this.props.financiadores) ? <p>Cargando...</p>
-// : this.props.financiadores.map(financiador =>
-// 	<TableDataFinanciador key = {financiador._id} financiador = {financiador}/>)

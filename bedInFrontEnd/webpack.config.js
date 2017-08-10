@@ -28,6 +28,7 @@ module.exports = {
         },
       ]
     },
+    devtool: "source-map",
     output: {
       filename: "indexBundle.js",
       path: __dirname + '/dist'

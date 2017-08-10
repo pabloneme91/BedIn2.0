@@ -1,9 +1,16 @@
 import React from 'react';
 
 const tableStyle = {border:"1px solid black"};
-const marginLeft = {marginLeft:"5px"}
+const marginLeft = {marginLeft:"50%"}
 
-function ViewPatientRequestsPendingTable(props) {
+function ViewPatientRequestsAcceptedTable(props) {
+
+	const checkMatch = (isMatched) => 
+		(isMatched) ? 
+			<p>
+				<span style = {marginLeft} className="glyphicon glyphicon-ok"></span>
+			</p>    
+		: <p></p>
 
 	const tableBody = props.patientsList.map((patient, i) =>
 		<tr style={tableStyle} key={patient.dni}>
@@ -15,19 +22,12 @@ function ViewPatientRequestsPendingTable(props) {
 			<td style={tableStyle}>{patient.complexity}</td>
 			<td style={tableStyle}>{patient.healthcare.name}</td>
 			<td style={tableStyle}>{patient.healthcareplan.name}</td>
+			<td style={tableStyle}>{patient.hospitalsAndState.userHospital.username}</td>
 			<td style={tableStyle}>
-				 <button type="button" className="btn btn-success btn-xs" style={marginLeft}
-				 	 onClick={()=> props.setState(patient._id, 'Aceptado')}>
-        	<span className="glyphicon glyphicon-ok"></span>
-      	</button>
+				{checkMatch(patient.sentTo.hospital)}
 			</td>
-			<td style={tableStyle}>
-				 <button type="button" className="btn btn-primary btn-xs" style={marginLeft}
-				 	 onClick={()=> props.setState(patient._id, 'Visto')}>
-        	<span className="glyphicon glyphicon-eye-open"></span>
-      	</button>
-			</td>
-		</tr>)
+		</tr>
+		)
 
 	return (
 		<div>
@@ -42,8 +42,8 @@ function ViewPatientRequestsPendingTable(props) {
 						<th style={{border:"1px solid black"}}>Complejidad de Cama</th>
 						<th style={{border:"1px solid black"}}>Obra Social</th>
 						<th style={{border:"1px solid black"}}>Plan</th>
-			      <th style={{border:"1px solid black"}}></th>
-			      <th style={{border:"1px solid black"}}></th>
+						<th style={{border:"1px solid black"}}>Usuario</th>
+			      <th style={{border:"1px solid black"}}>Confirmado</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -54,4 +54,4 @@ function ViewPatientRequestsPendingTable(props) {
 	)
 }
 
-export default ViewPatientRequestsPendingTable;
+export default ViewPatientRequestsAcceptedTable;

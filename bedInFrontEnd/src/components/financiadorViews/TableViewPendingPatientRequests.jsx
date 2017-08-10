@@ -1,40 +1,52 @@
 import React from 'react';
 
-const tableStyle = {border:"1px solid black"};
-const marginLeft = {marginLeft:"5px"}
-
 
 function ViewPatientRequestsPendingTable(props) {
-	console.log(props)
-	const buildPendingTable = (listOfPending = [], acceptedByHospital) => {
+	const tableStyle = {border:"1px solid black"};
+	const marginLeft = {marginLeft:"5px"};
+	const color = {backgroundColor : 'red'}
+	
+	const buildPendingTable = (listOfPending = [], acceptedByHospital, idPending) => {
 		return listOfPending.map(eachPending =>
 			acceptedByHospital ?
-			<p key={eachPending._id} >{eachPending.name}
-      	<button type="button" className="btn btn-success btn-xs" style={marginLeft} onClick={props.matchHospital}>
+			<p key={eachPending.hospital._id} >{eachPending.hospital.name}
+      	<button type="button" className="btn btn-success btn-xs" style={marginLeft} 
+      		onClick={() => props.matchHospital(idPending,eachPending.hospital._id)}>
         	<span className="glyphicon glyphicon-ok"></span>
       	</button>
   		</p>
-    	: <p key={eachPending._id}>{eachPending.name}</p>
-	)
+    	: <p key={eachPending.hospital._id}>{eachPending.hospital.name}</p>
+		)
 	}
 
-	const tableBody = props.listOfPending.map((pending, i) =>
-		<tr style={tableStyle} key={pending.dni}>
+	const tableBody = props.listOfPending.map((pending, i) => {
+		let colorStyle;
+		(pending.sentTo.hospital) ? colorStyle = color
+		: colorStyle = null 
+		return ( <tr style={Object.assign({}, tableStyle, colorStyle)} key={pending.dni}>
 
-			<td style={tableStyle}>{pending.dateCreated}</td>
-			<td style={tableStyle}>{pending.dni}</td>
-			<td style={tableStyle}>{pending.age}</td>
-			<td style={tableStyle}>{pending.sex}</td>
-			<td style={tableStyle}>{pending.cie10}</td>
-			<td style={tableStyle}>{pending.complexity}</td>
-			<td style={tableStyle}>{pending.plan}</td>
+				<td style={tableStyle}>{pending.dateCreated}</td>
+				<td style={tableStyle}>{pending.dni}</td>
+				<td style={tableStyle}>{pending.age}</td>
+				<td style={tableStyle}>{pending.sex}</td>
+				<td style={tableStyle}>{pending.cie10}</td>
+				<td style={tableStyle}>{pending.complexity}</td>
+				<td style={tableStyle}>{pending.healthcareplan.name}</td>
 
-			<td style={tableStyle}>
-				{buildPendingTable(pending.allRequestedHospitals)}
-			</td>
+				<td style={tableStyle}>
+					{buildPendingTable(pending.allRequestedHospitals)}
+				</td>
+				<td style={tableStyle}>
+					{buildPendingTable(pending.viewedByHospitals)}
+				</td>
+				<td style={tableStyle}>
+					{buildPendingTable(pending.acceptedByHospital,true, pending._id)}
+				</td>
 
-		</tr>)
-
+			</tr>
+			)
+		})
+		
 	return (
 		<div>
 			<table style={{border:"1px solid black"}} className= "table">

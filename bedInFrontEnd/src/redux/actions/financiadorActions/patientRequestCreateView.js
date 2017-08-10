@@ -97,6 +97,13 @@ export function receivePending(pending) {
   };
 }
 
+export function receiveMatched(matched) {
+  return {
+    type: 'RECEIVE_MATCHED',
+    matched
+  };
+}
+
 export function fetchPendingPatientRequests() {
   return (dispatch) => {
     dispatch(requestList());
@@ -114,3 +121,46 @@ export function fetchPendingPatientRequests() {
       .catch(err => dispatch(failedRequest(err)))
   };
 };
+
+export function fetchMatchedPatientRequests() {
+  return (dispatch) => {
+    dispatch(requestList());
+    return fetch('./healthcare/patientRequest/matched', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => dispatch(receiveMatched(data)))
+      .catch(err => dispatch(failedRequest(err)))
+  };
+};
+
+
+export function matchWithHospital(patientRequestId, idHospital) {
+  return (dispatch => {
+    dispatch(requestList());
+    const objRequest = {
+      patientRequestId,
+      idHospital
+    }
+    return fetch('./healthcare/patientRequest/matched', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(objRequest)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(!data.error) return dispatch(fetchPendingPatientRequests())
+      return dispatch(failedRequest(data.error))
+    .catch(err => dispatch(failedRequest(err)))
+    })
+  })
+}

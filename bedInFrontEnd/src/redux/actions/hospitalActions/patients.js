@@ -10,22 +10,23 @@ export function getPatients (patients) {
 		patients
 	}
 }
-
-export function setViewedPatient () {
+/*
+export function setPatientStatus () {
 	return {
-		type: "SET_VIEW_PATIENT"
+		type: "SET_PATIENT_STATUS"
 	}
-} 
-
-export function setAcceptedPatient () {
+}
+*/
+export function failedToSetPatientStatus(err) {
 	return {
-		type: "SET_ACCEPTED_PATIENT"
+		type: "FAILED_TO_SET_PATIENT_STATUS",
+		err
 	}
 }
 
-export function failedToGetPatients (err) {
+export function failedToFetch (err) {
 	return {
-		type: "FAILED_TO_GET_PATIENTS",
+		type: "FAILED_TO_FETCH",
 		err
 	}
 }
@@ -39,25 +40,44 @@ export function fetchGetPatients () {
 		})
 		.then(response => response.json())
 		.then(patients => dispatch(getPatients(patients)))
-		.catch(err => dispatch(failedToGetPatients(err)))
+		.catch(err => dispatch(failedToFetch(err)))
 	})
 } 
 
-export function fecthSetViewedPatient (idPatient) {
+export function fetchGetAcceptedPatients() {
+	return (dispatch => {
+		dispatch(isRequestingToServer())
+		return fetch('./hospital/patientRequest/accepted', {
+			method: 'GET',
+			credentials: 'include'
+		})
+		.then(response => response.json())
+		.then(acceptedPatients => dispatch(getPatients(acceptedPatients)))
+		.catch(err => dispatch(failedToFetch(err)))
+	})
+}
+
+export function fecthSetPatientState (idPatientRequest, state) {
 	return (dispatch => {
 		dispatch(isRequestingToServer());
-		return fetch('urlSetViewedPatient', {
-			method: 'POST',
+		const objRequest = {
+			idPatientRequest,
+			state
+		}
+		return fetch('./hospital/patientRequest', {
+			method: 'PUT',
 			credentials: 'include',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			},
-      body: JSON.stringify(idPatient)
+      body: JSON.stringify(objRequest)
 		})
 		.then(response => response.json())
 		.then(data => {
-			if data.error
+			if (data.error) return dispatch(failedToSetPatientStatus())
+			return dispatch(fetchGetPatients())
 		})
+		.catch(err => dispatch(failedToFetch()))
 	})
 }
