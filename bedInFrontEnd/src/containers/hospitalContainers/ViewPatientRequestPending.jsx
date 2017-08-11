@@ -24,6 +24,13 @@ class ViewPatientRequest extends React.Component {
 
 	componentWillMount() {
 		this.props.fetchGetPatients();
+		this.idInterval = setInterval(() => {
+			this.props.fetchGetPatients();
+		},10000)
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.idInterval);
 	}
 
 	setState(idPatient,state) {
@@ -31,7 +38,6 @@ class ViewPatientRequest extends React.Component {
 	}
 
 	render() {
-		console.log('this.props', this.props)
 		let patients = (!this.props.patients) ? <p>Cargando...</p>
 		: <TableViewPendingPatientRequests 
 			patientsList = {this.props.patients} 

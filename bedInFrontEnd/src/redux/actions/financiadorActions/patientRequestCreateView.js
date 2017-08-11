@@ -58,7 +58,6 @@ export function fetchPlanList() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('PLANS ARRAY DATA', data)
         dispatch(receivePlans(data))})
       .catch(err => dispatch(failedRequest(err)))
   };
@@ -79,7 +78,6 @@ export function createPatientRequest(inputData) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('PATIENT DATA', data)
         if(data) {
           dispatch(receiveCreatedPatient(data))
         } else {

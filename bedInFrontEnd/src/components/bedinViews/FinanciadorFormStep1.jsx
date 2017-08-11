@@ -1,7 +1,6 @@
 import React from 'react';
 
 function FinanciadorFormStep1(props) {
- console.log(props)
  return (
     <div>
       <div className="container a1">

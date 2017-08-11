@@ -30,6 +30,13 @@ class ViewPatientRequestsPending extends React.Component {
 
 	componentWillMount() {
 		this.props.fetchPendingPatientRequests();
+		this.idInterval = setInterval(() => {
+			this.props.fetchPendingPatientRequests();
+		},10000)
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.idInterval)
 	}
 
 	matchHospital(idPatientRequest, idHospital) {

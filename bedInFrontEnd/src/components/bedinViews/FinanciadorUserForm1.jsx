@@ -2,8 +2,6 @@ import React from 'react';
 
 
 function FinanciadorUserForm(props) {
-  console.log('USER FORM PROPS', props)
-  // props.createUser()
   return (
     <div>
 

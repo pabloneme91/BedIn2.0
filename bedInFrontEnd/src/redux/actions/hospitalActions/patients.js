@@ -10,13 +10,14 @@ export function getPatients (patients) {
 		patients
 	}
 }
-/*
-export function setPatientStatus () {
+
+export function getAcceptedPatients (acceptedPatients) {
 	return {
-		type: "SET_PATIENT_STATUS"
+		type: 'GET_ACCEPTED_PATIENTS',
+		acceptedPatients
 	}
 }
-*/
+
 export function failedToSetPatientStatus(err) {
 	return {
 		type: "FAILED_TO_SET_PATIENT_STATUS",
@@ -52,7 +53,7 @@ export function fetchGetAcceptedPatients() {
 			credentials: 'include'
 		})
 		.then(response => response.json())
-		.then(acceptedPatients => dispatch(getPatients(acceptedPatients)))
+		.then(acceptedPatients => dispatch(getAcceptedPatients(acceptedPatients)))
 		.catch(err => dispatch(failedToFetch(err)))
 	})
 }

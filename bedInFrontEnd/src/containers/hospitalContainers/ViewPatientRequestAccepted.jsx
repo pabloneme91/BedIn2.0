@@ -8,7 +8,7 @@ import TableViewAcceptedPatientRequests from '../../components/hospitalViews/Tab
 function mapStateToProps(state) {
 	return {
 		isRequesting : state.patients.isRequesting,
-		patients: state.patients.patientsData
+		patients: state.patients.acceptedPatientsData
 	}
 }
 
@@ -20,10 +20,18 @@ class ViewAcceptedPatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
 		this.setState = this.setState.bind(this);
+		this.idInterval = null;
 	}
 
 	componentWillMount() {
 		this.props.fetchGetAcceptedPatients();
+		this.idInterval = setInterval(() => {
+			this.props.fetchGetAcceptedPatients();	
+		},10000)
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.idInterval);
 	}
 
 	render() {

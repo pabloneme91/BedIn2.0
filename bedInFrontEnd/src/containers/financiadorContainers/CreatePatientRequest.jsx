@@ -43,7 +43,6 @@ class CreatePatientRequest extends React.Component {
 		e.preventDefault();
 		let selectedSex = document.getElementById("sex-select").value;
 		let selectedComplexity = document.getElementById("complexity-select").value;
-		console.log('TARGET', e.target.plan.value);
 		let selectedPlan = e.target.plan.value;
 
     this.props.createPatientRequest({
