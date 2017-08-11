@@ -21,27 +21,6 @@ function FinanciadorUserForm(props) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="exampleInputName2" className="col-sm-2 control-label">Dirección</label>
-            <div className="col-sm-10">
-              <input type="text" className="form-control" id="inputEmail3" name="direccion" placeholder="Dirección"></input>
-            </div>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="inputnumber3" className="col-sm-2 control-label">Teléfono</label>
-            <div className="col-sm-10">
-              <input type="tel" className="form-control" id="inputEmail3" name="telefono" placeholder="Teléfono"></input>
-            </div>
-        </div>
-
-        <div className="form-group">
-           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
-              <div className="col-sm-10">
-                <input type="email" className="form-control" id="inputEmail3" name="email" placeholder="Email"></input>
-              </div>
-        </div>
-
-        <div className="form-group">
            <label htmlFor="inputEmail3" className="col-sm-2 control-label">Username Temporal</label>
               <div className="col-sm-10">
                 <input type="text" className="form-control" id="inputEmail3" name="username" placeholder="Username"></input>
@@ -55,9 +34,22 @@ function FinanciadorUserForm(props) {
               </div>
         </div>
 
+        <div className="form-group">
+           <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
+              <div className="col-sm-10">
+                <input type="email" className="form-control" id="inputEmail3" name="email" placeholder="Email"></input>
+              </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="inputnumber3" className="col-sm-2 control-label">Teléfono</label>
+            <div className="col-sm-10">
+              <input type="tel" className="form-control" id="inputEmail3" name="telefono" placeholder="Teléfono"></input>
+            </div>
+        </div>
 
        <div id="f1">
-          <label>Obra Social</label>
+          <label>Seleccione Obra Social del Usuario</label>
           {props.financiadors.map((financiador, i) =>
           <div key={i} id="g1">
            <input name="financiadors" type="radio" data-id={financiador._id} value={financiador.name} />{financiador.name}<br/>

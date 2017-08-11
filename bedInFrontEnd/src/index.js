@@ -26,9 +26,9 @@ import BedinHospitalViewData from './containers/HospitalViewData.jsx';
 import BedinHospitalUserViewData from './containers/HospitalUserViewData.jsx';
 import BedinHospitalUserForm from './containers/HospitalUserForm.jsx';
 
-import AdministradorHome from './components/bedinViews/AdministradorHome.jsx';
-import AdministradorUserForm from './containers/AdminUserForm.jsx';
-import AdministradorUserViewData from './containers/BedinUserViewData.jsx';
+import BedinAdminHome from './components/bedinViews/AdministradorHome.jsx';
+import BedinAdminUserForm from './containers/AdminUserForm.jsx';
+import BedinAdminUserViewData from './containers/BedinUserViewData.jsx';
 
 import PerfilContainer from './containers/PerfilContainer.jsx';
 
@@ -70,9 +70,9 @@ const router = (
         </Route>
 
         <Route path="administrador" >
-          <IndexRoute component={AdministradorHome}/>
-          <Route path="usercrear" component={BedinFinanciadorUserForm}></Route>
-          <Route path="userver" component={AdministradorUserViewData}/>
+          <IndexRoute component={BedinAdminHome}/>
+          <Route path="usercrear" component={BedinAdminUserForm}></Route>
+          <Route path="userver" component={BedinAdminUserViewData}/>
         </Route>
 
       </Route>
