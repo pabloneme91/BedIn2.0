@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const RequestPatient = require('../models/requestpatients');
+const RequestPatient = require('../models/patientsRequests');
 const Healthcares = require('../models/healthcares');
 
 
@@ -21,9 +21,10 @@ router.get('/allPatientRequests', function(req, res, next) {
   // retorna todas las request de pacientes para todos los hospitales
   // RequestPatient.find({}).exec((err, result)=>{
   // res.send(result);
-	RequestPatient.find({}).populate('healthCare').populate('healthCarePlan').exec((err, result) => {
-  		res.send(result);
-  	})
+
+  RequestPatient.find({}).populate('healthCare').populate('healthCarePlan').exec((err, result) => {
+  	res.send(result);
+  })
 });
 
 	// Post.findOne({_id: req.idPost}).populate('author comments').exec((err, result)=>{

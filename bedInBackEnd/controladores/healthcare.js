@@ -17,13 +17,10 @@ module.exports = {
 			.then(patientRequestArray => {
 				let timeDifference;
 				patientRequestArray.map(patient => {
-					console.log(moment(), patient.dateCreated);
 					timeDifference = parseInt(moment().diff(patient.dateCreated, 'minutes'));
-					console.log('timeDifference', timeDifference);
 					if(timeDifference >= endTime) {
-						console.log('entro');
-						//patient.timeout = true;	
-						//patient.save();
+						patient.timeout = true;	
+						patient.save();
 					}  
 				})
 			})

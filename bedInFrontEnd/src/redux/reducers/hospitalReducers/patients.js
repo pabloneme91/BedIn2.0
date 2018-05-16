@@ -1,7 +1,7 @@
 function patients(state = {
 		isRequesting: false,
 		error: null,
-		patientsData: null,
+		patientsData: [],
 		acceptedPatientsData: null
 	}, action) {
 	switch(action.type) {
@@ -23,6 +23,11 @@ function patients(state = {
 			return Object.assign({}, state, {
 				isRequesting: false,
 				error: action.err
+			})
+		case 'ADD_PATIENT_REQUEST':
+
+			return Object.assign({}, state, {
+				patientsData: state.patientsData.concat(action.patient) 
 			})
 		default: 
 			return state

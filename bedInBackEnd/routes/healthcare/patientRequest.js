@@ -9,8 +9,13 @@ app.post('/',hospitalsController.getHospitalsByPlan, function(req,res) {
 	req.body.hospitalsAndState = req.hospitals;
 	req.body.healthcare = req.user.osCode;
 	patientRequest.create(req.body)
-	.then(newRequest => res.send(newRequest))
-	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});
+	//.then(newRequest => res.send(newRequest))
+	.then(newRequest => {
+		socket.emit('newPatient',newRequest);
+		console.log(newRequest);
+		res.end(newRequest)
+	})
+	.catch(error => {console.log(error); errorHandler.sendInternalServerError(res)});	
 })
 
 app.get('/pending', function(req,res) {

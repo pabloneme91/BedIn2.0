@@ -14,7 +14,7 @@ const indexHospital = require('./routes/hospital/index')
 const app = express();
 
 require('./config/mongoose')
-require('./config/passport-mongoose')(app);
+require('./config/passport-mongoose')(app).session();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -28,18 +28,13 @@ app.use('/', index);
 app.use('/bedin', indexBedin);
 app.use('/healthcare', indexHealthcare);
 app.use('/hospital', indexHospital);
-
+require('./socketRoutes/index');
 
 const moment = require('moment');
 
 const controllerHealthcare = require('./controladores/healthcare');
 
-controllerHealthcare.setPatientTimeOut();
-
-//app.use('/bedin/healthcares', healthcares)
-//app.use('/users',isLoggin , users);
-//app.use('/hospitals', hospitals)
-//app.use('/healthcares', healthcares)
+//controllerHealthcare.setPatientTimeOut();
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {

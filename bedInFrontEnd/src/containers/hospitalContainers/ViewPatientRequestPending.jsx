@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actions/hospitalActions/patients';
+import io from "socket.io-client";
 
 import TableViewPendingPatientRequests from '../../components/hospitalViews/TableViewPendingPatientRequests.jsx';
 
@@ -16,17 +17,24 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(actionCreators, dispatch);
 }
 
+let socket;
+
 class ViewPatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
+		socket = io.connect('http://localhost:3030')
 		this.setState = this.setState.bind(this);
 	}
 
 	componentWillMount() {
 		this.props.fetchGetPatients();
-		this.idInterval = setInterval(() => {
+		socket.on('newPatient', newPatient => {
+			this.props.addPatientRequest(newPatient)
+		})
+		//this.props.fetchGetPatients();
+		/*this.idInterval = setInterval(() => {
 			this.props.fetchGetPatients();
-		},10000)
+		},10000)*/
 	}
 
 	componentWillUnmount() {
@@ -34,11 +42,13 @@ class ViewPatientRequest extends React.Component {
 	}
 
 	setState(idPatient,state) {
-		this.props.fecthSetPatientState(idPatient, state)
+		//this.props.fecthSetPatientState(idPatient, state)
+		this.props.socketSetPatientState(socket, {idPatient, state});
 	}
 
 	render() {
-		let patients = (!this.props.patients) ? <p>Cargando...</p>
+		//let patients = (!this.props.patients.length) ? <p>Cargando...</p>
+		let patients = (this.props.isRequesting) ? <p>Cargando...</p>
 		: <TableViewPendingPatientRequests 
 			patientsList = {this.props.patients} 
 			setState = {this.setState}/>

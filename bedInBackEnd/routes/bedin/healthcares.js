@@ -61,6 +61,7 @@ router.post('/', function(req, res, next) {
   })
   .catch(err => {
     if(err.code === 11000) return errorHandler.sendCustomError(res, 'Ya existe un financiador con ese nombre');
+    console.log(err);
     return errorHandler.sendInternalServerError(res);
   })
 });

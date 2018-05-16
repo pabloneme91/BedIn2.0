@@ -9,6 +9,7 @@
     "bluebird": "^3.5.0",
     "body-parser": "~1.15.2",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
@@ -22,8 +23,9 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
+    "passport.socketio": "^3.7.0",
     "serve-favicon": "~2.3.0",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.4"
   },
   "homepage": "http://localhost:5000",
   "description": "BedIn BackEnd",

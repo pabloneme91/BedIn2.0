@@ -58,6 +58,15 @@ export function fetchGetAcceptedPatients() {
 	})
 }
 
+
+/*export const createPatientRequest = (socket, inputData) => {
+  return (dispatch) => {
+    //dispatch(clearAllItems())
+    socket.emit('newRequest', inputData)
+  } 
+}*/
+
+/*
 export function fecthSetPatientState (idPatientRequest, state) {
 	return (dispatch => {
 		dispatch(isRequestingToServer());
@@ -82,3 +91,21 @@ export function fecthSetPatientState (idPatientRequest, state) {
 		.catch(err => dispatch(failedToFetch()))
 	})
 }
+*/
+
+/*  SOCKET FUNCTION  */
+
+export function addPatientRequest(patient) {
+	return {
+		type: "ADD_PATIENT_REQUEST",
+		patient
+	}	
+}
+
+export function socketSetPatientState(socket, objRequest) {
+	return (dispatch) => {
+		dispatch(isRequestingToServer());
+		socket.emit('setPatientState', objRequest, response => dispatch(fetchGetPatients()))
+	}
+}
+

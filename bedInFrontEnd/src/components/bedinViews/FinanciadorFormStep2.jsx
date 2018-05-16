@@ -38,14 +38,16 @@ function FinanciadorFormStep2(props) {
                 <div className="col-sm-offset-3 col-sm-10">
                    <button onClick={(e) => {
                           e.preventDefault();
-                          let plan = document.querySelector('input').value;
+                          /*let plan = document.querySelector('input').value;
                           let hospitals = [];
                           document.querySelector('form').elements.hospitals.forEach((input) => {
                            if(input.checked) hospitals.push({value:input.value, id: input.dataset.id})
                           })
                           props.add(plan, hospitals)
                           document.querySelector('input').value = "";
-                          document.querySelector('form').reset()
+                          document.querySelector('form').reset()*/
+                          let hospitals = [{value: "1", id: "5a8e0141fabe21264ad0a340"}]
+                          props.add(1,hospitals);
                         }} id="k" 
                       >Add</button> 
                 </div>

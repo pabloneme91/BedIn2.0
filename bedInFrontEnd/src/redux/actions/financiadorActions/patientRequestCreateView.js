@@ -63,9 +63,10 @@ export function fetchPlanList() {
   };
 };
 
-
+/*
 export function createPatientRequest(inputData) {
   return (dispatch) => {
+
     dispatch(requestCreate());
     return fetch('./healthcare/patientRequest', {
       method: 'POST',
@@ -86,7 +87,7 @@ export function createPatientRequest(inputData) {
       })
       .catch(err => dispatch(failedRequest(err)))
   };
-};
+};*/
 
 export function receivePending(pending) {
   return {
@@ -102,10 +103,9 @@ export function receiveMatched(matched) {
   };
 }
 
-export function fetchPendingPatientRequests() {
+export function fetchPendingPatientRequests(socket) {
   return (dispatch) => {
     dispatch(requestList());
-
     return fetch('./healthcare/patientRequest/pending', {
       method: 'GET',
       credentials: 'include',
@@ -138,7 +138,7 @@ export function fetchMatchedPatientRequests() {
 };
 
 
-export function matchWithHospital(patientRequestId, idHospital) {
+/*export function matchWithHospital(patientRequestId, idHospital) {
   return (dispatch => {
     dispatch(requestList());
     const objRequest = {
@@ -161,4 +161,20 @@ export function matchWithHospital(patientRequestId, idHospital) {
     .catch(err => dispatch(failedRequest(err)))
     })
   })
+}*/
+
+/* SOCKET FUNCTIONS */
+
+export function createPatientRequest(socket, inputData) {
+  return (dispatch) => {
+    dispatch(requestCreate());
+    return socket.emit('newRequest', inputData, data => dispatch(receiveCreatedPatient(data)))
+  }
+}
+
+export function matchWithHospital(socket, objRequest) {
+  return (dispatch) => {
+    dispatch(requestList());
+    return socket.emit('matchPatient', objRequest, data => dispatch(fetchPendingPatientRequests()))
+  }
 }

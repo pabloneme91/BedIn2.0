@@ -1,12 +1,12 @@
  import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
 import * as actionCreators from '../../redux/actions/financiadorActions/patientRequestCreateView';
+import io from "socket.io-client";
 
 import CreatePatientRequestForm from '../../components/financiadorViews/CreatePatientRequestForm.jsx';
 
-
+let socket;
 function mapStateToProps(state) {
   return {
 		isRequesting: state.patientRequestReducers.isRequesting,
@@ -32,6 +32,7 @@ function mapDispatchToProps(dispatch) {
 class CreatePatientRequest extends React.Component {
 	constructor(props) {
 		super(props);
+		socket = io.connect("http://localhost:3030");
 		this.create = this.create.bind(this)
 	}
 
@@ -45,7 +46,7 @@ class CreatePatientRequest extends React.Component {
 		let selectedComplexity = document.getElementById("complexity-select").value;
 		let selectedPlan = e.target.plan.value;
 
-    this.props.createPatientRequest({
+    this.props.createPatientRequest(socket, {
       dni: e.target.dni.value,
       age: e.target.edad.value,
       sex: selectedSex,

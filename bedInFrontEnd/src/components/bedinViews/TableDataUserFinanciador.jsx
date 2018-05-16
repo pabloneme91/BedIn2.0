@@ -4,7 +4,6 @@ import moment from 'moment';
 
 function TableDataUserFinanciador(props) {
 	let formattedDate =  function(date) {
-		// console.log('DATE', moment(date).format('DD/MM/YYYY HH:mm:ss'))
 		return moment(date).format('DD/MM/YYYY || HH:mm:ss');
 	}
 	const users = props.users.map(user =>
